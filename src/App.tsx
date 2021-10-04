@@ -35,7 +35,9 @@ export default function App() {
   return (
     <Router>
       <div className="App">
-        <img alt="Brainy logo" src="./brainy_logo.svg" />
+        <Link to="/">
+          <img alt="Brainy logo" src="./brainy_logo.svg" />
+        </Link>
         <h1>Brainy Notes</h1>
         <Navigation />
       </div>
