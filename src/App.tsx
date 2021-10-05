@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./styles.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import { Login } from "./pages/Login";
+import { LoginForm } from "./pages/LoginForm";
 
 // move to its own file later
 function Dashboard() {
@@ -30,13 +30,13 @@ export default function App() {
         <Link to="/">
           <img alt="Brainy logo" src="./brainy_logo.svg" />
         </Link>
-        <h1>Brainy Notes</h1>
-        <Navigation />
+        <h1 className="title">Brainy Notes</h1>
+        {/* <Navigation /> */}
       </div>
-      <div>
+      <div className="body">
         <Switch>
           <Route path="/login">
-            <Login />
+            <LoginForm />
           </Route>
           <Route path="/signup">
             <div>Signup component </div>
