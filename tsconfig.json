@@ -9,7 +9,6 @@
       "dom",
       "es2015"
     ],
-    "baseUrl": "./src",
     "jsx": "react-jsx",
     "baseUrl": "./src",
     "target": "es5",
