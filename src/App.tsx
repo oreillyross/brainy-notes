@@ -1,8 +1,8 @@
 import * as React from "react";
 import "./styles.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import { LoginForm } from "./pages/LoginForm";
-
+import { LoginForm } from "pages/LoginForm";
+import {LandingPage} from 'pages/LandingPage'
 // move to its own file later
 function Dashboard() {
   return <div>This is the logged in screen</div>;
@@ -45,7 +45,7 @@ export default function App() {
             <Dashboard />
           </Route>
           <Route path="/">
-            <Home />
+            <LandingPage />
           </Route>
         </Switch>
       </div>

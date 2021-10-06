@@ -10,6 +10,7 @@
       "es2015"
     ],
     "jsx": "react-jsx",
+    "baseUrl": "./src",
     "target": "es5",
     "allowJs": true,
     "skipLibCheck": true,
