@@ -2,7 +2,9 @@ import * as React from "react";
 import "./styles.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { LoginForm } from "pages/LoginForm";
-import {LandingPage} from 'pages/LandingPage'
+import { LandingPage } from "pages/LandingPage";
+import { EditNoteForm } from "pages/EditNoteForm";
+
 // move to its own file later
 function Dashboard() {
   return <div>This is the logged in screen</div>;
@@ -43,6 +45,9 @@ export default function App() {
           </Route>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/edit">
+            <EditNoteForm />
           </Route>
           <Route path="/">
             <LandingPage />
