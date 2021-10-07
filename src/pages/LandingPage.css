@@ -1,0 +1,12 @@
+.landingPage__slogan {
+  grid-column: 1/3;
+  line-height: 1.2;
+  padding: 28px;
+  font-size: 2rem;
+  color: var(--darkGray);
+}
+
+.landingPage__img {
+  padding: 28px;
+  grid-column: 2/3;
+}

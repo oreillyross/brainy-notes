@@ -1,10 +1,21 @@
+import * as React from "react";
+import "./LandingPage.css";
+
 function LandingPage() {
   return (
-    <div>
-      The easiest way to capture interesting learning notes and then retrieve
-      them
-      <img src="./people.svg" />
-    </div>
+    <>
+      {" "}
+      <div className="landingPage__slogan">
+        The easiest way to capture interesting learning notes and then retrieve
+        them
+      </div>
+      <img
+        className="landingPage__img"
+        alt="people taking notes"
+        src="./people.svg"
+      />
+      <button>Get Started</button>
+    </>
   );
 }
 

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { LoginForm } from "pages/LoginForm";
 import { LandingPage } from "pages/LandingPage";
 import { EditNoteForm } from "pages/EditNoteForm";
+import { UserBar } from "components/UserBar";
 
 // move to its own file later
 function Dashboard() {
@@ -32,6 +33,9 @@ export default function App() {
         <Link to="/">
           <img alt="Brainy logo" src="./brainy_logo.svg" />
         </Link>
+        <div style={{ float: "right" }}>
+          <UserBar />
+        </div>
         <h1 className="title">Brainy Notes</h1>
         {/* <Navigation /> */}
       </div>
