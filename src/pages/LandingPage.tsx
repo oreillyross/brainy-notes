@@ -9,12 +9,7 @@ function LandingPage() {
         The easiest way to capture interesting learning notes and then retrieve
         them
       </div>
-      <img
-        className="landingPage__img"
-        alt="people taking notes"
-        src="./people.svg"
-      />
-      <button>Get Started</button>
+      <div className="landingPage__img"></div>
     </>
   );
 }

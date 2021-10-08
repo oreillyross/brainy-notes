@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./styles.css";
+import "./styles.scss";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { LoginForm } from "pages/LoginForm";
 import { LandingPage } from "pages/LandingPage";
@@ -29,14 +29,14 @@ function Navigation() {
 export default function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="app">
         <Link to="/">
-          <img alt="Brainy logo" src="./brainy_logo.svg" />
+          <img className="app__img" alt="Brainy logo" src="./brainy_logo.svg" />
         </Link>
-        <div style={{ float: "right" }}>
-          <UserBar />
+        <div className="app__login">
+          {/* <UserBar /> */}
         </div>
-        <h1 className="title">Brainy Notes</h1>
+        <h1 className="app__title">Brainy Notes</h1>
         {/* <Navigation /> */}
       </div>
       <div className="body">
@@ -54,7 +54,7 @@ export default function App() {
             <EditNoteForm />
           </Route>
           <Route path="/">
-            <LandingPage />
+            {/* <LandingPage /> */}
           </Route>
         </Switch>
       </div>
