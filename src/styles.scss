@@ -12,11 +12,11 @@
   font-size: 18px;
 }
 
-.app a {
+.app  {
   @include media(">=phone", "<=450px") {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -29,7 +29,6 @@
   @include media(">=phone", "<=tablet") {
     .app__title {
       font-size: 2rem;
-      background: red;
     }
   }
   
