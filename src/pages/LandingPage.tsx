@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./LandingPage.css";
+import "./LandingPage.scss";
 
 function LandingPage() {
   return (

@@ -1,9 +1,13 @@
+@import "include-media";
+
 .landingPage__slogan {
+  @include media("screen", ">=tablet") {
+    background: yellow;
+  }
   grid-column: 1/3;
   line-height: 1.2;
   padding: 28px;
   font-size: 2rem;
-  color: var(--darkGray);
 }
 
 .landingPage__img {
