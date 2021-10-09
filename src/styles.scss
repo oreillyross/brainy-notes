@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 @import "include-media";
-// @import "./hack.css";
+@import "./hack.css";
 
 :root {
   --darkGray: DarkGray;
@@ -13,7 +13,7 @@
 }
 
 .app  {
-  @include media(">=phone", "<=450px") {
+  @include media("<=800px") {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +26,7 @@
   height: 230px;
 }
 
-  @include media(">=phone", "<=tablet") {
+  @include media("<=800px") {
     .app__title {
       font-size: 2rem;
     }
