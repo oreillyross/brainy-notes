@@ -1,10 +1,18 @@
 import React from "react";
 import "./LoginForm.css";
+import { Formik, Form, ErrorMessage, Field } from "formik";
 
 function LoginForm() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [rememberMe, setRememberMe] = React.useState(false);
+
+  const initialValues = { email: "", password: "", rememberMe: false };
+  type InitialValues = {
+    email: string;
+    password: string;
+    rememberMe: boolean;
+  };
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     if (e.currentTarget.name === "email") {
@@ -18,45 +26,61 @@ function LoginForm() {
     }
   };
 
-  const handleSubmit = (e) => {
-    alert(`${email}, ${password}, ${rememberMe}`);
+  const handleSubmit = (values: InitialValues) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(values);
+        alert(JSON.stringify(values));
+      }, 1000);
+    });
   };
 
+  const handleValidation = (values: InitialValues) => {};
+
   return (
-    <form onSubmit={handleSubmit} className="loginform">
-      <label htmlFor="email">Email</label>
-      <input
-        className="loginform__input"
-        type="email"
-        name="email"
-        id="email"
-        placeholder="type your email here..."
-        value={email}
-        onChange={handleChange}
-      />
-      <label htmlFor="email">Password</label>
-      <input
-        className="loginform__input"
-        name="password"
-        id="password"
-        type="password"
-        value={password}
-        onChange={handleChange}
-        placeholder="type your password here..."
-      />
-      <label htmlFor="email">Remember me</label>
-      <input
-        type="checkbox"
-        id="rememberMe"
-        checked={rememberMe}
-        onChange={handleChange}
-        name="rememberMe"
-        className="loginform__input"
-      />
-      <button type="submit" className="loginform__submit">
-        Submit
-      </button>
-    </form>
+    <>
+      <h2>Login</h2>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validate={handleValidation}
+      >
+        {(props) => (
+          <Form className="loginform">
+            <label htmlFor="email">Email</label>
+            <Field
+              className="loginform__input"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="type your email here..."
+            />
+            <label htmlFor="email">Password</label>
+            <Field
+              className="loginform__input"
+              name="password"
+              id="password"
+              type="password"
+              placeholder="type your password here..."
+            />
+            <label htmlFor="email">Remember me</label>
+            <Field
+              type="checkbox"
+              id="rememberMe"
+              name="rememberMe"
+              className="loginform__input"
+            />
+            <button
+              disabled={props.isSubmitting}
+              type="submit"
+              className="loginform__submit"
+            >
+              Submit
+            </button>
+          </Form>
+        )}
+      </Formik>
+    </>
   );
 }
 
