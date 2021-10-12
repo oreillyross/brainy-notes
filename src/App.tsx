@@ -6,7 +6,7 @@ import { LoginForm } from "pages/LoginForm";
 import { EditNoteForm } from "pages/EditNoteForm";
 // import { UserBar } from "components/UserBar";
 import { SearchResults } from "pages/SearchResults";
-
+import { PrivateRoute } from "routes/PrivateRoute";
 // move to its own file later
 function Dashboard() {
   return <div>This is the logged in screen</div>;
@@ -42,9 +42,9 @@ export default function App() {
           <Route path="/signup">
             <div>Signup component </div>
           </Route>
-          <Route path="/dashboard">
+          <PrivateRoute path="/dashboard">
             <Dashboard />
-          </Route>
+          </PrivateRoute>
           <Route path="/edit">
             <EditNoteForm />
           </Route>

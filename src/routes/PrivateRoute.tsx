@@ -1,6 +1,6 @@
 import { Redirect, Route } from "react-router-dom";
 
-function Privateroute(props: any) {
+function PrivateRoute(props: any) {
   const user = null;
 
   if (!user) {
@@ -10,4 +10,4 @@ function Privateroute(props: any) {
   }
 }
 
-export { Privateroute };
+export { PrivateRoute };
