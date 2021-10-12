@@ -8,25 +8,13 @@ function LoginForm() {
   const [rememberMe, setRememberMe] = React.useState(false);
 
   const initialValues = { email: "", password: "", rememberMe: false };
-  type InitialValues = {
+  type FormValues = {
     email: string;
     password: string;
     rememberMe: boolean;
   };
 
-  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-    if (e.currentTarget.name === "email") {
-      setEmail(e.currentTarget.value);
-    }
-    if (e.currentTarget.name === "password") {
-      setPassword(e.currentTarget.value);
-    }
-    if (e.currentTarget.name === "rememberMe") {
-      setRememberMe(e.currentTarget.checked);
-    }
-  };
-
-  const handleSubmit = (values: InitialValues) => {
+  const handleSubmit = (values: FormValues) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(values);
@@ -35,7 +23,11 @@ function LoginForm() {
     });
   };
 
-  const handleValidation = (values: InitialValues) => {};
+  const handleValidation = (values: FormValues) => {
+    const errors = {};
+    if (values.email === "") errors.email = "Email cannot be empty!";
+    return errors;
+  };
 
   return (
     <>
@@ -55,6 +47,9 @@ function LoginForm() {
               id="email"
               placeholder="type your email here..."
             />
+            <ErrorMessage name="email">
+              {() => <div>Email is a required field</div>}
+            </ErrorMessage>
             <label htmlFor="email">Password</label>
             <Field
               className="loginform__input"
@@ -63,6 +58,9 @@ function LoginForm() {
               type="password"
               placeholder="type your password here..."
             />
+            <ErrorMessage name="password">
+              {() => <div>Password field is required</div>}
+            </ErrorMessage>
             <label htmlFor="email">Remember me</label>
             <Field
               type="checkbox"
