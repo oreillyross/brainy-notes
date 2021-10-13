@@ -2,6 +2,7 @@ import * as React from "react";
 import "./styles.scss";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { LoginForm } from "pages/LoginForm";
+import { SignupForm } from "pages/SignupForm";
 // import { LandingPage } from "pages/LandingPage";
 import { EditNoteForm } from "pages/EditNoteForm";
 // import { UserBar } from "components/UserBar";
@@ -40,7 +41,7 @@ export default function App() {
             <LoginForm />
           </Route>
           <Route path="/signup">
-            <div>Signup component </div>
+            <SignupForm />
           </Route>
           <PrivateRoute path="/dashboard">
             <Dashboard />

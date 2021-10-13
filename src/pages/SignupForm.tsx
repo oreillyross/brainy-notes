@@ -1,7 +1,8 @@
 import React from "react";
-import "./LoginForm.css";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import "./SignupForm.scss";
 
-function LoginForm() {
+function SignupForm() {
   return (
     <form className="loginform">
       <input
@@ -18,4 +19,4 @@ function LoginForm() {
   );
 }
 
-export { LoginForm };
+export { SignupForm };
