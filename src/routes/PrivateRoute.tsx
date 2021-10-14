@@ -2,8 +2,8 @@ import { Redirect, Route } from "react-router-dom";
 
 function PrivateRoute(props: any) {
   const user = null;
-
-  if (!user) {
+  //TODO make this !user to work correctly
+  if (user) {
     return <Redirect to="/login" />;
   } else {
     return <Route {...props} />;
