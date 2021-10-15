@@ -8,49 +8,8 @@ import { EditNoteForm } from "pages/EditNoteForm";
 // import { UserBar } from "components/UserBar";
 import { SearchResults } from "pages/SearchResults";
 import { PrivateRoute } from "routes/PrivateRoute";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-
-const initialValues: FormValues = {
-  id: "",
-  title: "",
-  description: "",
-  url: ""
-};
-
-type FormValues = {
-  id: string;
-  title: string;
-  description?: string;
-  url?: string;
-};
-
-const submitNote = (values: FormValues) => {
-  //setItem to localstorage
-  // later this goes to firebase...
-};
-
-// move to its own file later
-function Dashboard() {
-  return (
-    <div>
-      <h2> Add a note</h2>
-      <Formik initialValues={initialValues} onSubmit={submitNote}>
-        {(props) => {
-          return (
-            <Form>
-              <label htmlFor="title">Title</label>
-              <Field type="text" name="title" />
-              <label htmlFor="description">Description</label>
-              <Field type="text" name="description" />
-              <label htmlFor="url">Url</label>
-              <Field type="text" name="url" />
-            </Form>
-          );
-        }}
-      </Formik>
-    </div>
-  );
-}
+import { AddNoteForm } from "pages/AddNoteForm";
+import { NoteDisplay } from "pages/NoteDisplay";
 
 // move to its own file
 function Navigation() {
@@ -82,8 +41,11 @@ export default function App() {
           <Route path="/signup">
             <SignupForm />
           </Route>
+          <Route path="/note/:id">
+            <NoteDisplay />
+          </Route>
           <PrivateRoute path="/dashboard">
-            <Dashboard />
+            <AddNoteForm />
           </PrivateRoute>
           <Route path="/edit">
             <EditNoteForm />
