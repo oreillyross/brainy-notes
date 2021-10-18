@@ -1,5 +1,7 @@
 import { Formik, Field, Form } from "formik";
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
+import * as queries from "queries/index";
+import { useHistory } from "react-router-dom";
 
 const initialValues: FormValues = {
   title: "",
@@ -13,32 +15,23 @@ type FormValues = {
   url?: string;
 };
 
-const ADD_NOTE = gql`
-  mutation addNote($title: String, $description: String, $url: String) {
-    insert_note(
-      objects: { description: $description, title: $title, url: $url }
-    ) {
-      returning {
-        id
-        title
-        description
-        url
-      }
-    }
-  }
-`;
-
 // move to its own file later
 function AddNoteForm() {
-  const [addNote, { data, loading, error }] = useMutation(ADD_NOTE);
+  const history = useHistory();
+
+  const [addNote] = useMutation(queries.ADD_NOTE, {
+    refetchQueries: [queries.GET_NOTES, "notes"]
+  });
 
   return (
     <div>
       <h2> Add a note</h2>
       <Formik
         initialValues={initialValues}
-        onSubmit={(values) =>  {
-          addNote({variables: {title: "hello", description: "Roo", url: "jfdjkfjkjk"}})
+        onSubmit={(values) => {
+          addNote({ variables: { ...values } }).then(() => {
+            history.push("/notes");
+          });
         }}
       >
         {(props) => {

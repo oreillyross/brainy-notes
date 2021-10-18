@@ -1,13 +1,14 @@
-import { Link } from "react-router-dom";
+import { AddNoteButton } from "components/add-note-button";
 const LandingPage = () => {
   return (
-    <div>
-      Welcome to the world's best note taking app. Lets get started by adding
-      your first note.
-      <Link to="/addnote">
-        <button>Add note</button>
-      </Link>
-    </div>
+    <>
+      <div>
+        Welcome to the world's best note taking app. Lets get started by adding
+        your first note.
+        <AddNoteButton />
+      </div>
+      <img alt="people taking notes" src="./people.svg" />
+    </>
   );
 };
 

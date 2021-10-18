@@ -1,15 +1,11 @@
 import * as React from "react";
 import "./styles.scss";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import { LoginForm } from "pages/LoginForm";
-import { SignupForm } from "pages/SignupForm";
-// import { LandingPage } from "pages/LandingPage";
 import { EditNoteForm } from "pages/EditNoteForm";
-// import { UserBar } from "components/UserBar";
-import { SearchResults } from "pages/SearchResults";
 import { PrivateRoute } from "routes/PrivateRoute";
 import { AddNoteForm } from "pages/AddNoteForm";
-import { NoteDisplay } from "pages/NoteDisplay";
+import { NotesDisplay } from "pages/notes-display";
+import { NoteDisplay } from "pages/note-display";
 import { Navigation } from "components/navigation";
 import { client } from "_apollo";
 import { ApolloProvider } from "@apollo/client";
@@ -34,15 +30,6 @@ export default function App() {
         </div>
         <div className="body">
           <Switch>
-            <Route path="/login">
-              <LoginForm />
-            </Route>
-            <Route path="/signup">
-              <SignupForm />
-            </Route>
-            <Route path="/note/:id">
-              <NoteDisplay />
-            </Route>
             <Route path="/addnote">
               <AddNoteForm />
             </Route>
@@ -52,8 +39,11 @@ export default function App() {
             <Route path="/edit">
               <EditNoteForm />
             </Route>
-            <Route path="/search">
-              <SearchResults />
+            <Route path="/notes/:id">
+              <NoteDisplay />
+            </Route>
+            <Route path="/notes">
+              <NotesDisplay />
             </Route>
             <Route exact path="/">
               <LandingPage />
