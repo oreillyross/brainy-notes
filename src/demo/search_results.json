@@ -32,7 +32,7 @@
         "url": "https://github.com/eduardoboucas/include-media"
       },
       {
-        "id": "b5849dc8-fd2d-4bfc-84b9-c5b4e1982b12",
+        "id": "b5849sc8-fd2d-4bfc-84b9-c5b4e1982b12",
         "title": "Using Graphical User Interfaces like Cypress' in WSL2",
         "description": "The Window Subsystem for Linux is very powerful. After exploring it for a bit, I wanted to push it even further.  Wouldn’t it be cool to run GUIs natively inside of Linux, on your computer running Windows? 🤯",
         "url": "https://nickymeuleman.netlify.app/blog/gui-on-wsl2-cypress"

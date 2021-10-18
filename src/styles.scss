@@ -29,11 +29,13 @@
   @include media("<=800px") {
     .app__title {
       font-size: 2rem;
+      
     }
   }
   
-  @include media(">=tablet", "<=desktop") {
+  @include media(">=tablet") {
     .app__title {
       font-size: 4rem;
+      text-align: center;
     }
   }

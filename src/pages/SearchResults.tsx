@@ -1,8 +1,10 @@
 import "./SearchResults.scss";
 import * as React from "react";
 import { Link } from "react-router-dom";
+import * as demoNotes from "demo/search_results.json";
 
 type NoteType = {
+  id: string;
   title: string;
   description: string;
   url: string;
@@ -13,11 +15,11 @@ function SearchResults() {
 
   React.useEffect(() => {
     const notesFromStorage = localStorage.getItem("notes");
-    console.log(notesFromStorage);
     if (notesFromStorage) {
-      console.log(notesFromStorage);
       setNotes(JSON.parse(notesFromStorage));
     }
+    // merge demo notes with existing notes from localstorage
+    setNotes([...notes, ...demoNotes.data.note]);
   }, []);
 
   return (
@@ -32,8 +34,8 @@ function SearchResults() {
       <div>
         <ul>
           {notes.map((note) => (
-            <li>
-              <Link to="/note/:id">{note.title}</Link>
+            <li key={note.id}>
+              <Link to={`/note/${note.id}`}>{note.title}</Link>
             </li>
           ))}
         </ul>
