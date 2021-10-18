@@ -15,7 +15,7 @@ function Notes({ notes }: Props) {
       </li>
     ))
   ) : (
-    <div>Hello</div>
+    <div>No notes</div>
   );
 
   return (
@@ -33,6 +33,7 @@ function Notes({ notes }: Props) {
       <div>
         <ul className="listnote">{listNotes}</ul>
       </div>
+      <div><AddNoteButton/></div>
     </section>
   );
 }

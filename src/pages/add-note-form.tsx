@@ -2,6 +2,7 @@ import { Formik, Field, Form } from "formik";
 import { useMutation } from "@apollo/client";
 import * as queries from "queries/index";
 import { useHistory } from "react-router-dom";
+import "./add-note-form.scss"
 
 const initialValues: FormValues = {
   title: "",
@@ -36,14 +37,14 @@ function AddNoteForm() {
       >
         {(props) => {
           return (
-            <Form>
+            <Form className="addnoteform">
               <label htmlFor="title">Title</label>
               <Field type="text" name="title" />
               <label htmlFor="description">Description</label>
-              <Field type="text" name="description" />
+              <Field as="textarea" name="description" />
               <label htmlFor="url">Url</label>
               <Field type="text" name="url" />
-              <button type="submit">Submit</button>
+              <button className="addnoteform__button" type="submit">Submit</button>
             </Form>
           );
         }}
