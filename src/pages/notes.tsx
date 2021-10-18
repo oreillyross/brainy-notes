@@ -20,14 +20,16 @@ function Notes({ notes }: Props) {
 
   return (
     <section>
+      <div className="searchnotes">
       <input
+        className="searchnotes__input"
         name="search"
         id="search"
         type="text"
         placeholder="search your notes..."
       />
-      <button>Search</button>
-      <AddNoteButton />
+      <button className="searchnotes__button">Search</button>
+      </div>
       <div>
         <ul className="listnote">{listNotes}</ul>
       </div>
