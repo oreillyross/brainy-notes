@@ -1,41 +1,46 @@
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import { uuid } from "uuidv4";
-import { useMutation } from "@apollo/client";
+import { Formik, Field, Form } from "formik";
+import { gql, useMutation } from "@apollo/client";
 
 const initialValues: FormValues = {
-  id: "",
   title: "",
   description: "",
   url: ""
 };
 
 type FormValues = {
-  id: string;
   title: string;
   description?: string;
   url?: string;
 };
 
-const submitNote = (values: FormValues) => {
-  //setItem to localstorage
-  // later this goes to firebase...
-  let notes = localStorage.getItem("notes");
-  if (notes === null) {
-    notes = "[]";
+const ADD_NOTE = gql`
+  mutation addNote($title: String, $description: String, $url: String) {
+    insert_note(
+      objects: { description: $description, title: $title, url: $url }
+    ) {
+      returning {
+        id
+        title
+        description
+        url
+      }
+    }
   }
-  if (notes) {
-    const notesObj = JSON.parse(notes);
-    const newNote = { ...values, id: uuid() };
-    localStorage.setItem("notes", JSON.stringify([...notesObj, newNote]));
-  }
-};
+`;
 
 // move to its own file later
 function AddNoteForm() {
+  const [addNote, { data, loading, error }] = useMutation(ADD_NOTE);
+
   return (
     <div>
       <h2> Add a note</h2>
-      <Formik initialValues={initialValues} onSubmit={submitNote}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={(values) =>  {
+          addNote({variables: {title: "hello", description: "Roo", url: "jfdjkfjkjk"}})
+        }}
+      >
         {(props) => {
           return (
             <Form>

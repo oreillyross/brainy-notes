@@ -1,6 +1,16 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
+
+const authtoken =
+  
 
 export const client = new ApolloClient({
-  uri: "https://48p1r2roz4.sse.codesandbox.io",
+  link: new HttpLink({
+    uri: "https://brainy-notes.hasura.app/v1/graphql",
+    headers: {
+      'x-hasura-admin-secret': `${authtoken}`
+    }
+  }),
   cache: new InMemoryCache()
 });
+
+console.log(client);

@@ -1,7 +1,7 @@
 import "./SearchResults.scss";
 import * as React from "react";
 import { Link } from "react-router-dom";
-import * as demoNotes from "demo/search_results.json";
+import { gql, useQuery } from "@apollo/client";
 
 type NoteType = {
   id: string;
@@ -10,17 +10,18 @@ type NoteType = {
   url: string;
 };
 
-function SearchResults() {
-  const [notes, setNotes] = React.useState<NoteType[]>([]);
-
-  React.useEffect(() => {
-    const notesFromStorage = localStorage.getItem("notes");
-    if (notesFromStorage) {
-      setNotes(JSON.parse(notesFromStorage));
+const NOTES = gql`
+  query notes {
+    note {
+      title
+      description
+      url
     }
-    // merge demo notes with existing notes from localstorage
-    setNotes([...notes, ...demoNotes.data.note]);
-  }, []);
+  }
+`;
+
+function SearchResults() {
+  const { data, error } = useQuery(NOTES);
 
   return (
     <section>
@@ -32,13 +33,16 @@ function SearchResults() {
       />
       <button>Search</button>
       <div>
-        <ul>
-          {notes.map((note) => (
-            <li key={note.id}>
-              <Link to={`/note/${note.id}`}>{note.title}</Link>
-            </li>
-          ))}
-        </ul>
+        {error && <div>`There was an error getting notes: ${error}` </div>}
+        {data && (
+          <ul>
+            {data.note.map((note: any) => (
+              <li key={note.id}>
+                <Link to={`/note/${note.id}`}>{note.title}</Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </section>
   );
