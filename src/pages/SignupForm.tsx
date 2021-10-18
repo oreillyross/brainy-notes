@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Field, Form } from "formik";
 import "./SignupForm.scss";
-import { signup } from "../firebase/auth";
+// import { signup } from "../firebase/auth";
 
 type FormValues = {
   email: string;
@@ -16,7 +16,7 @@ const initialValues: FormValues = {
 const formSubmit = async (values: FormValues) => {
   console.log(values);
   try {
-    await signup(values);
+    // await signup(values);
   } catch (error) {
     console.error(error);
   }

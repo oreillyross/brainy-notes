@@ -2,15 +2,21 @@ import "./navigation.scss";
 
 import { Link } from "react-router-dom";
 
+const NavigationText = ({name, to}: {name: string, to: string}) => {
+  return (
+
+      <Link className="navigation__link" to={to}>
+        {name}  
+      </Link>
+  )
+}
+
 function Navigation() {
   return (
     <div className="navigation">
-      <Link className="navigation__link" to="/">
-        Home
-      </Link>
-      <Link className="navigation__link" to="/notes">
-        Notes
-      </Link>{" "}
+      <NavigationText name="Home" to="/"/>
+      {" | "}
+      <NavigationText name="Notes" to="/notes"/>
     </div>
   );
 }

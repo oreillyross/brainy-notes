@@ -24,7 +24,7 @@ function LoginForm() {
   };
 
   const handleValidation = (values: FormValues) => {
-    const errors = {};
+    const errors: any = {};
     if (values.email === "") errors.email = "Email cannot be empty!";
     return errors;
   };

@@ -2,3 +2,8 @@
   display: flex;
   justify-content: space-around;
 }
+
+.navigation__link {
+  padding: 0 24px;
+  color: var(--darkRed);
+}
