@@ -1,7 +1,6 @@
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 
-const authtoken =
-  
+const authtoken = "hahah";
 
 export const client = new ApolloClient({
   link: new HttpLink({

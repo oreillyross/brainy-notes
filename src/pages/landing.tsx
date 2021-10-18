@@ -7,7 +7,7 @@ const LandingPage = () => {
         your first note.
         <AddNoteButton />
       </div>
-      <img alt="people taking notes" src="./people.svg" />
+      <img className="body__img" alt="people taking notes" src="./people.svg" />
     </>
   );
 };

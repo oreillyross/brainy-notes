@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 @import "./_include-media.scss";
-// @import "./hack.css";
+@import "./hack.css";
 
 :root {
   --darkGray: DarkGray;
@@ -12,30 +12,52 @@
   font-size: 18px;
 }
 
-.app  {
-  @include media("<=800px") {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .app__img {
   display: inline-block;
-  width: 230px;
-  height: 230px;
 }
 
-  @include media("<=800px") {
-    .app__title {
-      font-size: 2rem;
-      
-    }
+.body__img {
+  display: none;
+}
+
+@include media(">tablet") {
+  .body__img {
+    display: block;
   }
+}
+
+// .app__img {
+//   display: inline-block;
+//   width: 230px;
+//   height: 230px;
   
-  @include media(">=tablet") {
-    .app__title {
-      font-size: 4rem;
-      text-align: center;
-    }
-  }
+// }
+
+// .app  {
+//   @include media(">phone") {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//   }
+// }
+
+
+
+//   @include media("<=800px") {
+//     .app__title {
+//       font-size: 2rem;
+//    }
+//   }
+  
+//   @include media(">=tablet") {
+//     .app__title {
+//       font-size: 4rem;
+//       text-align: center;
+//     }
+//   }

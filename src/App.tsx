@@ -33,9 +33,6 @@ export default function App() {
             <Route path="/addnote">
               <AddNoteForm />
             </Route>
-            <PrivateRoute path="/dashboard">
-              <AddNoteForm />
-            </PrivateRoute>
             <Route path="/edit">
               <EditNoteForm />
             </Route>
