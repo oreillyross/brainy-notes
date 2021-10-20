@@ -8,6 +8,8 @@ type Props = {
 };
 
 function Notes({ notes }: Props) {
+  const [searchText, setSearchText] = React.useState("")
+
   const listNotes = notes ? (
     notes.map((note: any) => (
       <li className="listnote__item" key={note.id}>
@@ -18,12 +20,18 @@ function Notes({ notes }: Props) {
     <div>No notes</div>
   );
 
+  const onSearchChange = (event: React.FormEvent<HTMLInputElement>) => {
+    setSearchText(event.currentTarget.value)
+  }
+
   return (
     <section>
       <div className="searchnotes">
       <input
         className="searchnotes__input"
         name="search"
+        value={searchText}
+        onChange={onSearchChange}
         id="search"
         type="text"
         placeholder="search your notes..."

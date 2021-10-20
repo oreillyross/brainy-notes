@@ -1,3 +1,4 @@
 node_modules
 /src/_apollo/index.js
 .env
+build
