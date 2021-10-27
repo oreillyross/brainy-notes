@@ -3,7 +3,13 @@ import * as queries from "../queries/index";
 import { Notes } from "pages/notes";
 
 const NotesDisplay = () => {
-  const { data } = useQuery(queries.GET_NOTES);
+  const { data, loading, error } = useQuery(queries.GET_NOTES);
+  if (loading) {
+    return <>Loading...</>;
+  }
+  if (error) {
+    return <> Oops... {error.message}</>;
+  }
 
   if (data) {
     return <div>{data && <Notes notes={data.note} />}</div>;
