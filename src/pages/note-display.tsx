@@ -20,9 +20,6 @@ const NoteDisplay = () => {
       </div>
     );
 
-  return (
-    <div>
-    </div>
-  );
+  return <div></div>;
 };
 export { NoteDisplay };

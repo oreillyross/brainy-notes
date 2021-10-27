@@ -1,0 +1,58 @@
+:root {
+  --box-color: #f7f6f2;
+  --detail-color: #c8c6c6;
+  --check-color: #4b6587;
+}
+
+.loading__indicator-box {
+  width: 95%;
+  height: 200px;
+  background: var(--box-color);
+  border-radius: 0px 5px 50px 0px;
+}
+
+.loading__indicator-entry {
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+  align-items: center;
+  width: 80%;
+  height: 50px;
+  background: var(--entry-color);
+  margin: 0.5rem;
+  border-radius: 0px 15px 15px 0px;
+}
+
+.loading__indicator-check {
+  animation: color_change_check 2s infinite alternate;
+  margin-left: 12px;
+  width: 24px;
+  height: 24px;
+  background: var(--check-color);
+  border-radius: 0.5rem;
+}
+
+@keyframes color_change {
+  from {
+    background: var(--detail-color);
+  }
+  to {
+    background: var(--entry-color);
+  }
+}
+
+@keyframes color_change_check {
+  from {
+    background: var(--check-color);
+  }
+  to {
+    background: var(--box-color);
+  }
+}
+
+.loading__indicator-detail {
+  animation: color_change 2s infinite alternate;
+  width: 90%;
+  height: 20px;
+  background: var(--detail-color);
+  align-self: right;
+}

@@ -1,14 +1,19 @@
 import { useQuery } from "@apollo/client";
 import * as queries from "../queries/index";
 import { Notes } from "pages/notes";
+import { Loading } from "components/loading-indicator";
 
 const NotesDisplay = () => {
   const { data, loading, error } = useQuery(queries.GET_NOTES);
   if (loading) {
-    return <>Loading...</>;
+    return (
+      <>
+        <Loading />
+      </>
+    );
   }
   if (error) {
-    return <> Oops... {error.message}</>;
+    return <> error {error.message}</>;
   }
 
   if (data) {

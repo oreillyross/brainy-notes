@@ -9,7 +9,7 @@ type Props = {
 
 function Notes({ notes }: Props) {
   const [searchText, setSearchText] = React.useState("");
-  const [localNotes, setNotes] = React.useState<{title: string}[]>(notes);
+  const [localNotes, setNotes] = React.useState<{ title: string }[]>(notes);
 
   const listNotes = localNotes ? (
     notes.map((note: any) => (
@@ -26,7 +26,7 @@ function Notes({ notes }: Props) {
     const filteredNotes: { title: string }[] = localNotes.filter((note) =>
       note.title.includes(searchText)
     );
-    setNotes(filteredNotes)
+    setNotes(filteredNotes);
   };
 
   return (
