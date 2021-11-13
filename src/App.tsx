@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./styles.scss";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import { EditNoteForm } from "pages/EditNoteForm";
 import { AddNoteForm } from "pages/add-note-form";
 import { NotesDisplay } from "pages/notes-display";
@@ -28,7 +28,7 @@ export default function App() {
           <Navigation />
         </div>
         <div className="body">
-          <Switch>
+          <Routes>
             <Route path="/addnote">
               <AddNoteForm />
             </Route>
@@ -41,10 +41,10 @@ export default function App() {
             <Route path="/notes">
               <NotesDisplay />
             </Route>
-            <Route exact path="/">
+            <Route path="/">
               <LandingPage />
             </Route>
-          </Switch>
+          </Routes>
         </div>
       </Router>
     </ApolloProvider>

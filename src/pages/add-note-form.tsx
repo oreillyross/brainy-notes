@@ -1,7 +1,7 @@
 import { Formik, Field, Form } from "formik";
 import { useMutation } from "@apollo/client";
 import * as queries from "queries/index";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./add-note-form.scss"
 
 const initialValues: FormValues = {
@@ -18,7 +18,7 @@ type FormValues = {
 
 // move to its own file later
 function AddNoteForm() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [addNote] = useMutation(queries.ADD_NOTE, {
     refetchQueries: [queries.GET_NOTES, "notes"]
@@ -31,7 +31,7 @@ function AddNoteForm() {
         initialValues={initialValues}
         onSubmit={(values) => {
           addNote({ variables: { ...values } }).then(() => {
-            history.push("/notes");
+            navigate("/notes");
           });
         }}
       >
