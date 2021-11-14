@@ -3,11 +3,8 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import * as queries from "queries/index";
 
-interface IDString {
-  id: string;
-}
 const NoteDisplay = () => {
-  const { id } = useParams<IDString>();
+  const { id } = useParams();
   const { data } = useQuery(queries.GET_NOTE, { variables: { _id: id } });
   if (data)
     return (

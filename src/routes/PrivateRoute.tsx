@@ -1,10 +1,11 @@
-import { Redirect, Route } from "react-router-dom";
+import { useNavigate, Route } from "react-router-dom";
 
 function PrivateRoute(props: any) {
   const user = null;
+  const navigate = useNavigate()
   //TODO make this !user to work correctly
   if (user) {
-    return <Redirect to="/login" />;
+    navigate("/login");
   } else {
     return <Route {...props} />;
   }

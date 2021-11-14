@@ -16,7 +16,7 @@ type FormValues = {
   url?: string;
 };
 
-// move to its own file later
+
 function AddNoteForm() {
   const navigate = useNavigate();
 

@@ -2,6 +2,7 @@ import "./notes.scss";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { AddNoteButton } from "components/add-note-button";
+import { AddNoteBox } from "components/add-note-box";
 
 type Props = {
   notes: [{ title: string }];

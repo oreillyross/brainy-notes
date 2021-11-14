@@ -29,21 +29,15 @@ export default function App() {
         </div>
         <div className="body">
           <Routes>
-            <Route path="/addnote">
-              <AddNoteForm />
-            </Route>
-            <Route path="/edit">
-              <EditNoteForm />
-            </Route>
-            <Route path="/notes/:id">
-              <NoteDisplay />
-            </Route>
-            <Route path="/notes">
-              <NotesDisplay />
-            </Route>
-            <Route path="/">
-              <LandingPage />
-            </Route>
+            <Route path="/addnote" element={<AddNoteForm />} />
+
+            <Route path="/edit" element={<EditNoteForm />} />
+
+            <Route path="/notes/:id" element={<NoteDisplay />} />
+
+            <Route path="/notes" element={<NotesDisplay />} />
+
+            <Route path="/" element={<LandingPage />} />
           </Routes>
         </div>
       </Router>
