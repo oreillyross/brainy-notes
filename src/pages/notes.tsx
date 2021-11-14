@@ -4,20 +4,29 @@ import { Link } from "react-router-dom";
 import { AddNoteButton } from "components/add-note-button";
 import { AddNoteBox } from "components/add-note-box";
 
-type Props = {
-  notes: [{ title: string }];
+type NoteProps = {
+  id: string;
+  title: string;
 };
 
-function Notes({ notes }: Props) {
+type NotesProps = {
+  notes: NoteProps[];
+};
+
+const NoteLine = ({ id, title }: NoteProps) => {
+  return (
+    <li className="listnote__item" key={id}>
+      <Link to={`/notes/${id}`}>{title}</Link>
+    </li>
+  );
+};
+
+function Notes({ notes }: NotesProps) {
   const [searchText, setSearchText] = React.useState("");
   const [localNotes, setNotes] = React.useState<{ title: string }[]>(notes);
 
   const listNotes = localNotes ? (
-    notes.map((note: any) => (
-      <li className="listnote__item" key={note.id}>
-        <Link to={`/notes/${note.id}`}>{note.title}</Link>
-      </li>
-    ))
+    notes.map((note: NoteProps) => <NoteLine id={note.id} title={note.title} />)
   ) : (
     <div>No notes</div>
   );
@@ -45,7 +54,12 @@ function Notes({ notes }: Props) {
         <button className="searchnotes__button">Search</button>
       </div>
       <div>
-        <ul className="listnote">{listNotes}</ul>
+        <ul className="listnote">
+          <li>
+            <AddNoteBox />
+          </li>
+          {listNotes}
+        </ul>
       </div>
       <div>
         <AddNoteButton />
