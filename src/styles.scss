@@ -2,6 +2,11 @@
 @import "./_include-media.scss";
 @import "./hack.css";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 :root {
   --darkGray: DarkGray;
   --darkRed: Maroon;

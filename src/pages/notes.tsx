@@ -2,7 +2,7 @@ import "./notes.scss";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { AddNoteButton } from "components/add-note-button";
-import { AddNoteBox } from "components/add-note-box";
+import { NoteBox } from "components/NoteBox";
 
 type NoteProps = {
   id: string;
@@ -19,6 +19,13 @@ const NoteLine = ({ id, title }: NoteProps) => {
       <Link to={`/notes/${id}`}>{title}</Link>
     </li>
   );
+};
+
+const dummyNote = {
+  status: "placeholder",
+  id: "12345",
+  title: "A dummy Note",
+  url: "http://some.url",
 };
 
 function Notes({ notes }: NotesProps) {
@@ -56,7 +63,7 @@ function Notes({ notes }: NotesProps) {
       <div>
         <ul className="listnote">
           <li>
-            <AddNoteBox />
+            <NoteBox note={dummyNote} />
           </li>
           {listNotes}
         </ul>

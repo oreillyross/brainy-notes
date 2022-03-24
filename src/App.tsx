@@ -24,7 +24,7 @@ export default function App() {
             />
           </Link>
           <div className="app__login">{/* <UserBar /> */}</div>
-          <h1 className="app__title">Brainy Notes</h1>
+          <h1 className="text-4xl text-amber-900">Brainy Notes</h1>
           <Navigation />
         </div>
         <div className="body">
