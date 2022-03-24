@@ -1,4 +1,3 @@
-import * as React from "react";
 import "./styles.scss";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import { EditNoteForm } from "pages/EditNoteForm";
