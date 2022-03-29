@@ -15,25 +15,20 @@ type NotesProps = {
 
 const NoteLine = ({ id, title }: NoteProps) => {
   return (
-    <li className="listnote__item" key={id}>
+    <li className="listnote__item">
       <Link to={`/notes/${id}`}>{title}</Link>
     </li>
   );
 };
 
-const dummyNote = {
-  status: "placeholder",
-  id: "12345",
-  title: "A dummy Note",
-  url: "http://some.url",
-};
-
 function Notes({ notes }: NotesProps) {
   const [searchText, setSearchText] = React.useState("");
-  const [localNotes, setNotes] = React.useState<{ title: string }[]>(notes);
+  const [localNotes, setNotes] = React.useState<
+    { title: string; id: string }[]
+  >(notes);
 
   const listNotes = localNotes ? (
-    notes.map((note: NoteProps) => <NoteLine id={note.id} title={note.title} />)
+    localNotes.map(({ id, title }) => <NoteLine id={id} title={title} />)
   ) : (
     <div>No notes</div>
   );
@@ -61,12 +56,7 @@ function Notes({ notes }: NotesProps) {
         <button className="searchnotes__button">Search</button>
       </div>
       <div>
-        <ul className="listnote">
-          <li>
-            <NoteBox note={dummyNote} />
-          </li>
-          {listNotes}
-        </ul>
+        <ul className="listnote">{listNotes}</ul>
       </div>
       <div>
         <AddNoteButton />
