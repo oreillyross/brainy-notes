@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
-@import "./_include-media.scss";
 @import "./hack.css";
 
 @tailwind base;
@@ -32,41 +31,5 @@
   display: none;
 }
 
-@include media(">tablet") {
-  .body {
-    display: grid;
-  }
 
-  .body__img {
-    display: block;
-    justify-self: center;
-  }
-}
 
-// .app__img {
-//   display: inline-block;
-//   width: 230px;
-//   height: 230px;
-
-// }
-
-// .app  {
-//   @include media(">phone") {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//   }
-// }
-
-//   @include media("<=800px") {
-//     .app__title {
-//       font-size: 2rem;
-//    }
-//   }
-
-//   @include media(">=tablet") {
-//     .app__title {
-//       font-size: 4rem;
-//       text-align: center;
-//     }
-//   }
