@@ -1,0 +1,11 @@
+.loginform {
+  border: 1px solid var(--darkGray);
+  border: 5px solid pink;
+  grid-column: 2/3;
+}
+
+.loginform__input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 20px;
+}
