@@ -1,4 +1,4 @@
-import { useQuery } from "@apollo/client";
+import { NetworkStatus, useQuery } from "@apollo/client";
 import * as queries from "../queries/index";
 import { Notes } from "pages/notes";
 import { Loading } from "components/loading-indicator";
@@ -14,14 +14,25 @@ const NotesDisplay = () => {
       </>
     );
   }
+  
   if (error) {
     return <> error {error.message}</>;
-
-    // }
   }
 
+  const handleSearch = (s: string) => {
+    console.log(s);
+    refetch({ title: `%${s}%` })
+   
+  };
+
   if (data) {
-    return <div>{data && <Notes notes={data.note} />}</div>;
+    
+    return (
+      <>
+        <SearchBar onSearch={handleSearch} />
+        <div>{data && <Notes notes={data?.note} />}</div>;
+      </>
+    );
   }
   return null;
 };

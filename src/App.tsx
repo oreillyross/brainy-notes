@@ -1,4 +1,5 @@
-import "./styles.scss";
+import "./styles.css";
+import * as React from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import { EditNoteForm } from "pages/EditNoteForm";
 import { AddNoteForm } from "pages/add-note-form";
@@ -7,6 +8,7 @@ import { NoteDisplay } from "pages/note-display";
 import { Navigation } from "components/navigation";
 import { client } from "_apollo";
 import { ApolloProvider } from "@apollo/client";
+import { Set } from "_apollo/Set";
 
 import { LandingPage } from "pages/landing";
 
@@ -23,6 +25,7 @@ export default function App() {
             />
           </Link>
           <div className="app__login">{/* <UserBar /> */}</div>
+
           <h1 className="text-4xl text-amber-900">Brainy Notes</h1>
           <Navigation />
         </div>
@@ -37,6 +40,8 @@ export default function App() {
             <Route path="/notes" element={<NotesDisplay />} />
 
             <Route path="/" element={<LandingPage />} />
+
+            <Route path="/set" element={<Set />} />
           </Routes>
         </div>
       </Router>
