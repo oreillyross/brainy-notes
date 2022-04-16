@@ -18,6 +18,7 @@ function Set() {
 
   return (
     <div>
+      <p>Set the token here</p>
       <input name="access" value={access} onChange={handleChange} />
       <button onClick={handleClick}>Set</button>
     </div>

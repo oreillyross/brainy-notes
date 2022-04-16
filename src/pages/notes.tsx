@@ -35,7 +35,7 @@ function Notes({ notes }: NotesProps) {
 
   const onSearchChange = (event: React.FormEvent<HTMLInputElement>) => {
     setSearchText(event.currentTarget.value);
-    const filteredNotes: { title: string }[] = localNotes.filter((note) =>
+    const filteredNotes: { title: string, id: string }[] = localNotes.filter((note) =>
       note.title.includes(searchText)
     );
     setNotes(filteredNotes);
