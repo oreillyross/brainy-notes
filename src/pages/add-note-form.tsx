@@ -2,12 +2,12 @@ import { Formik, Field, Form } from "formik";
 import { useMutation } from "@apollo/client";
 import * as queries from "queries/index";
 import { useNavigate } from "react-router-dom";
-import "./add-note-form.scss"
+import "./add-note-form.scss";
 
 const initialValues: FormValues = {
   title: "",
   description: "",
-  url: ""
+  url: "",
 };
 
 type FormValues = {
@@ -16,12 +16,11 @@ type FormValues = {
   url?: string;
 };
 
-
 function AddNoteForm() {
   const navigate = useNavigate();
 
   const [addNote] = useMutation(queries.ADD_NOTE, {
-    refetchQueries: [queries.GET_NOTES, "notes"]
+    refetchQueries: [queries.GET_NOTES, "notes"],
   });
 
   return (
@@ -44,7 +43,14 @@ function AddNoteForm() {
               <Field as="textarea" name="description" />
               <label htmlFor="url">Url</label>
               <Field type="text" name="url" />
-              <button className="addnoteform__button" type="submit">Submit</button>
+              <div className="text-center ">
+                <button
+                  className=" rounded-md bg-orange-800 text-white p-2 w-48"
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </div>
             </Form>
           );
         }}
