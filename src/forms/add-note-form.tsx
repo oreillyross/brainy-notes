@@ -7,7 +7,7 @@ import "./add-note-form.scss";
 const initialValues: FormValues = {
   title: "",
   description: "",
-  url: "",
+  url: ""
 };
 
 type FormValues = {
@@ -20,7 +20,7 @@ function AddNoteForm() {
   const navigate = useNavigate();
 
   const [addNote] = useMutation(queries.ADD_NOTE, {
-    refetchQueries: [queries.GET_NOTES, "notes"],
+    refetchQueries: [queries.GET_NOTES, "notes"]
   });
 
   return (
@@ -38,11 +38,11 @@ function AddNoteForm() {
           return (
             <Form className="addnoteform">
               <label htmlFor="title">Title</label>
-              <Field type="text" name="title" />
+              <Field id="title" type="text" name="title" />
               <label htmlFor="description">Description</label>
-              <Field as="textarea" name="description" />
+              <Field id="description" as="textarea" name="description" />
               <label htmlFor="url">Url</label>
-              <Field type="text" name="url" />
+              <Field id="url" type="text" name="url" />
               <div className="text-center ">
                 <button
                   className=" rounded-md bg-orange-800 text-white p-2 w-48"
