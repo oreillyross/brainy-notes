@@ -1,8 +1,8 @@
 import "./styles.css";
-import * as React from "react";
+
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import { EditNoteForm } from "pages/EditNoteForm";
-import { AddNoteForm } from "pages/add-note-form";
+import { AddNoteForm } from "forms/add-note-form";
 import { NotesDisplay } from "pages/notes-display";
 import { NoteDisplay } from "pages/note-display";
 import { Navigation } from "components/navigation";
