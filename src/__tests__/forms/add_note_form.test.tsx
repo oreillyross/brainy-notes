@@ -4,13 +4,17 @@ import { AddNoteForm } from "../../forms/add-note-form";
 import { BrowserRouter as Router } from "react-router-dom";
 
 test("submitting calls onSubmit with correct values", () => {
-  render(
+  const {getAllByRole, debug} = render(
     <Router>
       <MockedProvider addTypename={false}>
         <AddNoteForm />
       </MockedProvider>
     </Router>
   );
-
-  screen.debug();
+  const inputs = getAllByRole("textbox");
+  inputs[0].textContent = "Some new Note Title";
+  inputs[1].textContent = "Some new Note Description";
+  inputs[2].textContent = "Some new Note URL";
+  
+  // debug();
 });
