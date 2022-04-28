@@ -2,7 +2,7 @@ import { Formik, Field, Form } from "formik";
 import { useMutation } from "@apollo/client";
 import * as queries from "queries/index";
 import { useNavigate } from "react-router-dom";
-import "./add-note-form.scss";
+
 
 const initialValues: FormValues = {
   title: "",

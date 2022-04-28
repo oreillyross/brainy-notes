@@ -1,5 +1,5 @@
 import { AddNoteButton } from "components/add-note-button";
-import "./landing.scss";
+
 const LandingPage = () => {
   return (
     <>

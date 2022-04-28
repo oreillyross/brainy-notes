@@ -1,4 +1,4 @@
-import "./navigation.scss";
+
 
 import { Link } from "react-router-dom";
 

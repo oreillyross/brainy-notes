@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik, Field, Form } from "formik";
-import "./SignupForm.scss";
+
 // import { signup } from "../firebase/auth";
 
 type FormValues = {
