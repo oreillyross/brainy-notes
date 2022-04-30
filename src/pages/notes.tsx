@@ -33,26 +33,9 @@ function Notes({ notes }: NotesProps) {
     <div>No notes</div>
   );
 
-  const onSearchChange = (event: React.FormEvent<HTMLInputElement>) => {
-    setSearchText(event.currentTarget.value);
-    const filteredNotes: { title: string, id: string }[] = localNotes.filter((note) =>
-      note.title.includes(searchText)
-    );
-    setNotes(filteredNotes);
-  };
-
   return (
     <section>
-      <div className="searchnotes">
-        <input
-          className="searchnotes__input"
-          name="search"
-          value={searchText}
-          onChange={onSearchChange}
-          id="search"
-          type="text"
-          placeholder="search your notes..."
-        />
+     <div>
         <button className="searchnotes__button">Search</button>
       </div>
       <div>

@@ -9,6 +9,7 @@
     "@fortawesome/fontawesome-svg-core": "1.2.36",
     "@fortawesome/free-solid-svg-icons": "5.15.4",
     "@fortawesome/react-fontawesome": "0.1.15",
+    "@tailwindcss/line-clamp": "^0.4.0",
     "@testing-library/react": "12.1.2",
     "autoprefixer": "10.4.0",
     "formik": "^2.2.9",
@@ -22,6 +23,7 @@
     "uuidv4": "6.2.12"
   },
   "devDependencies": {
+    "@faker-js/faker": "^6.2.0",
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.0.2",
     "@types/react": "17.0.20",

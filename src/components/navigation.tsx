@@ -17,6 +17,8 @@ function Navigation() {
       <NavigationText name="Home" to="/"/>
       {" | "}
       <NavigationText name="Notes" to="/notes"/>
+      {" | "}
+      <NavigationText name="NoteCards" to="/notecards"/>
     </div>
   );
 }

@@ -11,6 +11,7 @@ import { ApolloProvider } from "@apollo/client";
 import { Set } from "_apollo/Set";
 
 import { LandingPage } from "pages/landing";
+import NoteCard from "components/note-card/NoteCard";
 
 export default function App() {
   return (
@@ -38,6 +39,8 @@ export default function App() {
             <Route path="/notes/:id" element={<NoteDisplay />} />
 
             <Route path="/notes" element={<NotesDisplay />} />
+
+            <Route path="/notecards" element={<NotesDisplay/>} />
 
             <Route path="/" element={<LandingPage />} />
 
