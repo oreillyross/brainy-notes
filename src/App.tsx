@@ -30,7 +30,7 @@ export default function App() {
           <h1 className="text-4xl text-amber-900">Brainy Notes</h1>
           <Navigation />
         </div>
-        <div className="body">
+        <div className=" flex text-center w-64 text-slate-800 bg-slate-200">
           <Routes>
             <Route path="/addnote" element={<AddNoteForm />} />
 

@@ -3,11 +3,10 @@ import { useMutation } from "@apollo/client";
 import * as queries from "queries/index";
 import { useNavigate } from "react-router-dom";
 
-
 const initialValues: FormValues = {
   title: "",
   description: "",
-  url: ""
+  url: "",
 };
 
 type FormValues = {
@@ -20,7 +19,7 @@ function AddNoteForm() {
   const navigate = useNavigate();
 
   const [addNote] = useMutation(queries.ADD_NOTE, {
-    refetchQueries: [queries.GET_NOTES, "notes"]
+    refetchQueries: [queries.GET_NOTES, "notes"],
   });
 
   return (
@@ -38,11 +37,29 @@ function AddNoteForm() {
           return (
             <Form className="addnoteform">
               <label htmlFor="title">Title</label>
-              <Field id="title" type="text" name="title" />
+              <Field
+                className="placeholder:text-slate-600 placeholder:italic text-green-700 p-1 m-1"
+                id="title"
+                type="text"
+                name="title"
+                placeholder="type a title"
+              />
               <label htmlFor="description">Description</label>
-              <Field id="description" as="textarea" name="description" />
+              <Field
+                className="placeholder:text-slate-600 placeholder:italic text-green-700 p-1 m-1"
+                id="description"
+                as="textarea"
+                name="description"
+                placeholder="give a meaningful description"
+              />
               <label htmlFor="url">Url</label>
-              <Field id="url" type="text" name="url" />
+              <Field
+                className="placeholder:text-slate-600 placeholder:italic text-green-700 p-1 m-1"
+                id="url"
+                type="text"
+                name="url"
+                placeholder="optional"
+              />
               <div className="text-center ">
                 <button
                   className=" rounded-md bg-orange-800 text-white p-2 w-48"
