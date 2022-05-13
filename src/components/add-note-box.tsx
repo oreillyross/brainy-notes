@@ -1,4 +1,4 @@
-import "./add-note-box.scss";
+
 
 const AddNoteBox = () => {
   return (

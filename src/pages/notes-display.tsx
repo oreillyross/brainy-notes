@@ -2,20 +2,12 @@ import { NetworkStatus, useQuery } from "@apollo/client";
 import * as queries from "../queries/index";
 import { Notes } from "pages/notes";
 import { Loading } from "components/loading-indicator";
+import SearchBar from "../components/SearchBar"
 import { BounceLoader } from "components/bounce-loader";
-import SearchBar from "components/SearchBar";
-
-
 
 const NotesDisplay = () => {
 
-  
-
-  const { data, loading, error, refetch, networkStatus } = useQuery(queries.GET_NOTES, {
-    variables: { title: "%%" },
-    notifyOnNetworkStatusChange: true,
-  });
-
+  const { data, loading, error, refetch } = useQuery(queries.GET_NOTES);
   if (loading) {
     return (
       <>

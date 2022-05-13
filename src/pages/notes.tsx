@@ -1,4 +1,4 @@
-import "./notes.scss";
+
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { AddNoteButton } from "components/add-note-button";
@@ -33,17 +33,11 @@ function Notes({ notes }: NotesProps) {
     <div>No notes</div>
   );
 
-  const handleSearch = (val: any) => {
-    console.log(val)
-    if (val !== "") {
-      const filteredNotes = localNotes.filter((note) => note.title === val);
-      setNotes(filteredNotes);
-    }
-  };
-
   return (
     <section>
-      
+     <div>
+        <button className="searchnotes__button">Search</button>
+      </div>
       <div>
         <ul className="listnote">{listNotes}</ul>
       </div>

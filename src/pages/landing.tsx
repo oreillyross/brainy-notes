@@ -1,18 +1,22 @@
 import { AddNoteButton } from "components/add-note-button";
-import "./landing.scss";
+
 const LandingPage = () => {
   return (
     <>
-      <div className="landing">
-        <div className="landing__strap">
+      <div className="">
+        <img
+          className="px-10 object-contain col-span-3"
+          alt="people taking notes"
+          src="/people.svg"
+        />
+        <div className="px-10 py-3">
           Welcome to the world's best note taking app. Lets get going by adding
           some notes...
         </div>
-        <div className="landing__button">
+        <div className="text-center">
           <AddNoteButton />
         </div>
       </div>
-      <img className="body__img" alt="people taking notes" src="./people.svg" />
     </>
   );
 };

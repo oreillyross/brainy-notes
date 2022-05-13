@@ -1,7 +1,7 @@
 import { InlineEdit } from "../components/InlineEdit";
 import { useState } from "react";
 import { Formik } from "formik";
-import "./EditNoteForm.scss";
+
 
 function EditNoteForm() {
   //TODO need the api endpoint call to set a value on Heroku/Hasura
