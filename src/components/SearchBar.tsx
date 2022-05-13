@@ -26,7 +26,6 @@ const SearchBar = ({onSearch}: Props) => {
           placeholder="search your notes..."
         />
         <button className="p-4 border-2 bg-slate-700 text-gray-300" type="submit" onClick={handleSearch}>Search</button>
-        
       </div>
       </>
     );

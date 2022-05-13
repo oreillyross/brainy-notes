@@ -20,6 +20,9 @@ function Set() {
     <div>
       <input name="access" value={access} onChange={handleChange} />
       <button onClick={handleClick}>Set</button>
+      <p>
+        The Access token is currently set to: <span>{access}</span>
+      </p>
     </div>
   );
 }

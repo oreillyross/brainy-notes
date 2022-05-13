@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { AddNoteButton } from "components/add-note-button";
 import { NoteBox } from "components/NoteBox";
 
+
 type NoteProps = {
   id: string;
   title: string;
@@ -23,9 +24,8 @@ const NoteLine = ({ id, title }: NoteProps) => {
 
 function Notes({ notes }: NotesProps) {
   const [searchText, setSearchText] = React.useState("");
-  const [localNotes, setNotes] = React.useState<
-    { title: string; id: string }[]
-  >(notes);
+  const [localNotes, setNotes] =
+    React.useState<{ title: string; id: string }[]>(notes);
 
   const listNotes = localNotes ? (
     localNotes.map(({ id, title }) => <NoteLine id={id} title={title} />)
@@ -33,28 +33,17 @@ function Notes({ notes }: NotesProps) {
     <div>No notes</div>
   );
 
-  const onSearchChange = (event: React.FormEvent<HTMLInputElement>) => {
-    setSearchText(event.currentTarget.value);
-    const filteredNotes: { title: string }[] = localNotes.filter((note) =>
-      note.title.includes(searchText)
-    );
-    setNotes(filteredNotes);
+  const handleSearch = (val: any) => {
+    console.log(val)
+    if (val !== "") {
+      const filteredNotes = localNotes.filter((note) => note.title === val);
+      setNotes(filteredNotes);
+    }
   };
 
   return (
     <section>
-      <div className="searchnotes">
-        <input
-          className="searchnotes__input"
-          name="search"
-          value={searchText}
-          onChange={onSearchChange}
-          id="search"
-          type="text"
-          placeholder="search your notes..."
-        />
-        <button className="searchnotes__button">Search</button>
-      </div>
+      
       <div>
         <ul className="listnote">{listNotes}</ul>
       </div>
