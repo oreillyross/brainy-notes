@@ -2,12 +2,22 @@ import { Formik, Field, Form } from "formik";
 import { useMutation } from "@apollo/client";
 import * as queries from "queries/index";
 import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 
 const initialValues: FormValues = {
   title: "",
   description: "",
   url: ""
 };
+
+const NoteSchema = Yup.object().shape({
+  title: Yup.string().required("At least a title is required"),
+  description: Yup.string().min(
+    10,
+    "Think about providing a longer description"
+  ),
+  url: Yup.string().url("This doesn't seem to be a valid url")
+});
 
 type FormValues = {
   title: string;
@@ -30,6 +40,7 @@ function AddNoteForm() {
       </h2>
       <Formik
         initialValues={initialValues}
+        validationSchema={NoteSchema}
         onSubmit={(values) => {
           addNote({ variables: { ...values } }).then(() => {
             navigate("/notes");
@@ -66,6 +77,7 @@ function AddNoteForm() {
                 rows="8"
                 placeholder="give a meaningful description"
               />
+              {props.errors.description && props.touched.description}
               <label
                 className="px-2 font-bold text-slate-700 pt-2"
                 htmlFor="url"
