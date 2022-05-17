@@ -1,1 +1,1 @@
-declare module "include-media"
+declare module "NotesDisplay"

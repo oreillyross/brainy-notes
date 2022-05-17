@@ -2,6 +2,7 @@ import { Formik, Field, Form } from "formik";
 import { useMutation } from "@apollo/client";
 import * as queries from "queries/index";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "../client";
 
 const initialValues: FormValues = {
   title: "",
@@ -22,6 +23,8 @@ function AddNoteForm() {
     refetchQueries: [queries.GET_NOTES, "notes"]
   });
 
+  
+  
   return (
     <div className="max-w-md mx-auto border ">
       <h2 className="text-center bg-slate-100 text-slate-800 font-bold py-2 rounded border">

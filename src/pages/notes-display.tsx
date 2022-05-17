@@ -1,41 +1,63 @@
+import * as React from "react";
 import { NetworkStatus, useQuery } from "@apollo/client";
 import * as queries from "../queries/index";
 import { Notes } from "pages/notes";
 import { Loading } from "components/loading-indicator";
-import SearchBar from "../components/SearchBar"
+import SearchBar from "../components/SearchBar";
 import { BounceLoader } from "components/bounce-loader";
+import { supabase } from "../client";
+import { useEffect } from "react";
 
 const NotesDisplay = () => {
+  const [notes, setNotes] = React.useState([]);
+  const [note, setNote] = React.useState({
+    title: "",
+    description: "",
+    url: "",
+  });
+  const { title, description, url } = note;
 
-  const { data, loading, error, refetch } = useQuery(queries.GET_NOTES);
-  if (loading) {
-    return (
-      <>
-        <BounceLoader />
-      </>
-    );
-  }
-  
-  if (error) {
-    return <> error {error.message}</>;
+  useEffect(() => {
+    fetchNotes();
+  }, []);
+
+  async function fetchNotes() {
+    const { data } = await supabase.from("notes").select();
+    console.log(data);
+    setNotes([]);
   }
 
-  const handleSearch = (s: string) => {
-    console.log(s);
-    refetch({ title: `%${s}%` })
-   
-  };
-
-  if (data) {
-    
-    return (
-      <>
-        <SearchBar onSearch={handleSearch} />
-        <div>{data && <Notes notes={data?.note} />}</div>;
-      </>
-    );
+  async function createNote() {
+    await supabase.from("notes").insert([{ title, description, url }]).single();
+    setNote({ title: "", description: "", url: "" });
+    fetchNotes();
   }
-  return null;
+
+  return (
+    <>
+      <div className="container max-w-auto">
+        <input
+          type="text"
+          placeholder="enter a title"
+          value={title}
+          onChange={(e) => setNote({ ...note, title: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="enter description"
+          value={title}
+          onChange={(e) => setNote({ ...note, description: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="enter url"
+          value={title}
+          onChange={(e) => setNote({ ...note, url: e.target.value })}
+        />
+        <button onClick></button>
+      </div>
+    </>
+  );
 };
 
 export { NotesDisplay };
