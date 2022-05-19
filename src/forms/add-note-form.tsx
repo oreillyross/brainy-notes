@@ -4,6 +4,7 @@ import * as queries from "queries/index";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../client";
 import * as Yup from "yup";
+import { useEffect, useLayoutEffect, useRef } from "react";
 
 const initialValues: FormValues = {
   title: "",
@@ -33,8 +34,6 @@ function AddNoteForm() {
     refetchQueries: [queries.GET_NOTES, "notes"]
   });
 
-  
-  
   return (
     <div className="max-w-md mx-auto border ">
       <h2 className="text-center bg-slate-100 text-slate-800 font-bold py-2 rounded border">
@@ -60,6 +59,7 @@ function AddNoteForm() {
                 Title
               </label>
               <Field
+                autoFocus
                 className=" border placeholder:text-slate-600 placeholder:italic text-green-700 p-1 m-1"
                 id="title"
                 type="text"
