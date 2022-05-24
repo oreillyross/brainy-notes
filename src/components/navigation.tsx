@@ -20,6 +20,7 @@ function Navigation() {
     <nav className="rounded-full my-5 bg-orange-900 flex justify-center ">
       <NavigationText name="Home" to="/" />
       <NavigationText name="Notes" to="/notes" />
+      <NavigationText name="About" to="/about" />
     </nav>
   );
 }
