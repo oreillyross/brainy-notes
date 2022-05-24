@@ -54,7 +54,7 @@ const NotesDisplay = () => {
           value={title}
           onChange={(e) => setNote({ ...note, url: e.target.value })}
         />
-        <button onClick></button>
+        
       </div>
     </>
   );
