@@ -7,10 +7,9 @@ import { NoteDisplay } from "pages/note-display";
 import { Navigation } from "components/navigation";
 import { client } from "_apollo";
 import { ApolloProvider } from "@apollo/client";
-import { Set } from "_apollo/Set";
-
 import { LandingPage } from "pages/landing";
-import NoteCard from "components/note-card/NoteCard";
+import Login from "pages/login";
+import Logout from "pages/logout";
 
 export default function App() {
   return (
@@ -27,19 +26,21 @@ export default function App() {
         </div>
         <div className="">
           <Routes>
+            <Route path="/login" element={<Login />} />
+          
+            <Route path="/logout" element={<Logout />} />
+
             <Route path="/addnote" element={<AddNoteForm />} />
 
             <Route path="/edit" element={<EditNoteForm />} />
 
-            <Route path="/notes/:id" element={<NoteDisplay />} />
+            <Route path="/note/:id" element={<NoteDisplay />} />
 
             <Route path="/notes" element={<NotesDisplay />} />
 
             <Route path="/notecards" element={<NotesDisplay />} />
 
             <Route path="/" element={<LandingPage />} />
-
-            <Route path="/set" element={<Set />} />
           </Routes>
         </div>
       </Router>
