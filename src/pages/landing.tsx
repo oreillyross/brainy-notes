@@ -5,15 +5,15 @@ const LandingPage = () => {
     <>
       <div className="">
         <img
-          className="px-10 object-contain col-span-3"
+          className="max-w-2xl m-auto px-10 object-contain col-span-3"
           alt="people taking notes"
           src="/people.svg"
         />
-        <div className="px-10 py-3">
-          Welcome to the world's best note taking app. Lets get going by adding
+        <div className="pl-24 pt-12 text-2xl">
+          Welcome to the world' s best note taking app. Lets get going by adding
           some notes...
         </div>
-        <div className="text-center">
+        <div className="text-center pt-4">
           <AddNoteButton />
         </div>
       </div>

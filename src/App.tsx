@@ -15,15 +15,15 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="container relative px-5">
+        <div className="container relative px-5 flex">
           <Link to="/">
             <img className="p-6" alt="Brainy logo" src="/brainy_logo.svg" />
           </Link>
           <div className="app__login">{/* <UserBar /> */}</div>
 
-          <h1 className="text-center text-4xl text-amber-900">Brainy Notes</h1>
-          <Navigation />
+          <h1 className="m-auto text-6xl font-bold text-amber-900">Brainy Notes</h1>
         </div>
+          <Navigation />
         <div className="">
           <Routes>
             <Route path="/login" element={<Login />} />
