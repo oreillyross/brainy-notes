@@ -21,7 +21,7 @@ const NotesDisplay = () => {
     title: "",
     description: "",
     url: "",
-    id: "",
+    id: ""
   });
   const { title, description, url, id } = note;
 
@@ -30,15 +30,15 @@ const NotesDisplay = () => {
   }, []);
 
   async function fetchNotes() {
-    const { data: notes } = await supabase.from("notes").select("*");
-    //@ts-ignore
-    setNotes(notes);
+    // const { data: notes } = await supabase.from("notes").select("*");
+    // //@ts-ignore
+    // setNotes(notes);
   }
 
   async function createNote() {
-    await supabase.from("notes").insert([{ title, description, url }]).single();
-    setNote({ title: "", description: "", url: "", id: "" });
-    fetchNotes();
+    // await supabase.from("notes").insert([{ title, description, url }]).single();
+    // setNote({ title: "", description: "", url: "", id: "" });
+    // fetchNotes();
   }
 
   return (

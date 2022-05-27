@@ -1,31 +1,31 @@
-
 import * as React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import * as queries from "queries/index";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import { supabase } from "../client"
+import { supabase } from "../client";
 
-const NoteDisplay =  () => {
+const NoteDisplay = () => {
   const { id } = useParams();
-  const [note, setNote] = React.useState({})
-  console.log(supabase.auth.user())
+  const [note, setNote] = React.useState({});
+  // console.log(supabase.auth.user())
   React.useEffect(() => {
-
     const fetchNote = async () => {
-      const {data} = await supabase.from("notes").select("*").eq("id", id).single();
+      const { data } = await supabase
+        .from("notes")
+        .select("*")
+        .eq("id", id)
+        .single();
       setNote(data);
-  
-    }
-    fetchNote()
-  })
+    };
+    fetchNote();
+  });
 
   return (
     <div>
       <h2 className="text-center p-2 text-gray-900 text-2xl">{note.title}</h2>
       <p>{note.description}</p>
-
     </div>
   );
 };
