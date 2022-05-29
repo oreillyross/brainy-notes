@@ -4,12 +4,12 @@ import { AddNoteForm } from "../../forms/add-note-form";
 import { BrowserRouter as Router } from "react-router-dom";
 
 test("submitting calls onSubmit with correct values", () => {
-  const { getAllByRole, getByRole, debug } = render(
+  const { container, getAllByRole, getByRole, debug } = render(
     <Router>
       <MockedProvider addTypename={false}>
         <AddNoteForm />
       </MockedProvider>
     </Router>
   );
-  debug();
+  container.queryByText(/title/)
 });
