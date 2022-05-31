@@ -1,17 +1,5 @@
 import "./styles.css";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import { EditNoteForm } from "pages/EditNoteForm";
-import { AddNoteForm } from "forms/add-note-form";
-import { NotesDisplay } from "pages/notes-display";
-import { NoteDisplay } from "pages/note-display";
-import { Navigation } from "components/navigation";
-import { client } from "_apollo";
-import { ApolloProvider } from "@apollo/client";
-import { LandingPage } from "pages/landing";
-import Login from "pages/login";
-import Logout from "pages/logout";
-import Counter from "components/Counter/Counter";
-
 export default function App() {
   return (
     <ApolloProvider client={client}>
