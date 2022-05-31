@@ -1,9 +1,8 @@
-import "./styles.css";
+
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 export default function App() {
   return (
-    <ApolloProvider client={client}>
-      <Router>
+    <>
         <div className="container relative px-5 flex">
           <Link to="/">
             <img className="p-6" alt="Brainy logo" src="/brainy_logo.svg" />
