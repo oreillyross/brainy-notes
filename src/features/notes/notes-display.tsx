@@ -30,9 +30,9 @@ const NotesDisplay = () => {
   }, []);
 
   async function fetchNotes() {
-    // const { data: notes } = await supabase.from("notes").select("*");
-    // //@ts-ignore
-    // setNotes(notes);
+    const { data: notes } = await supabase.from("notes").select("*");
+    //@ts-ignore
+    setNotes(notes);
   }
 
   async function createNote() {
