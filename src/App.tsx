@@ -10,6 +10,7 @@ import { ApolloProvider } from "@apollo/client";
 import { LandingPage } from "pages/landing";
 import Login from "pages/login";
 import Logout from "pages/logout";
+import Counter from "components/Counter/Counter";
 
 export default function App() {
   return (
@@ -21,13 +22,15 @@ export default function App() {
           </Link>
           <div className="app__login">{/* <UserBar /> */}</div>
 
-          <h1 className="m-auto text-6xl font-bold text-amber-900">Brainy Notes</h1>
+          <h1 className="m-auto text-6xl font-bold text-amber-900">
+            Brainy Notes
+          </h1>
         </div>
-          <Navigation />
+        <Navigation />
         <div className="">
           <Routes>
             <Route path="/login" element={<Login />} />
-          
+
             <Route path="/logout" element={<Logout />} />
 
             <Route path="/addnote" element={<AddNoteForm />} />
@@ -39,6 +42,8 @@ export default function App() {
             <Route path="/notes" element={<NotesDisplay />} />
 
             <Route path="/notecards" element={<NotesDisplay />} />
+
+            <Route path="/about" element={<Counter />} />
 
             <Route path="/" element={<LandingPage />} />
           </Routes>
