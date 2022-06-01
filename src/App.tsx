@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import Navigation from "features/navigation/navigation";
+import { LandingPage } from "features/landing/LandingPage";
+import NotesList from "features/notes/notesList";
 
 export default function App() {
   return (
@@ -15,7 +17,12 @@ export default function App() {
         </h1>
       </div>
       <Navigation />
-      <div>The home page...</div>
+      <div>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/notes" element={<NotesList />} />
+        </Routes>
+      </div>
     </>
   );
 }

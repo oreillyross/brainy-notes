@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "app/hooks";
 import { incremented, amountAdded } from "./counter-slice";
 import { useFetchBreedsQuery } from "../../features/dogs/dogs-api-slice";
 
