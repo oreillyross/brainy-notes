@@ -1,8 +1,6 @@
 
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { AddNoteButton } from "components/add-note-button";
-import { NoteBox } from "components/NoteBox";
 
 
 type NoteProps = {
@@ -42,7 +40,6 @@ function Notes({ notes }: NotesProps) {
         <ul className="listnote">{listNotes}</ul>
       </div>
       <div>
-        <AddNoteButton />
       </div>
     </section>
   );

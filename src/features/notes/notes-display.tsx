@@ -1,11 +1,5 @@
 import * as React from "react";
-import { NetworkStatus, useQuery } from "@apollo/client";
-import * as queries from "../queries/index";
-import { Notes } from "pages/notes";
-import { Loading } from "components/loading-indicator";
-import SearchBar from "../components/SearchBar";
-import { BounceLoader } from "components/bounce-loader";
-import { supabase } from "../client";
+import { supabase } from "client";
 import { useEffect } from "react";
 import { PostgrestResponse } from "@supabase/supabase-js";
 import { Link } from "react-router-dom";

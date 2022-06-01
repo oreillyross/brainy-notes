@@ -1,8 +1,6 @@
 import { Formik, Field, Form } from "formik";
-import { useMutation } from "@apollo/client";
-import * as queries from "queries/index";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../client";
+import { supabase } from "client";
 import * as Yup from "yup";
 import { useEffect, useLayoutEffect, useRef } from "react";
 
@@ -30,9 +28,6 @@ type FormValues = {
 function AddNoteForm() {
   const navigate = useNavigate();
 
-  const [addNote] = useMutation(queries.ADD_NOTE, {
-    refetchQueries: [queries.GET_NOTES, "notes"]
-  });
 
   return (
     <div className="max-w-md mx-auto border ">
@@ -44,9 +39,8 @@ function AddNoteForm() {
         initialValues={initialValues}
         validationSchema={NoteSchema}
         onSubmit={(values) => {
-          addNote({ variables: { ...values } }).then(() => {
             navigate("/notes");
-          });
+          
         }}
       >
         {(props) => {

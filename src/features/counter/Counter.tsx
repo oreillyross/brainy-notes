@@ -6,7 +6,6 @@ import { useFetchBreedsQuery } from "../../features/dogs/dogs-api-slice";
 export default function () {
   
   const [limit, setLimit] = useState(2)	
-  const count = useAppSelector((state) => state.counter.value);
   const dispatch = useAppDispatch();
 
   useFetchBreedsQuery();
@@ -47,7 +46,6 @@ export default function () {
         onClick={increment}
         className="hover:bg-slate-600 rounded border-x-2 p-4 bg-slate-800 text-slate-100"
       >
-        Count is {count}
       </button>
     </div>
   );

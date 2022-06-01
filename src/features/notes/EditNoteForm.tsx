@@ -1,4 +1,3 @@
-import { InlineEdit } from "../components/InlineEdit";
 import { useState } from "react";
 import { Formik } from "formik";
 

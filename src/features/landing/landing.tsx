@@ -1,4 +1,4 @@
-import { AddNoteButton } from "components/add-note-button";
+import { AddNoteButton } from "features/notes/add-note-button";
 
 const LandingPage = () => {
   return (
