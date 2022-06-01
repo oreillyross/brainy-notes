@@ -25,4 +25,4 @@ function Navigation() {
   );
 }
 
-export { Navigation };
+export default Navigation;
