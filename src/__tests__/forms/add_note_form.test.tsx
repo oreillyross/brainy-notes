@@ -11,5 +11,5 @@ test("submitting calls onSubmit with correct values", () => {
       </MockedProvider>
     </Router>
   );
-  container.queryByText(/title/)
+ 
 });
