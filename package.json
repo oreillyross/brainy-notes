@@ -9,6 +9,8 @@
     "@fortawesome/fontawesome-svg-core": "1.2.36",
     "@fortawesome/free-solid-svg-icons": "5.15.4",
     "@fortawesome/react-fontawesome": "0.1.15",
+    "@headlessui/react": "^1.6.4",
+    "@heroicons/react": "^1.0.6",
     "@reduxjs/toolkit": "^1.7.0-rc.0",
     "@supabase/supabase-js": "^1.35.3",
     "@tailwindcss/line-clamp": "^0.4.0",
