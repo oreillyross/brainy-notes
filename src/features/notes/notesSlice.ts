@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { notes } from "api/fakeNotes";
 
 
 type Note = {
@@ -9,15 +10,7 @@ type Note = {
     url: string,
 }
 
-const initialState: Note[] = [
-  {
-    id: "123",
-    created_at: new Date("2022-05-24 11:19:15.623043+00"),
-    title: "Some cool stuff about things",
-    description: "More information about cool things",
-    url: "http://blah.blah.com",
-  },
-];
+const initialState: Note[] = notes;
 
 
 
