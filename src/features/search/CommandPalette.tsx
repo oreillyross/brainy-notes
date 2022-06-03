@@ -71,7 +71,7 @@ export default function CommandPalette({ notes }: Props) {
               console.log(value)
               selectNote(value);
               setIsOpen(false);
-              navigate(`/notes/${selectedNote.id}`);
+              navigate(`/note/${selectedNote.id}`);
             }}
             value={selectedNote}
           >

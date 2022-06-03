@@ -1,8 +1,10 @@
 import { Formik, Field, Form } from "formik";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "client";
 import * as Yup from "yup";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
+import { noteAdded } from "features/notes/notesSlice";
+
 
 const initialValues: FormValues = {
   title: "",
@@ -27,7 +29,9 @@ type FormValues = {
 
 function AddNoteForm() {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
+ 
 
   return (
     <div className="max-w-md mx-auto border ">
@@ -37,9 +41,19 @@ function AddNoteForm() {
       </h2>
       <Formik
         initialValues={initialValues}
-        validationSchema={NoteSchema}
+        // validationSchema={NoteSchema}
         onSubmit={(values) => {
-            navigate("/notes");
+          const {title, description, url} = values;
+          if (title && description) {
+            dispatch(noteAdded({
+              id: nanoid(),
+              title,
+              description,
+              url
+            }))
+          }
+          
+          navigate("/notes");
           
         }}
       >
@@ -74,7 +88,7 @@ function AddNoteForm() {
                 rows="8"
                 placeholder="give a meaningful description"
               />
-              {props.errors.description && props.touched.description}
+             
               <label
                 className="px-2 font-bold text-slate-700 pt-2"
                 htmlFor="url"
@@ -92,6 +106,7 @@ function AddNoteForm() {
                 <button
                   className=" focus:text-black mt-4 rounded-md bg-orange-800 text-white p-2 w-48"
                   type="submit"
+                  
                 >
                   Submit
                 </button>
@@ -104,4 +119,4 @@ function AddNoteForm() {
   );
 }
 
-export { AddNoteForm };
+export default AddNoteForm;

@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 
 const createNote = () => {
   return {
-    id: faker.random.alphaNumeric(),
+    id: faker.datatype.uuid(),
     title: faker.lorem.lines(1),
     description: faker.lorem.text(),
     created_at: faker.date.past(1),
@@ -10,6 +10,6 @@ const createNote = () => {
   };
 };
 
-const notes = Array.from({ length: 10 }, createNote);
+const notes = Array.from({ length: 2 }, createNote);
 
 export { notes };
