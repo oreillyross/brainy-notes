@@ -1,15 +1,22 @@
 import { Combobox, Dialog, Transition } from "@headlessui/react";
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment, FormEventHandler } from "react";
 import { BookmarkIcon, SearchIcon } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
+import type { Note } from "types/note";
+import { validateYupSchema } from "formik";
 
-export default function CommandPalette({ notes }) {
-  const [isOpen, setIsOpen] = useState(true);
+type Props = {
+  notes: Note[];
+};
+
+export default function CommandPalette({ notes }: Props) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedNote, selectNote] = useState(notes[0]);
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    function onKeyDown(event) {
+    function onKeyDown(event: KeyboardEvent) {
       if (event.key === "%" && (event.metaKey || event.ctrlKey)) {
         setIsOpen(!isOpen);
       }
@@ -60,10 +67,13 @@ export default function CommandPalette({ notes }) {
           <Combobox
             as="div"
             className="overflow-hidden p-3 relative ring-1 ring-black/5 shadow-2xl rounded-xl max-w-xl mx-auto bg-white divide-y divide-gray-100"
-            onChange={(value) => {
+            onChange={(value: Note) => {
+              console.log(value)
+              selectNote(value);
               setIsOpen(false);
-              navigate(`/notes/${value.id}`);
+              navigate(`/notes/${selectedNote.id}`);
             }}
+            value={selectedNote}
           >
             <div className="flex items-center ">
               <SearchIcon className="h-6 w-6 text-gray-500 mx-2" />
@@ -71,7 +81,7 @@ export default function CommandPalette({ notes }) {
                 onChange={(event) => {
                   setQuery(event.target.value);
                 }}
-                className="w-full p-2 bg-transparent border-0 focus:outline-none focus:ring-0 text-sm text-xl text-gray-800"
+                className="w-full p-2 bg-transparent border-0 focus:outline-none focus:ring-0 text-sm text-gray-800"
                 placeholder="Search..."
               />
             </div>
