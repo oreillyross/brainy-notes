@@ -1,15 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { apiSlice } from "../features/dogs/dogs-api-slice";
 import notesReducer from "features/notes/notesSlice";
+import usersReducer from "features/users/usersSlice";
 
 export const store = configureStore({
   reducer: {
+    users: usersReducer,
     notes: notesReducer,
-    [apiSlice.reducerPath]: apiSlice.reducer
+    [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware().concat(apiSlice.middleware);
-  }
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
