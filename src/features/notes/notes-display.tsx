@@ -9,6 +9,9 @@ type TNote = {
   title: string;
 };
 
+
+
+
 const NotesDisplay = () => {
   const [notes, setNotes] = React.useState<TNote[]>([]);
   const [note, setNote] = React.useState({
@@ -62,15 +65,15 @@ const NotesDisplay = () => {
         </form>
         <div className="m-24">
           <div className="w-full max-w-3xl mx-auto my-16 px-2">
-            {notes.map((note) => {
+            {/* {notes.map((note) => {
               return (
                 <Link key={note.id} to={`/note/${note.id}`}>
                   <a className="p-8 h-40 rounded shadow text-xl flex">
                     {note.title}
                   </a>
                 </Link>
-              );
-            })}
+              ); */}
+            {/* })} */}
           </div>
         </div>
       </div>

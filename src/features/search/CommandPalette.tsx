@@ -3,7 +3,6 @@ import { useState, useEffect, Fragment, FormEventHandler } from "react";
 import { BookmarkIcon, SearchIcon } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
 import type { Note } from "types/note";
-import { validateYupSchema } from "formik";
 
 type Props = {
   notes: Note[];
@@ -68,7 +67,7 @@ export default function CommandPalette({ notes }: Props) {
             as="div"
             className="overflow-hidden p-3 relative ring-1 ring-black/5 shadow-2xl rounded-xl max-w-xl mx-auto bg-white divide-y divide-gray-100"
             onChange={(value: Note) => {
-              console.log(value)
+              console.log(value);
               selectNote(value);
               setIsOpen(false);
               navigate(`/note/${selectedNote.id}`);

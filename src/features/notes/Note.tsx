@@ -1,22 +1,17 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useAppSelector } from "app/hooks";
+import { selectNoteByID } from "features/notes/notesSlice";
 
 const Note = () => {
   const params = useParams();
-   
-  const paramID = params.id 
-  
-  const navigate = useNavigate()
 
-  const note = useAppSelector((state) => {
-    
-      
-    return state.notes.find((note) => note.id === paramID)
-  }
-  );
+  const paramID: string = params.id as string;
+
+  const navigate = useNavigate();
+
+  const note = useAppSelector((state) => selectNoteByID(state.notes, paramID));
 
   console.log(note);
-  
 
   if (note) {
     return (
@@ -24,11 +19,14 @@ const Note = () => {
         <h1>{note.title}</h1>
         <div className="w-full bg-orange-900">-</div>
         <p>{note.description}</p>
-        <button 
+        <button
           onClick={() => {
-            navigate(`/note/edit/${note.id}`)
+            navigate(`/note/edit/${note.id}`);
           }}
-        className="border border-green-700 ml-6 mt-3 p-2 rounded">Edit Note</button>
+          className="border border-green-700 ml-6 mt-3 p-2 rounded"
+        >
+          Edit Note
+        </button>
       </section>
     );
   } else {

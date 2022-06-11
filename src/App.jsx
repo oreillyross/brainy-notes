@@ -7,6 +7,7 @@ import { useAppSelector } from "app/hooks";
 import Note from "features/notes/Note";
 import AddNoteForm from "features/notes/add-note-form";
 import EditNoteForm from "features/notes/edit.note.form";
+import About from "features/components/About"
 
 export default function App() {
   
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/notes/new" element={<AddNoteForm />} />
           <Route path="/note/:id" element={<Note/>}/>
           <Route path="/note/edit/:id" element={<EditNoteForm />} />
+          <Route path="/about" element={<About/>}/>
         </Routes>
       </div>
     </>

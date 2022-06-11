@@ -5,6 +5,10 @@ import { store } from "app/store";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 
+if (process.env.NODE_ENV === 'development') {
+  require("./api/client")
+}
+
 const root = createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
