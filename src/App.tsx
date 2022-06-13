@@ -9,21 +9,19 @@ import AddNoteForm from "features/notes/add-note-form";
 import EditNoteForm from "features/notes/edit.note.form";
 
 export default function App() {
-  
-  const notes = useAppSelector(state => state.notes)
+  const notes = useAppSelector((state) => state.notes);
 
   return (
     <>
       <CommandPalette notes={notes} />
       <div className="container relative px-5 flex">
         <Link to="/">
-          <img className="p-6" alt="Brainy logo" src="/img/brainy_logo.svg" />
+          <img
+            className="p-4 h-32"
+            alt="Brainy logo"
+            src="/img/brainy_logo.jpg"
+          />
         </Link>
-        <div className="app__login">{/* <UserBar /> */}</div>
-
-        <h1 className="m-auto text-6xl font-bold text-amber-900">
-          Brainy Notes
-        </h1>
       </div>
       <Navigation />
       <div>
@@ -31,7 +29,7 @@ export default function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/notes" element={<NotesList />} />
           <Route path="/notes/new" element={<AddNoteForm />} />
-          <Route path="/note/:id" element={<Note/>}/>
+          <Route path="/note/:id" element={<Note />} />
           <Route path="/note/edit/:id" element={<EditNoteForm />} />
         </Routes>
       </div>
