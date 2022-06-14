@@ -2,36 +2,40 @@ import * as React from "react";
 
 function LandingPage() {
   return (
-    <section className="bg-gray-100 ">
-      <div className="grid lg:grid-cols-2">
-        <div className="lg:px-12 lg:py-24 px-8 pt-2 mt-6 text-2xl font-bold text-gray-900 sm:text-4xl sm:mt-8lg:text-3xl">
-          The easiest way to capture interesting{" "}
+    <>
+      <div className="m-2 bg-blue-500 h-auto square"></div>
+      <div className="m-2 bg-red-500 h-auto square"></div>
+      <section className="grid gap-4 grid-cols-3 grid-rows-12 ">
+        <img
+          alt="people working"
+          className="col-span-3 mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 
+                   lg:hidden"
+          src="img/people.svg"
+        />
+
+        <h1
+          className="mt-6 text-2xl font-bold text-gray-800 sm:mt-8 
+                     sm:text-4xl lg:text-3xl xl:text-4xl"
+        >
+          Easily capture <span className="text-indigo-500">learning notes</span>{" "}
           <br className="hidden lg:inline" />
-          <span className="text-indigo-500">learning notes </span> and then{" "}
-          <span className="text-indigo-500"> retrieve </span>
-          them
+          and <span className="text-indigo-500">retrieve</span> them anytime
+        </h1>
+        <p className="mt-2 text-2xl sm:mt-4 sm:text-xl">
+          Brainy notes helps you create learning notes with ease, without
+          disrupting you from your workflow, and just as easily retrieve them.
+        </p>
+
+        <div className="hidden relative lg:block 2xl:col-span-3">
+          <img alt="people working" className="" src="img/people.svg" />
         </div>
-        <div className="max-w-md mx-auto sm:max-w-xl">
-          <img
-            alt="people working"
-            className="lg:hidden mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-84 sm:w-full sm:object-cover object-center"
-            src="img/people.svg"
-          />
-          <div className="hidden relative lg:block">
-            <img
-              alt="people working"
-              className="absolute inset-0"
-              src="img/people.svg"
-            />
-          </div>
-        </div>
-      </div>
-      <div className="mx-24 mt-4 sm:mt-6">
+      </section>
+      <div className="mt-4 sm:mt-6">
         <button className="inline-block px-5 py-3 rounded-lg shadow-lg bg-indigo-500 text-white uppercase tracking-wider font-semibold text-sm">
           Get Started
         </button>
       </div>
-    </section>
+    </>
   );
 }
 

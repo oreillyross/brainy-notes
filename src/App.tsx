@@ -14,24 +14,28 @@ export default function App() {
   return (
     <>
       <CommandPalette notes={notes} />
-      <div className="container relative px-5 flex">
-        <Link to="/">
-          <img
-            className="p-4 h-32"
-            alt="Brainy logo"
-            src="/img/brainy_logo.jpg"
-          />
-        </Link>
-      </div>
-      <Navigation />
-      <div>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/notes" element={<NotesList />} />
-          <Route path="/notes/new" element={<AddNoteForm />} />
-          <Route path="/note/:id" element={<Note />} />
-          <Route path="/note/edit/:id" element={<EditNoteForm />} />
-        </Routes>
+      <div
+        className="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:px-12 
+          lg:py-24 lg:max-w-full xl:mr-0 2xl:col-span-2"
+      >
+        <div className="">
+          <Link to="/">
+            <img
+              className="h-20"
+              alt="Brainy logo"
+              src="/img/brainy_logo.jpg"
+            />
+          </Link>
+        </div>
+        <div>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/notes" element={<NotesList />} />
+            <Route path="/notes/new" element={<AddNoteForm />} />
+            <Route path="/note/:id" element={<Note />} />
+            <Route path="/note/edit/:id" element={<EditNoteForm />} />
+          </Routes>
+        </div>
       </div>
     </>
   );
