@@ -14,10 +14,7 @@ export default function App() {
   return (
     <>
       <CommandPalette notes={notes} />
-      <div
-        className="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:px-12 
-          lg:py-24 lg:max-w-full xl:mr-0 2xl:col-span-2"
-      >
+      <div className="">
         <div className="">
           <Link to="/">
             <img
