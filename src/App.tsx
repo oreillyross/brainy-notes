@@ -1,5 +1,5 @@
 import { Link, Routes, Route } from "react-router-dom";
-import Navigation from "features/navigation/navigation";
+// import Navigation from "features/navigation/navigation";
 import { LandingPage } from "features/landing/LandingPage";
 import NotesList from "features/notes/notesList";
 import CommandPalette from "features/search/CommandPalette";
