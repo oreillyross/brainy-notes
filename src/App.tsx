@@ -17,11 +17,7 @@ export default function App() {
       <div className="">
         <div className="">
           <Link to="/">
-            <img
-              className="h-20"
-              alt="Brainy logo"
-              src="/img/brainy_logo.jpg"
-            />
+            <img className="h-20" alt="Brainy logo" src="img/brainy_logo.jpg" />
           </Link>
         </div>
         <div>
