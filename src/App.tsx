@@ -20,7 +20,7 @@ export default function App() {
             <img
               className="h-20"
               alt="Brainy logo"
-              src="img/brainy_logo.jpg"
+              src="/img/brainy_logo.jpg"
             />
           </Link>
         </div>
