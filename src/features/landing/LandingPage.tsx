@@ -18,7 +18,7 @@ function LandingPage() {
             <img
               alt="people working"
               className="pt-6 md:h-72 2xl:h-96 object-fit"
-              src="img/brainy_logo.jpg"
+              src="img/people.svg"
             />
           </div>
           <div className="hidden 2xl:block 2xl:w-full">

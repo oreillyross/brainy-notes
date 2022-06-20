@@ -7,6 +7,7 @@ import { useAppSelector } from "app/hooks";
 import Note from "features/notes/Note";
 import AddNoteForm from "features/notes/add-note-form";
 import EditNoteForm from "features/notes/edit.note.form";
+import HamburgerMenu from "features/navigation/HamburgerMenu";
 
 export default function App() {
   const notes = useAppSelector((state) => state.notes);
@@ -15,10 +16,14 @@ export default function App() {
     <>
       <CommandPalette notes={notes} />
       <div className="">
-        <div className="">
-          <Link to="/">
-            <img className="h-20" alt="Brainy logo" src="img/brainy_logo.jpg" />
-          </Link>
+        <div className="flex ">
+          <div className="flex-auto">
+            <Link to="/">
+              <img className="" alt="Brainy logo" src="img/brainy_logo.jpg" />
+            </Link>
+          </div>
+
+          <HamburgerMenu />
         </div>
         <div>
           <Routes>
