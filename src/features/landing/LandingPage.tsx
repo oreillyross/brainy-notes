@@ -18,7 +18,7 @@ function LandingPage() {
             <img
               alt="people working"
               className="pt-6 md:h-72 2xl:h-96 object-fit"
-              src="img/people.svg"
+              src="img/notes.svg"
             />
           </div>
           <div className="hidden 2xl:block 2xl:w-full">
