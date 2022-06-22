@@ -35,6 +35,7 @@ export default function App() {
         </div>
         <div>
           <Routes>
+            
             <Route path="/" element={<LandingPage />} />
             <Route path="/notes" element={<NotesList />} />
             <Route path="/notes/new" element={<AddNoteForm />} />
