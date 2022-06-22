@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
