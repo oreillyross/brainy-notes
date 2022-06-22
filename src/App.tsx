@@ -7,7 +7,7 @@ import { useAppSelector } from "app/hooks";
 import Note from "features/notes/Note";
 import AddNoteForm from "features/notes/add-note-form";
 import EditNoteForm from "features/notes/edit.note.form";
-import About from "features/profile/About"
+import About from "features/profile/About";
 import HamburgerMenu from "features/navigation/HamburgerMenu";
 
 export default function App() {
@@ -20,7 +20,14 @@ export default function App() {
         <div className="flex ">
           <div className="flex-auto">
             <Link to="/">
-              <img className="" alt="Brainy logo" src="img/brainy_logo.jpg" />
+              <img
+                className="inline-block"
+                alt="Brainy logo"
+                src="img/brainy_logo.svg"
+              />
+              <div className="inline-block text-6xl py-12 px-8 text-red-700 font-bold">
+              Brainy Notes
+                </div>
             </Link>
           </div>
 
