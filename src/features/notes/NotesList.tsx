@@ -3,36 +3,45 @@ import { DocumentAddIcon } from "@heroicons/react/outline";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-
-
 const NotesList = () => {
-  
-  
   const notes = useAppSelector((state) => state.notes);
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
+
   //TODO useEffect to update notes state, then dispatch a action
-  useEffect(() => {
-    
-  })
+  useEffect(() => {});
 
-  
   return (
-    <main className="bg-red-100 p-4 m-6">
-      <h1 className="p-12">Notes, you have {notes.length} saved notes</h1>
-      <button onClick={() => navigate("/notes/new")} className="flex w-full justify-center items-center px-4 ml-4 border bg-slate-200 border-slate-800 rounded-full max-w-xs">
-        <DocumentAddIcon className="w-6 h-6" />{" "}
-        <span className="p-4">Add a note</span>
-      </button>
-      {notes.map((note) => (
-        <div className="border m-6 max-w-2xl p-2" key={note.id}>
-          <Link to={`/note/${note.id}`}>
-            <h1 className="text-red-600">{note.title}</h1>
-          </Link>
+    <main className="flow-root border p-4 m-6">
+      <section className="float-right">
+        <label className="block pb-2" htmlFor="view">
+          Change view
+        </label>
+        <select className="ml-4 text-center" name="view" id="view">
+          <option value="list">List</option>
+          <option value="grid">Grid</option>
+        </select>
+      </section>
 
-          <p>{note.description}</p>
-        </div>
-      ))}
+      <section className="border-t-2 mt-16 p-4 pl-16 text-1xl">
+        <table className="text-1xl w-full table-auto">
+          <thead className="text-2xl text-amber-900">
+            <tr>
+              <th>No.</th>
+              <th>Title</th>
+            </tr>
+          </thead>
+          <tbody>
+            {notes.map((note, index) => (
+              <tr className="hover:font-medium hover:bg-stone-100 border">
+                <td className="p-2">{index + 1}</td>
+                <td className="tracking-wider pl-10 ">
+                  <Link to={`/note/${note.id}`}>{note.title}</Link>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
     </main>
   );
 };
