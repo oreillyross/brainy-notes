@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "app/hooks";
 import { incremented, amountAdded } from "./counter-slice";
 import { useFetchBreedsQuery } from "../../features/dogs/dogs-api-slice";
 
 export default function () {
   
-  const [limit, setLimit] = useState(2)	
+	
   const dispatch = useAppDispatch();
 
   useFetchBreedsQuery();
@@ -19,11 +18,7 @@ export default function () {
   return (
     <div className="max-w-auto text-center">
       <div>Number of dogs fetched: {data.length}</div>
-      <select value={limit} onChange={(e) => setLimit(Number(e.target.value))}>
-	      <option>5</option>
-	      <option>10</option>
-	      <option>15</option>
-      </select>
+      
       <table>
         <thead>
           <tr>

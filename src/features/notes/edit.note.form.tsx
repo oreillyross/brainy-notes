@@ -2,7 +2,6 @@ import { Formik, Field, Form } from "formik";
 import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { noteUpdated } from "features/notes/notesSlice";
 import { useAppSelector } from "app/hooks";
 
 const initialValues: FormValues = {
@@ -48,14 +47,7 @@ function EditNoteForm() {
           onSubmit={(values) => {
             const { title, description, url } = values;
             if (title && description) {
-              dispatch(
-                noteUpdated({
-                  id: note.id,
-                  title,
-                  description,
-                  url,
-                })
-              );
+            
             }
 
             navigate("/notes");

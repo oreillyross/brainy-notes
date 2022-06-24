@@ -1,39 +1,35 @@
-import { createSlice } from "@reduxjs/toolkit";
-// import { notes } from "api/fakeNotes";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { notes } from "api/staticNotes";
 
 
 type Note = {
-    id: string,
-    created_at: Date,
-    title: string,
-    description: string,
-    url: string,
+  id: string;
+  created_at: Date;
+  title: string;
+  description: string;
+  url: string;
+};
+
+export interface NoteState {
+  notes: Note[];
 }
 
-const initialState: Note[] = notes;
 
-
+const initialState: NoteState = [];
 
 const notesSlice = createSlice({
   name: "notes",
   initialState,
   reducers: {
-    noteAdded(state, action) {
-      state.push(action.payload)
-    },
-    noteUpdated(state, action) {
-      const {id, title, description} = action.payload
-      const existingNote = state.find(note => note.id === id)
-      if (existingNote) {
-        existingNote.title = title;
-        existingNote.description = description
+      receivedNotes(state, action: PayloadAction<Note[]>) {
+        const notes = action.payload;
+        state.notes.push(notes)
+
       }
-    }
   },
+  extraReducers: (builder) => {},
 });
 
-
-export const {noteAdded, noteUpdated} = notesSlice.actions
+export const {receivedNotes} = notesSlice.actions;
 
 export default notesSlice.reducer;
