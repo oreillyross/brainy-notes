@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { notes } from "api/staticNotes";
+import { notes as fakeNotes } from "api/fakeNotes";
 
+console.log(fakeNotes);
 
 type Note = {
   id: string;
