@@ -1,16 +1,20 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { apiSlice } from "../features/dogs/dogs-api-slice";
 import notesReducer from "features/notes/notesSlice";
+import usersReducer from "features/users/usersSlice";
+import { api } from "api/apiSlice";
+import { setupListeners } from "@reduxjs/toolkit/query/react";
 
 export const store = configureStore({
   reducer: {
+    users: usersReducer,
     notes: notesReducer,
-    [apiSlice.reducerPath]: apiSlice.reducer
+    [api.reducerPath]: api.reducer,
   },
-  middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(apiSlice.middleware);
-  }
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
+
+setupListeners(store.dispatch);

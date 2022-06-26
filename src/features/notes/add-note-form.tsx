@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
-import { noteAdded } from "features/notes/notesSlice";
+
 
 
 const initialValues: FormValues = {
@@ -45,12 +45,7 @@ function AddNoteForm() {
         onSubmit={(values) => {
           const {title, description, url} = values;
           if (title && description) {
-            dispatch(noteAdded({
-              id: nanoid(),
-              title,
-              description,
-              url
-            }))
+          
           }
           
           navigate("/notes");

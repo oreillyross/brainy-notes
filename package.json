@@ -1,7 +1,7 @@
 {
   "name": "brainy-notes",
   "version": "0.1.0",
-  "description": "This is a demo of a note taking app built using Typescript, react, redux and tailwindcss that connects to supabase",
+  "description": "",
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
