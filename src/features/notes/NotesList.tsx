@@ -19,20 +19,12 @@ const NotesList = () => {
     setView(e.currentTarget.value);
   };
 
-  const doSearch = (searchTerm: string) => {
-    console.log(searchTerm, notes);
 
-    if (searchTerm === "") setFilteredNotes(notes);
-    const _filter = filteredNotes.filter((note) =>
-      note.title.includes(searchTerm)
-    );
-    setFilteredNotes(_filter);
-  };
 
   return (
     <main className="flow-root border p-4 m-6">
       <div className="float-left">
-        <SearchBar onSearch={doSearch} />
+        <SearchBar onSearch={() => {}} />
       </div>
       <section className="float-right">
         <label className="block pb-2" htmlFor="view">
@@ -49,8 +41,8 @@ const NotesList = () => {
         </select>
       </section>
 
-      {view === "list" && <NotesListView notes={filteredNotes} />}
-      {view === "grid" && <NotesGridView notes={filteredNotes} />}
+      {view === "list" && <NotesListView notes={[]} />}
+      {view === "grid" && <NotesGridView notes={[]} />}
     </main>
   );
 };

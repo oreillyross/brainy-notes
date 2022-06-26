@@ -7,7 +7,7 @@ describe("<Note/>", () => {
   it("Renders a generic note", () => {
     const { debug, getByRole } = render(
       <Router>
-        <Note note={notes[0]} />
+        <Note  />
       </Router>
     );
 
