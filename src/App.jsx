@@ -1,7 +1,6 @@
 import { Link, Routes, Route } from "react-router-dom";
 // import Navigation from "features/navigation/navigation";
 import { LandingPage } from "features/landing/LandingPage";
-import NotesList from "features/notes/NotesList";
 import CommandPalette from "features/search/CommandPalette";
 import { useAppSelector } from "app/hooks";
 import Note from "features/notes/Note";
@@ -9,6 +8,7 @@ import AddNoteForm from "features/notes/add-note-form";
 import EditNoteForm from "features/notes/edit.note.form";
 import About from "features/profile/About";
 import HamburgerMenu from "features/navigation/HamburgerMenu";
+import NotesList from "./features/notes/NotesList"
 
 export default function App() {
   const notes = useAppSelector((state) => state.notes);
@@ -34,14 +34,14 @@ export default function App() {
           <HamburgerMenu />
         </div>
         <div>
-          <Routes>
+        <NotesList/>
+          {/* <Routes>
             
             <Route path="/" element={<LandingPage />} />
-            <Route path="/notes" element={<NotesList />} />
             <Route path="/notes/new" element={<AddNoteForm />} />
             <Route path="/note/:id" element={<Note />} />
             <Route path="/note/edit/:id" element={<EditNoteForm />} />
-          </Routes>
+          </Routes> */}
         </div>
       </div>
     </>

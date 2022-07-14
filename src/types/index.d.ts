@@ -5,3 +5,5 @@ export type Note = {
   description?: string;
   url?: string;
 };
+
+export type TStatus = "idle" | "loading" | "succeeded" | "failed"  
