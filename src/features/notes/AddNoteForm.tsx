@@ -45,12 +45,14 @@ function AddNoteForm() {
       <Formik
         initialValues={initialValues}
         // validationSchema={NoteSchema}
-        onSubmit={(values) => {
-          const canSubmit = Object.values(values).every((v) => Boolean(v));
+        onSubmit={(values, {resetForm}) => {
+          const canSubmit = Object.values(values).some((v) => Boolean(v));
 
           const { title, description, url } = values;
           if (canSubmit) {
             mutation.mutate(values);
+            resetForm()
+
           }
 
           navigate("/notes");
