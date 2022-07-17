@@ -1,33 +1,21 @@
-import { useAppSelector, useAppDispatch } from "app/hooks";
 import { supabase } from "client";
-import { useEffect } from "react";
-import { selectAllNotes, fetchNotes, receivedNotes, Note } from "./notesSlice";
- 
+import { useQuery } from "react-query";
+
+const fetchNotes = async function () {
+  const response = await supabase.from("notes").select("*");
+  return response.data;
+};
+
 const NotesList = () => {
-  const notes = useAppSelector(selectAllNotes);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    supabase
-      .from("notes")
-      .select("id, title, description")
-      .then((response) => {
-        const data = response.data as Note[];
-        console.log(data);
-        
-        dispatch(receivedNotes(data));
-      });
-  }, []);
-
+  const { data: notes } = useQuery("notes", fetchNotes);
   return (
-    <>
-      <div>
-        <h1>My notes go here</h1>
-        {notes.map((note) => (
-          <p>{note.title}</p>
-        ))}
-      </div>
-    </>
+    <ul className="p-4 border m-4">
+      {notes?.map((note) => (
+        <li className="text-xl border p-4 m-2" key={note.id}>
+          {note.title}
+        </li>
+      ))}
+    </ul>
   );
 };
 

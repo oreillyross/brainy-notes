@@ -14,6 +14,9 @@ const user = null;
 
 root.render(
   <Provider store={store}>
-    {user ? <Router><App /></Router> : <UnAuthenticatedApp />}
+    <Router>
+
+    <App />
+    </Router>
   </Provider>
 );
