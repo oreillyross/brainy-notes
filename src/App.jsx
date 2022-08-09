@@ -10,6 +10,7 @@ import About from "features/profile/About";
 import HamburgerMenu from "features/navigation/HamburgerMenu";
 import NotesList from "./features/notes/NotesList";
 import { QueryClientProvider, QueryClient } from "react-query";
+import { AddNoteButton } from "features/notes/add-note-button";
 
 export default function App() {
   const notes = useAppSelector((state) => state.notes);
@@ -18,39 +19,33 @@ export default function App() {
   return (
     <>
       <CommandPalette notes={notes} />
-      <div className="">
-        <div className="flex ">
-          <div className="flex-auto">
-            <Link to="/">
-              <img
-                className="inline-block"
-                alt="Brainy logo"
-                src="img/brainy_logo.svg"
-              />
-              <div className="inline-block text-6xl py-12 px-8 text-red-700 font-bold">
-                Brainy Notes
-              </div>
-            </Link>
-          </div>
-
-          <HamburgerMenu />
+      <div className="flex justify-around">
+        <Link to="/">
+          <img className="" alt="Brainy logo" src="img/brainy_logo.svg" />
+        </Link>
+        <div className="text-6xl py-12 px-8 text-red-700 font-bold">
+          Brainy Notes
         </div>
-        <div>
-          <QueryClientProvider client={queryClient}>
-         
-            <Routes>
-              <Route path="/notes" element={<NotesList />} />
-              <Route path="/notes/:id" element={<Note />} />
-            </Routes>
-            {/* <Routes>
+
+        <AddNoteButton />
+
+        <HamburgerMenu />
+      </div>
+
+      <div>
+        <QueryClientProvider client={queryClient}>
+          <Routes>
+            <Route path="/notes" element={<NotesList />} />
+            <Route path="/notes/:id" element={<Note />} />
+            <Route path="/notes/new" element={<AddNoteForm />} />
+          </Routes>
+          {/* <Routes>
             
             <Route path="/" element={<LandingPage />} />
-            <Route path="/notes/new" element={<AddNoteForm />} />
             <Route path="/note/:id" element={<Note />} />
             <Route path="/note/edit/:id" element={<EditNoteForm />} />
           </Routes> */}
-          </QueryClientProvider>
-        </div>
+        </QueryClientProvider>
       </div>
     </>
   );
