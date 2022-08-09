@@ -31,10 +31,12 @@ async function addNote(values: FormValues) {
 
 function AddNoteForm() {
   const navigate = useNavigate();
-  const queryClient = useQueryClient()
-  const mutation = useMutation(addNote, {onSuccess: () => {
-    queryClient.invalidateQueries("notes")
-  }});
+  const queryClient = useQueryClient();
+  const mutation = useMutation(addNote, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("notes");
+    },
+  });
 
   return (
     <div className="max-w-md mx-auto border ">
@@ -45,14 +47,13 @@ function AddNoteForm() {
       <Formik
         initialValues={initialValues}
         // validationSchema={NoteSchema}
-        onSubmit={(values, {resetForm}) => {
+        onSubmit={(values, { resetForm }) => {
           const canSubmit = Object.values(values).some((v) => Boolean(v));
 
           const { title, description, url } = values;
           if (canSubmit) {
             mutation.mutate(values);
-            resetForm()
-
+            resetForm();
           }
 
           navigate("/notes");

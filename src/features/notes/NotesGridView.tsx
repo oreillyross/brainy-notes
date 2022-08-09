@@ -1,9 +1,9 @@
-import { Note } from "types/note";
+import { TNote } from "types/note";
 
 import NoteCard from "./NoteCard";
 
 interface Props {
-  notes: Note[];
+  notes: TNote[];
 }
 
 function NotesGridView(props: Props) {

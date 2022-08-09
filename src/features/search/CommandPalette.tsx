@@ -2,10 +2,10 @@ import { Combobox, Dialog, Transition } from "@headlessui/react";
 import { useState, useEffect, Fragment, FormEventHandler } from "react";
 import { BookmarkIcon, SearchIcon } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
-import type { Note } from "types/note";
+import type { TNote } from "types/note";
 
 type Props = {
-  notes: Note[];
+  notes: TNote[];
 };
 
 export default function CommandPalette({ notes }: Props) {
@@ -66,7 +66,7 @@ export default function CommandPalette({ notes }: Props) {
           <Combobox
             as="div"
             className="overflow-hidden p-3 relative ring-1 ring-black/5 shadow-2xl rounded-xl max-w-xl mx-auto bg-white divide-y divide-gray-100"
-            onChange={(value: Note) => {
+            onChange={(value: TNote) => {
               console.log(value);
               selectNote(value);
               setIsOpen(false);

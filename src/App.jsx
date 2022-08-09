@@ -37,9 +37,11 @@ export default function App() {
         </div>
         <div>
           <QueryClientProvider client={queryClient}>
-            <AddNoteForm/>
-            <NotesList />
-
+         
+            <Routes>
+              <Route path="/notes" element={<NotesList />} />
+              <Route path="/notes/:id" element={<Note />} />
+            </Routes>
             {/* <Routes>
             
             <Route path="/" element={<LandingPage />} />

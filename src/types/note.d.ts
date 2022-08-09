@@ -1,4 +1,4 @@
-export type Note = {
+export type TNote = {
   id: string;
   title: string;
   description: string;

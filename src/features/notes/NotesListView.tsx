@@ -1,8 +1,8 @@
-import type { Note } from "types/note";
+import type { TNote } from "types/note";
 import { Link } from "react-router-dom";
 
 interface Props {
-  notes: Note[];
+  notes: TNote[];
 }
 
 function NotesListView(props: Props) {
