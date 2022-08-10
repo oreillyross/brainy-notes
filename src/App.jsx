@@ -11,13 +11,14 @@ import HamburgerMenu from "features/navigation/HamburgerMenu";
 import NotesList from "./features/notes/NotesList";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { AddNoteButton } from "features/notes/add-note-button";
+import { StrictMode } from "react";
 
 export default function App() {
   const notes = useAppSelector((state) => state.notes);
   const queryClient = new QueryClient();
 
   return (
-    <>
+    <StrictMode>
       <CommandPalette notes={notes} />
       <div className="flex justify-around">
         <Link to="/">
@@ -47,6 +48,6 @@ export default function App() {
           </Routes> */}
         </QueryClientProvider>
       </div>
-    </>
+    </StrictMode>
   );
 }
