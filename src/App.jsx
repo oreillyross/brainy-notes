@@ -39,10 +39,10 @@ export default function App() {
             <Route path="/notes" element={<NotesList />} />
             <Route path="/notes/:id" element={<Note />} />
             <Route path="/notes/new" element={<AddNoteForm />} />
+            <Route path="/" element={<LandingPage />} />
           </Routes>
           {/* <Routes>
             
-            <Route path="/" element={<LandingPage />} />
             <Route path="/note/:id" element={<Note />} />
             <Route path="/note/edit/:id" element={<EditNoteForm />} />
           </Routes> */}
