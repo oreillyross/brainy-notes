@@ -1,3 +1,5 @@
+import { logout } from "../auth/utils";
+
 function HamburgerMenu() {
   return (
     <div className="relative flex justify-end">
@@ -47,11 +49,21 @@ function HamburgerMenu() {
           </li>
           <li>
             <a
-              href="#"
+              href="/login"
               className="text-white text-2xl font-semibold hover:underline"
             >
               Login
             </a>
+          </li>
+          <li>
+            <button
+              onClick={() => {
+                logout;
+              }}
+              className="text-white text-2xl font-semibold hover:underline"
+            >
+              Logout
+            </button>
           </li>
         </ul>
       </div>

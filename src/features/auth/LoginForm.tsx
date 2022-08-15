@@ -1,6 +1,7 @@
 import React from "react";
 import "./LoginForm.css";
 import { Formik, Form, ErrorMessage, Field } from "formik";
+import { supabase } from "client";
 
 function LoginForm() {
   const [email, setEmail] = React.useState("");
@@ -14,13 +15,13 @@ function LoginForm() {
     rememberMe: boolean;
   };
 
-  const handleSubmit = (values: FormValues) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(values);
-        alert(JSON.stringify(values));
-      }, 1000);
-    });
+  const handleSubmit = async (values: FormValues) => {
+    const { email, password } = values;
+    const { user, error } = await supabase.auth.signIn({ email, password });
+    if (error) {
+      alert(error.message);
+    }
+    alert(user?.id);
   };
 
   const handleValidation = (values: FormValues) => {

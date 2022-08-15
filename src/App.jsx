@@ -12,6 +12,7 @@ import NotesList from "./features/notes/NotesList";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { AddNoteButton } from "features/notes/add-note-button";
 import { StrictMode } from "react";
+import { LoginForm } from "features/auth/LoginForm";
 
 export default function App() {
   const notes = useAppSelector((state) => state.notes);
@@ -40,6 +41,7 @@ export default function App() {
             <Route path="/notes/:id" element={<Note />} />
             <Route path="/notes/new" element={<AddNoteForm />} />
             <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<LoginForm />} />{" "}
           </Routes>
           {/* <Routes>
             
