@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { logout } from "../auth/utils";
 
 function HamburgerMenu() {
+  const navigate = useNavigate()
   return (
     <div className="relative flex justify-end">
       <input type="checkbox" id="hamburger-check" className="peer hidden" />
@@ -21,7 +23,7 @@ function HamburgerMenu() {
         <div className="bg-slate-900 h-2 w-12 mt-2"></div>
         <div className="bg-slate-900 h-2 w-12 mt-2"></div>
       </label>
-      <div className="hidden peer-checked:block rounded absolute w-36 h-48 p-4 bg-slate-800  top-10 right-24">
+      <div className="hidden peer-checked:block rounded absolute w-36 h-68 p-4 bg-slate-800  top-10 right-24">
         <ul>
           <li>
             <a
@@ -63,6 +65,16 @@ function HamburgerMenu() {
               className="text-white text-2xl font-semibold hover:underline"
             >
               Logout
+            </button>
+          </li>{" "}
+          <li>
+            <button
+              onClick={() => {
+                 navigate("/signup")  
+              }}
+              className="text-white text-2xl font-semibold hover:underline"
+            >
+              Signup
             </button>
           </li>
         </ul>

@@ -1,5 +1,4 @@
 import { Link, Routes, Route } from "react-router-dom";
-// import Navigation from "features/navigation/navigation";
 import { LandingPage } from "features/landing/LandingPage";
 import CommandPalette from "features/search/CommandPalette";
 import { useAppSelector } from "app/hooks";
@@ -13,6 +12,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { AddNoteButton } from "features/notes/add-note-button";
 import { StrictMode } from "react";
 import { LoginForm } from "features/auth/LoginForm";
+import { SignupForm } from "features/auth/SignupForm";
 
 export default function App() {
   const notes = useAppSelector((state) => state.notes);
@@ -25,7 +25,7 @@ export default function App() {
         <Link to="/">
           <img className="" alt="Brainy logo" src="img/brainy_logo.svg" />
         </Link>
-        <div className="text-6xl py-12 px-8 text-red-700 font-bold">
+        <div className="text-6xl py-12 px-8 text-green-700 font-bold">
           Brainy Notes
         </div>
 
@@ -33,7 +33,7 @@ export default function App() {
 
         <HamburgerMenu />
       </div>
-
+      <div>Easily create notes</div>
       <div>
         <QueryClientProvider client={queryClient}>
           <Routes>
@@ -42,6 +42,7 @@ export default function App() {
             <Route path="/notes/new" element={<AddNoteForm />} />
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginForm />} />{" "}
+            <Route path="/signup" element={<SignupForm />} />{" "}
           </Routes>
           {/* <Routes>
             
