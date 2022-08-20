@@ -2,12 +2,13 @@ import React from "react";
 import "./LoginForm.css";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { supabase } from "client";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [rememberMe, setRememberMe] = React.useState(false);
-
+  const navigate = useNavigate();
   const initialValues = { email: "", password: "", rememberMe: false };
   type FormValues = {
     email: string;
@@ -21,7 +22,7 @@ function LoginForm() {
     if (error) {
       alert(error.message);
     }
-    alert(user?.id);
+    navigate("/notes")
   };
 
   const handleValidation = (values: FormValues) => {

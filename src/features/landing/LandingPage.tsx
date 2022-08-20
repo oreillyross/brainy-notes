@@ -1,9 +1,13 @@
 import Splash from "../splash/Splash";
-
+import SignButton from "features/auth/SignButton";
 function LandingPage() {
   return (
     <>
       <section className="px-8 pt-6">
+        {/* Create a component with state logic
+        can either be showing a sign in button and a sign up button or 
+        a sign out button  */}
+        <SignButton isSignedIn={false}/>
         <h1 className="text-2xl 2xl:text-6xl md:text-center">
           Easily capture <span className="text-indigo-500">learning notes</span>{" "}
           <br className="hidden lg:inline 2xl:hidden" />

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../auth/utils";
 
 function HamburgerMenu() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <div className="relative flex justify-end">
       <input type="checkbox" id="hamburger-check" className="peer hidden" />
@@ -60,7 +60,7 @@ function HamburgerMenu() {
           <li>
             <button
               onClick={() => {
-                logout;
+                logout();
               }}
               className="text-white text-2xl font-semibold hover:underline"
             >
@@ -70,7 +70,7 @@ function HamburgerMenu() {
           <li>
             <button
               onClick={() => {
-                 navigate("/signup")  
+                navigate("/signup");
               }}
               className="text-white text-2xl font-semibold hover:underline"
             >
