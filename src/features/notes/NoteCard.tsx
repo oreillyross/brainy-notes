@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import NoteControlPanel from "./NoteControlPanel";
 import { deleteANote } from "api/notesApi";
 import { useNavigate } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 
 interface TProps {
   note: TNote;
@@ -26,7 +27,8 @@ const NoteCard = ({ note }: TProps) => {
       <Link to={`/notes/${note.id}`}>
         <span className="block p-2 text-2xl bg-slate-100 ">{title}</span>
       </Link>
-      <p className="p-4 "> {description.slice(1, 150)}... </p>
+      <ReactMarkdown className="prose lg:prose-xl" children={description} />
+
       <NoteControlPanel handleClick={deleteNote} />
     </div>
   );
