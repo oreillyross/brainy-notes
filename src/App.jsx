@@ -13,11 +13,11 @@ import { LoginForm } from "features/auth/LoginForm";
 import { SignupForm } from "features/auth/SignupForm";
 import { supabase } from "client";
 import { createContext } from "react";
+import User from "features/auth/User";
 
 export const UserContext = createContext(null);
 
 export default function App() {
-
   const notes = useAppSelector((state) => state.notes);
   const queryClient = new QueryClient();
   const [user, setUser] = useState(null);
@@ -41,7 +41,13 @@ export default function App() {
           {user ? <AddNoteButton /> : null}
           <HamburgerMenu />
         </div>
-        <div>{user ? <p>Logged in user is: {user.id} </p> : <p>no user logged in</p>}</div>
+        <div>
+          {user ? (
+            <p>Logged in user is: {user.id} </p>
+          ) : (
+            <p>no user logged in</p>
+          )}
+        </div>
 
         <div>
           <QueryClientProvider client={queryClient}>
@@ -52,6 +58,7 @@ export default function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="/login" element={<LoginForm />} />{" "}
               <Route path="/signup" element={<SignupForm />} />{" "}
+              <Route path="/user" element={<User />} />
             </Routes>
           </QueryClientProvider>
         </div>

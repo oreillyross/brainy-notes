@@ -1,5 +1,4 @@
 import React from "react";
-import "./LoginForm.css";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { supabase } from "client";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +21,7 @@ function LoginForm() {
     if (error) {
       alert(error.message);
     }
-    navigate("/notes")
+    navigate("/notes");
   };
 
   const handleValidation = (values: FormValues) => {
@@ -32,18 +31,23 @@ function LoginForm() {
   };
 
   return (
-    <>
-      <h2>Login</h2>
+    <div className=" max-w-2xl container mx-auto mt-10 border-slate-300 rounded text-xl border-2 p-6">
+      <h2 className="text-3xl  p-5">Login</h2>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
         validate={handleValidation}
       >
         {(props) => (
-          <Form className="loginform">
-            <label htmlFor="email">Email</label>
+          <Form className="px-12 py-10">
+            <label
+              htmlFor="email"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              Email
+            </label>
             <Field
-              className="loginform__input"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               type="email"
               name="email"
               id="email"
@@ -52,9 +56,14 @@ function LoginForm() {
             <ErrorMessage name="email">
               {() => <div>Email is a required field</div>}
             </ErrorMessage>
-            <label htmlFor="email">Password</label>
+            <label
+              htmlFor="email"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              Password
+            </label>
             <Field
-              className="loginform__input"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               name="password"
               id="password"
               type="password"
@@ -63,24 +72,26 @@ function LoginForm() {
             <ErrorMessage name="password">
               {() => <div>Password field is required</div>}
             </ErrorMessage>
-            <label htmlFor="email">Remember me</label>
+            <label htmlFor="email" className="p-3">
+              Remember me
+            </label>
             <Field
               type="checkbox"
               id="rememberMe"
               name="rememberMe"
-              className="loginform__input"
+              className="inline-block bg-red-200"
             />
             <button
               disabled={props.isSubmitting}
               type="submit"
-              className="loginform__submit"
-            >
+              className="block bg-green-600 text-slate-50 p-3 rounded font-bold m-2 w-64"
+           >
               Submit
             </button>
           </Form>
         )}
       </Formik>
-    </>
+    </div>
   );
 }
 
