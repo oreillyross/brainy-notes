@@ -36,6 +36,11 @@ function Navigation() {
               </button>
             )}
           </Tab>
+          <Tab>
+            <Link to="/notes/new">
+            <button>Add a note</button>
+            </Link>
+          </Tab>
         </Tab.List>
       </Tab.Group>
     </div>
