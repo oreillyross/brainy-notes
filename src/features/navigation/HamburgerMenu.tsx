@@ -1,85 +1,32 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../auth/utils";
+import { Menu } from "@headlessui/react";
 
 function HamburgerMenu() {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <div className="relative flex justify-end">
-      <input type="checkbox" id="hamburger-check" className="peer hidden" />
+    <>
+      <Menu>
+        <Menu.Button>Open/close</Menu.Button>
+        <Menu.Items>
+          {({ open }) => (
+            <Menu.Item>
+              {({ active }) => 
+                active ? (
+                      <a className="text-red-200">Hello</a>     
+                ) : (
 
-      <label
-        className="hidden peer-checked:block p-8 translate-y-2"
-        htmlFor="hamburger-check"
-      >
-        <div className="bg-slate-900 h-2 w-12 mt-2 rotate-45"></div>
-        <div className="bg-slate-900 h-2 w-12 mt-2 -rotate-45 -translate-y-[14px] "></div>
-      </label>
-
-      <label
-        className="block peer-checked:hidden p-8"
-        htmlFor="hamburger-check"
-      >
-        <div className="bg-slate-900 h-2 w-12 mt-2"></div>
-        <div className="bg-slate-900 h-2 w-12 mt-2"></div>
-        <div className="bg-slate-900 h-2 w-12 mt-2"></div>
-      </label>
-      <div className="hidden peer-checked:block rounded absolute w-36 h-68 p-4 bg-slate-800  top-10 right-24">
-        <ul>
-          <li>
-            <a
-              href="/notes"
-              className="text-white text-2xl font-semibold hover:underline"
-            >
-              Notes
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="text-white text-2xl font-semibold hover:underline"
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="text-white text-2xl font-semibold hover:underline"
-            >
-              Settings
-            </a>
-          </li>
-          <li>
-            <a
-              href="/login"
-              className="text-white text-2xl font-semibold hover:underline"
-            >
-              Login
-            </a>
-          </li>
-          <li>
-            <button
-              onClick={() => {
-                logout();
-              }}
-              className="text-white text-2xl font-semibold hover:underline"
-            >
-              Logout
-            </button>
-          </li>{" "}
-          <li>
-            <button
-              onClick={() => {
-                navigate("/signup");
-              }}
-              className="text-white text-2xl font-semibold hover:underline"
-            >
-              Signup
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
+                      <a className="text-blue-200">Hello</a>     
+                )
+              }
+            </Menu.Item>
+          )}
+        </Menu.Items>
+      </Menu>
+    </>
   );
 }
 

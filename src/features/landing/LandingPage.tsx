@@ -7,7 +7,6 @@ function LandingPage() {
         {/* Create a component with state logic
         can either be showing a sign in button and a sign up button or 
         a sign out button  */}
-        <SignButton isSignedIn={false}/>
         <h1 className="text-2xl 2xl:text-6xl md:text-center">
           Easily capture <span className="text-indigo-500">learning notes</span>{" "}
           <br className="hidden lg:inline 2xl:hidden" />
