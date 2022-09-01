@@ -60,7 +60,7 @@ function AddNoteForm() {
           if (canSubmit && user) {
             const formData = { ...values, created_by: user?.user?.id};
             console.log(formData)
-            mutation.mutate(values);
+            mutation.mutate(formData);
             resetForm();
           }
 
