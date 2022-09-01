@@ -1,15 +1,13 @@
 import * as React from "react";
 import { useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import * as queries from "queries/index";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import { supabase } from "../client";
+import { supabase } from "client";
 
 const NoteDisplay = () => {
   const { id } = useParams();
   const [note, setNote] = React.useState({});
-  // console.log(supabase.auth.user())
+
   React.useEffect(() => {
     const fetchNote = async () => {
       const { data } = await supabase

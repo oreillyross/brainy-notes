@@ -4,7 +4,6 @@ import CommandPalette from "features/search/CommandPalette";
 import { StrictMode, useState } from "react";
 import { supabase } from "client";
 import { UserContext } from "features/auth/utils";
-import Navigation from "features/navigation/navigation";
 import AuthenticatedApp from "AuthenticatedApp";
 import UnauthenticatedApp from "UnAuthenticatedApp";
 
@@ -30,7 +29,6 @@ export default function App() {
           </div>
         </div>
         <div>
-          <Navigation />
         </div>
         {user ? (
           <AuthenticatedApp />

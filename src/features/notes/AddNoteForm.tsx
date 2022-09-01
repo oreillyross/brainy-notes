@@ -44,7 +44,6 @@ function AddNoteForm() {
   });
 
   const user = useContext<any>(UserContext);
-  console.table(user?.user?.id)
   return (
     <div className="max-w-md mx-auto border ">
       <h2 className="text-center bg-slate-100 text-slate-800 font-bold py-2 rounded border">
@@ -59,7 +58,6 @@ function AddNoteForm() {
             
           if (canSubmit && user) {
             const formData = { ...values, created_by: user?.user?.id};
-            console.log(formData)
             mutation.mutate(formData);
             resetForm();
           }

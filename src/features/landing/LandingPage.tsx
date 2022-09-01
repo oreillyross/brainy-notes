@@ -3,10 +3,7 @@ import SignButton from "features/auth/SignButton";
 function LandingPage() {
   return (
     <>
-      <section className="px-8 pt-6">
-        {/* Create a component with state logic
-        can either be showing a sign in button and a sign up button or 
-        a sign out button  */}
+      <section className="px-8 pt-6 ">
         <h1 className="text-2xl 2xl:text-6xl md:text-center">
           Easily capture <span className="text-indigo-500">learning notes</span>{" "}
           <br className="hidden lg:inline 2xl:hidden" />
@@ -16,6 +13,11 @@ function LandingPage() {
           Brainy notes helps you create learning notes with ease, without
           disrupting you from your workflow, and just as easily retrieve them.
         </h3>
+        <div className="flex justify-center">
+          <button className="rounded p-6 text-3xl m-4 text-center bg-green-700 text-white ">
+            Login or Sign up
+          </button>
+        </div>
         <div className="2xl:pl-48 2xl:pt-24 md:flex 2xl:text-center 2xl:align-center">
           <div className="2xl:w-2/3 ">
             <img
