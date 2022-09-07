@@ -6,6 +6,7 @@ import { supabase } from "client";
 import { UserContext } from "features/auth/utils";
 import AuthenticatedApp from "AuthenticatedApp";
 import UnauthenticatedApp from "UnAuthenticatedApp";
+import HamburgerMenu from "features/navigation/HamburgerMenu";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -27,9 +28,11 @@ export default function App() {
           <div className="text-6xl py-12 px-8 text-green-700 font-bold">
             Brainy Notes
           </div>
+          <div className="bg-red-200 ml-auto mx-4">
+            <HamburgerMenu />
+          </div>
         </div>
-        <div>
-        </div>
+        <div></div>
         {user ? (
           <AuthenticatedApp />
         ) : (
