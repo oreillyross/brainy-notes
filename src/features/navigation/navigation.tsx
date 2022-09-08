@@ -12,7 +12,7 @@ function Navigation() {
         <Tab.List>
           <Tab>
             {user && (
-              <button
+              <div
                 onClick={() =>
                   logout().then(() => {
                     navigate("/");
@@ -21,24 +21,24 @@ function Navigation() {
                 }
               >
                 Log out
-              </button>
+              </div>
             )}
           </Tab>
           <Tab>
             {!user && (
-              <button
+              <div
                 onClick={() => {
                   navigate("/login");
                   window.location.reload();
                 }}
               >
                 Log in / Signup
-              </button>
+              </div>
             )}
           </Tab>
           <Tab>
             <Link to="/notes/new">
-            <button>Add a note</button>
+            <div>Add a note</div>
             </Link>
           </Tab>
         </Tab.List>

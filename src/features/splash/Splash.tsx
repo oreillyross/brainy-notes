@@ -17,7 +17,7 @@ function Splash() {
         ]
       ].map(([title, text]) => {
         return (
-          <div className="shadow-lg p-8 ml-8">
+          <div key={title} className="shadow-lg p-8 ml-8">
             <div>
               <h1 className="text-left uppercase font-bold"> {title}</h1>
               <div className="pt-4 w-96 text-left">{text}</div>

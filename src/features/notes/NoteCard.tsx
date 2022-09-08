@@ -29,7 +29,7 @@ const NoteCard = ({ note }: TProps) => {
       </Link>
       <ReactMarkdown className="prose lg:prose-xl" children={description} />
 
-      <NoteControlPanel handleClick={deleteNote} />
+      <NoteControlPanel handleDelete={deleteNote} handleEdit={() => {}} />
     </div>
   );
 };

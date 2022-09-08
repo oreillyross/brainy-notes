@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
 import { UserContext } from "./utils";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { logout } from "./utils";
 
 interface Props {

@@ -9,7 +9,12 @@ import UnauthenticatedApp from "UnAuthenticatedApp";
 import HamburgerMenu from "features/navigation/HamburgerMenu";
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  // TESTING hardcode a user
+  const testUser = {
+    id: "cac5304c-0695-446d-b24a-761e0a6c0b2f"
+  }
+  const [user, setUser] = useState(testUser);
+  // const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const handleLogin = async (email, password) => {
     supabase.auth.signIn({ email, password }).then((user) => {
@@ -28,9 +33,7 @@ export default function App() {
           <div className="text-6xl py-12 px-8 text-green-700 font-bold">
             Brainy Notes
           </div>
-          <div className="bg-red-200 ml-auto mx-4">
             <HamburgerMenu />
-          </div>
         </div>
         <div></div>
         {user ? (
@@ -39,10 +42,6 @@ export default function App() {
           <UnauthenticatedApp login={handleLogin} />
         )}
       </UserContext.Provider>
-      <div className="border-2 border-solid p-12 pt-0">
-        DEBUG SECTION
-        <div>{JSON.stringify(user)}</div>
-      </div>
     </StrictMode>
   );
 }

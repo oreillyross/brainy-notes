@@ -1,5 +1,6 @@
 import Splash from "../splash/Splash";
-import SignButton from "features/auth/SignButton";
+import { Link } from "react-router-dom";
+
 function LandingPage() {
   return (
     <>
@@ -15,7 +16,7 @@ function LandingPage() {
         </h3>
         <div className="flex justify-center">
           <button className="rounded p-6 text-3xl m-4 text-center bg-green-700 text-white ">
-            Login or Sign up
+            <Link to="/login"> Login or Sign up</Link>
           </button>
         </div>
         <div className="2xl:pl-48 2xl:pt-24 md:flex 2xl:text-center 2xl:align-center">

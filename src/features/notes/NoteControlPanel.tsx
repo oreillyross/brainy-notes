@@ -1,8 +1,9 @@
 type TProps = {
-	handleClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+	handleDelete: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+	handleEdit: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
       };
 
-const NoteControlPanel = ({ handleClick }: TProps) => {
+const NoteControlPanel = ({ handleDelete, handleEdit }: TProps) => {
   return (
     <div className="flex justify-around space-x-4">
       <div>
@@ -11,44 +12,45 @@ const NoteControlPanel = ({ handleClick }: TProps) => {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          stroke-width="3"
+          strokeWidth="3"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
       </div>
-      <div>
+      {/* Edit icon */}
+      <div onClick={handleEdit} className="hover:cursor-pointer bg-green-500">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-10 w-10"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          stroke-width="2"
+          strokeWidth="2"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
           />
         </svg>
       </div>
       {/* Delete icon */}
-      <div onClick={handleClick} className="hover:cursor-pointer bg-green-500">
+      <div onClick={handleDelete} className="hover:cursor-pointer bg-green-500">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-10 w-10"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          stroke-width="2"
+          strokeWidth="2"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M6 18L18 6M6 6l12 12"
           />
         </svg>

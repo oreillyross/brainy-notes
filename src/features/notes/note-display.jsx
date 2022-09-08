@@ -1,30 +1,43 @@
 import * as React from "react";
-import { useParams } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
+import {  useParams  } from "react-router-dom";
 import { supabase } from "client";
+import { useContext, useState  } from "react";
+import { UserContext } from "features/auth/utils";
+import { useQuery } from "react-query";
+import EditNoteForm from "./EditNoteForm";
 
 const NoteDisplay = () => {
   const { id } = useParams();
-  const [note, setNote] = React.useState({});
+  const fetchNote = async () => {
+    const { data } = await supabase
+      .from("notes")
+      .select("*")
+      .eq("id", id)
+      .single();
+    return data;
+  };
 
-  React.useEffect(() => {
-    const fetchNote = async () => {
-      const { data } = await supabase
-        .from("notes")
-        .select("*")
-        .eq("id", id)
-        .single();
-      setNote(data);
-    };
-    fetchNote();
-  });
+  const user = useContext(UserContext);
+  const { data, error, isLoading } = useQuery("note", fetchNote);
+  const [editing, setEditing] = useState(false)
 
-  return (
-    <div>
-      <h2 className="text-center p-2 text-gray-900 text-2xl">{note.title}</h2>
-      <p>{note.description}</p>
-    </div>
-  );
+  if (error) {
+    return <div>Ooopsie.... </div>;
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (data && editing) {
+    return (
+      <EditNoteForm note={data}/>
+    )
+  }
+  if (data) {
+    return <div>{editing ? <p>Now in edit mmode</p> : <p>Not edit</p>}<button onClick={() => setEditing(true)}>Edit</button><h2>{data.title}</h2></div>;
+  }
+
+  return null;
 };
 export { NoteDisplay };
