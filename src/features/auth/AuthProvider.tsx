@@ -6,10 +6,14 @@ interface Props {
   children: JSX.Element;
 }
 
-export const AuthContext = createContext(null);
+type TUser = {
+  id: string
+}
+
+export const AuthContext = createContext<TUser>({id: ""});
 
 export const AuthProvider = ({ children }: Props) => {
-  const [currentuser, setUser] = useState(null);
+  const [currentuser, setUser] = useState({id: ""});
 
   return <AuthContext.Provider value={currentuser}>{children}</AuthContext.Provider>;
 };

@@ -3,7 +3,7 @@ import { LoginForm } from "features/auth/LoginForm";
 import { Routes, Route } from "react-router-dom";
 
 interface Props {
-  login: () => void;
+  login: (email: string, password: string) => void;
 }
 
 export default function UnauthenticatedApp({ login }: Props) {

@@ -4,11 +4,14 @@ import type { TNote } from "types/note";
 import NoteControlPanel from "./NoteControlPanel";
 import { fetchNotes, deleteANote } from "api/notesApi";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "features/auth/utils";
 
 
 const NoteLine = ({ note }: { note: TNote }) => {
   
-  
+
+
   const navigate = useNavigate()
 
   const deleteNote = () => {

@@ -1,28 +1,18 @@
+
 type TProps = {
-	handleDelete: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-	handleEdit: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-      };
+  handleDelete: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  handleEdit: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+};
 
 const NoteControlPanel = ({ handleDelete, handleEdit }: TProps) => {
   return (
     <div className="flex justify-around space-x-4">
-      <div>
-        <svg
-          className="h-10 w-10 text-blue-800"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth="3"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-      </div>
       {/* Edit icon */}
-      <div onClick={handleEdit} className="hover:cursor-pointer bg-green-500">
+      <div
+        onClick={handleEdit}
+        className={`
+      hover:cursor-pointer ${false ? 'bg-green-500' : 'bg-red-500'}`}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-10 w-10"
