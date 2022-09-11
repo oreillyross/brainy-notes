@@ -1,7 +1,9 @@
 import { supabase } from "client";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function EditNoteForm({ note }) {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     title: note.title || "",
     description: note.description || "",
@@ -20,6 +22,7 @@ export default function EditNoteForm({ note }) {
     }
     if (data) {
       console.log("updated record");
+      navigate("/notes");
     }
   };
 

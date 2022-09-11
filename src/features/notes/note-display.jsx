@@ -1,7 +1,7 @@
 import * as React from "react";
-import {  useParams  } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { supabase } from "client";
-import { useContext, useState  } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "features/auth/utils";
 import { useQuery } from "react-query";
 import EditNoteForm from "./EditNoteForm";
@@ -19,7 +19,7 @@ const NoteDisplay = () => {
 
   const user = useContext(UserContext);
   const { data, error, isLoading } = useQuery("note", fetchNote);
-  const [editing, setEditing] = useState(false)
+  const [editing, setEditing] = useState(false);
 
   if (error) {
     return <div>Ooopsie.... </div>;
@@ -30,12 +30,16 @@ const NoteDisplay = () => {
   }
 
   if (data && editing) {
-    return (
-      <EditNoteForm note={data}/>
-    )
+    return <EditNoteForm note={data} />;
   }
   if (data) {
-    return <div>{editing ? <p>Now in edit mmode</p> : <p>Not edit</p>}<button onClick={() => setEditing(true)}>Edit</button><h2>{data.title}</h2></div>;
+    return (
+      <div>
+        {editing ? <p>Now in edit mode</p> : <p>Not edit</p>}
+        <button onClick={() => setEditing(true)}>Edit</button>
+        <h2>{data.title}</h2>
+      </div>
+    );
   }
 
   return null;
