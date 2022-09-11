@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { LandingPage } from "features/landing/LandingPage";
 import CommandPalette from "features/search/CommandPalette";
-import { StrictMode, useState } from "react";
+import { StrictMode, useEffect, useState } from "react";
 import { supabase } from "client";
 import { UserContext } from "features/auth/utils";
 import AuthenticatedApp from "AuthenticatedApp";
@@ -11,18 +11,22 @@ import HamburgerMenu from "features/navigation/HamburgerMenu";
 export default function App() {
   // TESTING hardcode a user
   const testUser = {
-    id: "cac5304c-0695-446d-b24a-761e0a6c0b2f"
-  }
+    id: "cac5304c-0695-446d-b24a-761e0a6c0b2f",
+  };
   const [user, setUser] = useState(testUser);
   // const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const handleLogin = async (email, password) => {
     supabase.auth.signIn({ email, password }).then((user) => {
       setUser(user);
-      navigate("/notes");
     });
   };
 
+  useEffect(() => {
+    if (user) {
+      navigate("/notes");
+    }
+  }, []);
   return (
     <StrictMode>
       <UserContext.Provider value={user}>
@@ -33,7 +37,7 @@ export default function App() {
           <div className="text-6xl py-12 px-8 text-green-700 font-bold">
             Brainy Notes
           </div>
-            <HamburgerMenu />
+          <HamburgerMenu />
         </div>
         <div></div>
         {user ? (
