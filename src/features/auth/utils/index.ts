@@ -1,9 +1,11 @@
 import { supabase } from "client";
 import { createContext } from "react";
 
+type TUser = {
+  id: string
+}
 
-
-export const UserContext = createContext({id: ""});
+export const UserContext = createContext<TUser | null>({id: ""});
 
 export async function logout() {
   const { error } = await supabase.auth.signOut();

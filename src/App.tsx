@@ -15,12 +15,12 @@ export default function App() {
   const testUser = {
     id: "cac5304c-0695-446d-b24a-761e0a6c0b2f",
   };
-  const [user, setUser] = useState<TUser>(testUser);
-  // const [user, setUser] = useState(null);
+  const [user, setUser] = useState<TUser | null>(null);
   const navigate = useNavigate();
+
   const handleLogin = async (email: any, password: any) => {
     supabase.auth.signIn({ email, password }).then(({ user }) => {
-      // setUser(user);
+      setUser(user);
     });
   };
 
