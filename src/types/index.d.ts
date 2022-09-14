@@ -1,3 +1,8 @@
+import {definitions} from "./supabase"
+
+export type NOTE = definitions["notes"];
+
+
 export type Note = {
   id: string;
   title: string;
@@ -6,4 +11,6 @@ export type Note = {
   url?: string;
 };
 
+
 export type TStatus = "idle" | "loading" | "succeeded" | "failed"  
+

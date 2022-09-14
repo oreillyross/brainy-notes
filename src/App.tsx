@@ -15,7 +15,7 @@ export default function App() {
   const testUser = {
     id: "cac5304c-0695-446d-b24a-761e0a6c0b2f",
   };
-  const [user, setUser] = useState<TUser | null>(null);
+  const [user, setUser] = useState<TUser | null>(testUser);
   const navigate = useNavigate();
 
   const handleLogin = async (email: any, password: any) => {

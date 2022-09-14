@@ -1,37 +1,24 @@
 import { Formik, Field, Form } from "formik";
 import { useNavigate } from "react-router-dom";
-// import * as Yup from "yup";
 import { useQueryClient, useMutation } from "react-query";
 import { supabase } from "client";
 import { UserContext } from "features/auth/utils";
 import { useContext } from "react";
-import User from "features/auth/User";
+import { definitions } from "types/supabase";
 
-const initialValues: FormValues = {
+
+const initialValues: NOTE = {
+  id: 0,
   title: "",
   description: "",
-  url: "",
-  created_by: ""
+  links: [],
+  created_by: "",
 };
 
-// const NoteSchema = Yup.object().shape({
-//   title: Yup.string().required("At least a title is required"),
-//   description: Yup.string().min(
-//     10,
-//     "Think about providing a longer description"
-//   ),
-//   url: Yup.string().url("This doesn't seem to be a valid url")
-// });
-
-type FormValues = {
-  title: string;
-  description?: string;
-  url?: string;
-  created_by: string;
-};
-
-async function addNote(values: FormValues) {
-  return await supabase.from("notes").insert(values);
+async function addNote(values: NOTE) {
+  const {id, ...note} = values
+  console.log(note)
+  return await supabase.from<NOTE>("notes").insert(note);
 }
 
 function AddNoteForm() {
@@ -43,7 +30,7 @@ function AddNoteForm() {
     },
   });
 
-  const user = useContext<any>(UserContext);
+  const user = useContext<TUser | any>(UserContext);
   return (
     <div className="max-w-md mx-auto border ">
       <h2 className="text-center bg-slate-100 text-slate-800 font-bold py-2 rounded border">
@@ -55,9 +42,9 @@ function AddNoteForm() {
         // validationSchema={NoteSchema}
         onSubmit={(values, { resetForm }) => {
           const canSubmit = Object.values(values).some((v) => Boolean(v));
-            
+
           if (canSubmit && user) {
-            const formData = { ...values, created_by: user?.user?.id};
+            const formData = {  created_by: user?.user?.id, ...values};
             mutation.mutate(formData);
             resetForm();
           }

@@ -1,11 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import Note from "features/notes/Note";
 import AddNoteForm from "features/notes/AddNoteForm";
 import NotesList from "./features/notes/NotesList";
 import { QueryClientProvider, QueryClient } from "react-query";
 import User from "features/auth/User";
 import Navigation from "features/navigation/navigation";
-import { NoteDisplay } from "features/notes/note-display";
+import { NoteDisplay } from "features/notes/NoteDisplay";
 
 export default function AuthenticatedApp() {
   const queryClient = new QueryClient();
