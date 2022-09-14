@@ -4,7 +4,7 @@ import { useQueryClient, useMutation } from "react-query";
 import { supabase } from "client";
 import { UserContext } from "features/auth/utils";
 import { useContext } from "react";
-import { definitions } from "types/supabase";
+import { NOTE, USER } from "types";
 
 
 const initialValues: NOTE = {
@@ -30,7 +30,6 @@ function AddNoteForm() {
     },
   });
 
-  const user = useContext<TUser | any>(UserContext);
   return (
     <div className="max-w-md mx-auto border ">
       <h2 className="text-center bg-slate-100 text-slate-800 font-bold py-2 rounded border">
@@ -43,8 +42,8 @@ function AddNoteForm() {
         onSubmit={(values, { resetForm }) => {
           const canSubmit = Object.values(values).some((v) => Boolean(v));
 
-          if (canSubmit && user) {
-            const formData = {  created_by: user?.user?.id, ...values};
+          if (canSubmit) {
+            const formData = { ...values};
             mutation.mutate(formData);
             resetForm();
           }

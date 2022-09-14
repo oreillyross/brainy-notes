@@ -5,17 +5,14 @@ import { UserContext } from "features/auth/utils";
 import AuthenticatedApp from "AuthenticatedApp";
 import UnauthenticatedApp from "UnAuthenticatedApp";
 import HamburgerMenu from "features/navigation/HamburgerMenu";
-
-type TUser = {
-  id: string;
-};
+import { USER } from "types";
 
 export default function App() {
   // TESTING hardcode a user
   const testUser = {
     id: "cac5304c-0695-446d-b24a-761e0a6c0b2f",
   };
-  const [user, setUser] = useState<TUser | null>(testUser);
+  const [user, setUser] = useState<USER | null>(null);
   const navigate = useNavigate();
 
   const handleLogin = async (email: any, password: any) => {
@@ -39,6 +36,7 @@ export default function App() {
             <div className="m-auto justify-self-center text-6xl py-12 px-8 text-green-700 font-bold">
               Brainy Notes
             </div>
+            <div>User is: {user?.id}</div>
           </div>
         </Link>
         {user ? (

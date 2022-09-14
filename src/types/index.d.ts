@@ -1,7 +1,7 @@
 import {definitions} from "./supabase"
 
 export type NOTE = definitions["notes"];
-
+export type USER = definitions["profiles"]
 
 export type Note = {
   id: string;
