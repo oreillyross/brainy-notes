@@ -11,7 +11,7 @@ export default function UnauthenticatedApp({ login }: Props) {
     <section>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<LoginForm login={login} />} />
+        <Route path="/login" element={<LoginForm />} />
       </Routes>
     </section>
   );

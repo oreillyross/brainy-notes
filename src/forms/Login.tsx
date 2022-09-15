@@ -8,7 +8,7 @@ interface Props {
   login: ( email: string, password: string ) => void;
 }
 
-function LoginForm({ login }: Props) {
+function LoginForm() {
   const navigate = useNavigate();
   const initialValues = { email: "", password: "", rememberMe: false };
   type FormValues = {
@@ -19,7 +19,8 @@ function LoginForm({ login }: Props) {
 
   const handleSubmit = (values: FormValues) => {
     const { email, password } = values;
-    login( email, password );
+    console.log(email, password);
+    
   };
 
   const handleValidation = (values: FormValues) => {
