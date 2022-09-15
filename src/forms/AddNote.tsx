@@ -1,8 +1,7 @@
 import { Formik, Field, Form } from "formik";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient, useMutation } from "react-query";
-import { supabase } from "supabase";
-import { UserContext } from "ARCHIVE/auth/utils";
+import { supabase } from "api/supabase";
 import { useContext } from "react";
 import { NOTE, USER } from "types";
 

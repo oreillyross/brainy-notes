@@ -1,15 +1,15 @@
-import { supabase } from "supabase";
+import { supabase } from "api/supabase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function EditNoteForm({ note }) {
+export default function EditNoteForm({ note }: any) {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     title: note.title || "",
     description: note.description || "",
   });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const { data, error } = await supabase
       .from("notes")
@@ -26,7 +26,7 @@ export default function EditNoteForm({ note }) {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setForm({
       ...form,
       [e.target.id]: e.target.value,

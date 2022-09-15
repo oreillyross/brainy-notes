@@ -2,8 +2,7 @@ import React from "react";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { signin } from "ARCHIVE/auth/utils";
-import { supabase } from "supabase";
+import { supabase } from "api/supabase";
 
 interface Props {
   login: ( email: string, password: string ) => void;

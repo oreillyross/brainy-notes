@@ -2,13 +2,8 @@ import { Combobox, Dialog, Transition } from "@headlessui/react";
 import { useState, useEffect, Fragment, FormEventHandler } from "react";
 import { BookmarkIcon, SearchIcon } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
-import type { TNote } from "types/note";
 
-type Props = {
-  notes: TNote[];
-};
-
-export default function CommandPalette({ notes }: Props) {
+export default function CommandPalette({ notes }: any) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedNote, selectNote] = useState(notes[0]);
   const [query, setQuery] = useState("");
@@ -28,7 +23,7 @@ export default function CommandPalette({ notes }: Props) {
   }, [isOpen]);
 
   const filteredNotes = query
-    ? notes.filter((note) =>
+    ? notes.filter((note: any) =>
         note.title.toLowerCase().includes(query.toLowerCase())
       )
     : [];
@@ -66,7 +61,7 @@ export default function CommandPalette({ notes }: Props) {
           <Combobox
             as="div"
             className="overflow-hidden p-3 relative ring-1 ring-black/5 shadow-2xl rounded-xl max-w-xl mx-auto bg-white divide-y divide-gray-100"
-            onChange={(value: TNote) => {
+            onChange={(value: any) => {
               console.log(value);
               selectNote(value);
               setIsOpen(false);
@@ -89,7 +84,7 @@ export default function CommandPalette({ notes }: Props) {
                 static
                 className="py-4 text-sm max-h-96 overflow-y-auto"
               >
-                {filteredNotes.map((note) => (
+                {filteredNotes.map((note: any) => (
                   <Combobox.Option key={note.id} value={note}>
                     {({ active }) => (
                       <div

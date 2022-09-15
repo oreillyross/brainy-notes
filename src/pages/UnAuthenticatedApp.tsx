@@ -1,5 +1,5 @@
-import { LandingPage } from "features/landing/LandingPage";
-import { LoginForm } from "ARCHIVE/auth/Login";
+import { LandingPage } from "pages/Landing";
+import { LoginForm } from "forms/Login";
 import { Routes, Route } from "react-router-dom";
 
 interface Props {

@@ -1,4 +1,4 @@
-import { supabase } from "supabase";
+import { supabase } from "api/supabase";
 import { Formik, Field, Form } from "formik";
 
 type FormValues = {

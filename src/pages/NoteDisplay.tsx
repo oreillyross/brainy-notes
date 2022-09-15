@@ -1,8 +1,7 @@
 import * as React from "react";
 import { useParams, Link } from "react-router-dom";
-import { supabase } from "supabase";
+import { supabase } from "api/supabase";
 import { useContext, useState } from "react";
-import { UserContext } from "ARCHIVE/auth/utils";
 import { useQuery } from "react-query";
 import EditNoteForm from "../forms/EditNote";
 import {definitions} from "types/supabase"
@@ -19,7 +18,6 @@ const NoteDisplay = () => {
     return data;
   };
 
-  const user = useContext(UserContext);
   const { data, error, isLoading } = useQuery("note", fetchNote);
   const [editing, setEditing] = useState(false);
 
