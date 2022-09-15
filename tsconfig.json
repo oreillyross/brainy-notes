@@ -1,7 +1,7 @@
 {
   "include": [
     "./src/**/*"
-  ],
+, "Z_ARCHIVE/About.jsx", "Z_ARCHIVE/users", "Z_ARCHIVE/app", "Z_ARCHIVE"  ],
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
