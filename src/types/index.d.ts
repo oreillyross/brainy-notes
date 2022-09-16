@@ -10,4 +10,7 @@ export type EMAILANDPWD = {
 
 export type AUTHCONTEXT = {
   signup?: (data: EMAILANDPWD) => void
+  signin?: (data: EMAILANDPWD) => void
+  signout?: () => void
+  user?: USER
 }

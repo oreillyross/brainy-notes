@@ -7,12 +7,12 @@ import {
 } from "react";
 
 import { supabase } from "api/supabase";
-import { EMAILANDPWD, AUTHCONTEXT } from "types";
+import { EMAILANDPWD, AUTHCONTEXT, USER } from "types";
 
 const AuthContext = createContext<AUTHCONTEXT >({});
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<object | null>(null);
+  const [user, setUser] = useState<USER | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  const value = {
+  const value: any  = {
     signup: (data: EMAILANDPWD) => {
       supabase.auth.signUp(data);
     },

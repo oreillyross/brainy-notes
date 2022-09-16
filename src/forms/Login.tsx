@@ -3,6 +3,7 @@ import { Formik, Form, ErrorMessage, Field } from "formik";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { supabase } from "api/supabase";
+import { useAuth } from "contexts/Auth";
 
 interface Props {
   login: ( email: string, password: string ) => void;
@@ -10,17 +11,23 @@ interface Props {
 
 function LoginForm() {
   const navigate = useNavigate();
+  const { signin} = useAuth()
   const initialValues = { email: "", password: "", rememberMe: false };
+
   type FormValues = {
     email: string;
     password: string;
     rememberMe: boolean;
   };
-
-  const handleSubmit = (values: FormValues) => {
+  
+  const handleSubmit = async (values: FormValues) => {
     const { email, password } = values;
-    console.log(email, password);
-    
+    const {error} = await supabase.auth.signIn({email, password}) 
+    if (error) {
+      alert(error.message)
+    }else {
+      navigate("/")
+    }
   };
 
   const handleValidation = (values: FormValues) => {
