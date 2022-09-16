@@ -8,4 +8,6 @@ export type EMAILANDPWD = {
   password: string
 }
 
-
+export type AUTHCONTEXT = {
+  signup?: (data: EMAILANDPWD) => void
+}
