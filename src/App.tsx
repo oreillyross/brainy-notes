@@ -31,7 +31,14 @@ export default function App() {
             </Modal>
           }
         />
-        <Route path="/signup" element={<SignupForm />} />
+        <Route
+          path="/signup"
+          element={
+            <Modal>
+              <SignupForm />
+            </Modal>
+          }
+        />
       </Routes>
     </StrictMode>
   );

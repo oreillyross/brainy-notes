@@ -13,7 +13,7 @@ const Modal = ({ children }: Props) => {
 
   return (
     <Dialog open={isOpen} onClose={handleClose} className="relative z-50">
-      <div className="fixed inset-0 bg-black/30" aria-hidden="true"></div>
+      <div className="fixed inset-0 bg-black/30 backdrop-blur-sm" aria-hidden="true"></div>
       <div className="flex fixed inset-0 justify-center items-center p4">
         <Dialog.Panel className="relative mx-auto max-w-lg rounded bg-white">
           <button
