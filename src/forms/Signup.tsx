@@ -59,10 +59,10 @@ function SignupForm() {
             >
               Sign up
             </button>
-          </Form>
-          <div>
-            Already have an account? <Link to="/login">Log in</Link>
+          <div className="pt-4">
+            Already have an account? <Link className="px-2 text-green-700 font-semibold" to="/login"> Log in</Link>
           </div>
+          </Form>
         </>
       )}
     </Formik>

@@ -6,9 +6,10 @@ export default function Dashboard() {
   const { user, signout } = useAuth();
   const navigate = useNavigate();
   async function handleSignOut() {
+    //    TODO change below line to call imported signout once typed correctly
     await supabase.auth.signOut();
-    navigate("/login")  
-}
+    navigate("/login");
+  }
 
   return (
     <div>

@@ -1,14 +1,16 @@
-import { useNavigate, Route } from "react-router-dom";
+import { useAuth } from "contexts/Auth";
+import { FC, ReactNode } from "react";
+import { Navigate, Route } from "react-router-dom";
 
-function PrivateRoute(props: any) {
-  const user = null;
-  const navigate = useNavigate()
-  //TODO make this !user to work correctly
-  if (user) {
-    navigate("/login");
-  } else {
-    return <Route {...props} />;
-  }
+interface Props {
+  component: React.FC;
 }
 
-export { PrivateRoute };
+export const PrivateRoute: FC<Props> = ({ component: Component }) => {
+  const { user } = useAuth();
+  if (user) {
+    return <Component />;
+  } else {
+    return <Navigate to="/login" />;
+  }
+};

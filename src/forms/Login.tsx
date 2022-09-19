@@ -22,6 +22,7 @@ function LoginForm() {
   
   const handleSubmit = async (values: FormValues) => {
     const { email, password } = values;
+    //    TODO change below line to call imported signin once typed correctly
     const {error} = await supabase.auth.signIn({email, password}) 
     if (error) {
       alert(error.message)
@@ -37,7 +38,7 @@ function LoginForm() {
   };
 
   return (
-    <div className=" max-w-2xl container mx-auto mt-10 border-slate-300 rounded text-xl border-2 p-6">
+    <div className=" max-w-2xl container mx-auto mt-10 border-slate-300 rounded border-2 p-6">
       <h2 className="text-3xl  p-5">Login</h2>
       <Formik
         initialValues={initialValues}
@@ -79,26 +80,17 @@ function LoginForm() {
               <ErrorMessage name="password">
                 {() => <div>Password field is required</div>}
               </ErrorMessage>
-              <label htmlFor="email" className="p-3">
-                Remember me
-              </label>
-              <Field
-                type="checkbox"
-                id="rememberMe"
-                name="rememberMe"
-                className="inline-block bg-red-200"
-              />
               <button
                 disabled={props.isSubmitting}
                 type="submit"
-                className="block bg-green-600 text-slate-50 p-3 rounded font-bold m-2 w-64"
+                className="mt-6 block bg-green-600 text-slate-50 p-3 rounded font-bold m-2 w-64"
               >
-                Submit
+                Login
               </button>
             </Form>
             <div>
               <div>
-                No account? <Link to="/signup">Create one</Link>
+                No account? <Link className="font-semibold px-2 text-green-700" to="/signup">Sign up</Link>
               </div>
             </div>
           </>
