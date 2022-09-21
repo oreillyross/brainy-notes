@@ -6,6 +6,7 @@ import { LoginForm } from "forms/Login";
 import { SignupForm } from "forms/Signup";
 import { PrivateRoute } from "routes/PrivateRoute";
 import Modal from "components/Modal";
+import Splash from "components/Splash";
 
 export default function App() {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<PrivateRoute component={Dashboard} />} />
+        <Route path="/splash" element={<Splash />} />
         <Route
           path="/login"
           element={

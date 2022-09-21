@@ -1,4 +1,4 @@
-import Splash from "../../.ARCHIVE/features/splash/Splash";
+import Splash from "../components/Splash";
 import { Link } from "react-router-dom";
 
 function LandingPage() {

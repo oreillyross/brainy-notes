@@ -1,4 +1,5 @@
 import { supabase } from "api/supabase";
+import SearchBar from "components/SearchBar";
 import { useAuth } from "contexts/Auth";
 import { useNavigate } from "react-router-dom";
 
@@ -15,6 +16,7 @@ export default function Dashboard() {
     <div>
       <h1>Welcome, {user?.id} </h1>
       <button onClick={handleSignOut}>Sign out</button>
+      <SearchBar onSearch={() => {}}/>
     </div>
   );
 }
