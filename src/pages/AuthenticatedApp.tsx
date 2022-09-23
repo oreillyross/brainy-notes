@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import AddNote from "forms/AddNote";
-import NotesList from "pages/NotesList";
 import { QueryClientProvider, QueryClient } from "react-query";
 import Navigation from "components/NavigationBar";
 import { NoteDisplay } from "pages/NoteDisplay";
@@ -14,7 +13,6 @@ export default function AuthenticatedApp() {
         <Navigation />
         <QueryClientProvider client={queryClient}>
           <Routes>
-            <Route path="/notes" element={<NotesList />} />
             <Route path="/notes/new" element={<AddNote />} />
             <Route path="/notes/:id" element={<NoteDisplay />} />
           </Routes>
