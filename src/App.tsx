@@ -1,6 +1,5 @@
 import { Routes, Link, Route, useNavigate } from "react-router-dom";
 import { StrictMode, useEffect, useState } from "react";
-import { supabase } from "api/supabase";
 import Dashboard from "pages/Dashboard";
 import { LoginForm } from "forms/Login";
 import { SignupForm } from "forms/Signup";
