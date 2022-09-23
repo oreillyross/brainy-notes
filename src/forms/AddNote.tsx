@@ -1,6 +1,6 @@
 import { Formik, Field, Form } from "formik";
 import { useNavigate } from "react-router-dom";
-import { useQueryClient, useMutation } from "react-query";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { supabase } from "api/supabase";
 import { useContext } from "react";
 import { NOTE, USER } from "types";
@@ -23,11 +23,7 @@ async function addNote(values: NOTE) {
 function AddNoteForm() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
-  const mutation = useMutation(addNote, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("notes");
-    },
-  });
+  const mutation = useMutation(addNote);
 
   return (
     <div className="max-w-md mx-auto border ">

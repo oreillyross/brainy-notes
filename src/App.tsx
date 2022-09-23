@@ -6,6 +6,7 @@ import { SignupForm } from "forms/Signup";
 import { PrivateRoute } from "routes/PrivateRoute";
 import Modal from "components/Modal";
 import Splash from "components/Splash";
+import NoMatch from "pages/NoMatch";
 
 export default function App() {
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ export default function App() {
             </Modal>
           }
         />
+        <Route path="*" element={<NoMatch/>}/>
       </Routes>
     </StrictMode>
   );

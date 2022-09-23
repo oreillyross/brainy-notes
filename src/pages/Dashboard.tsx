@@ -4,6 +4,7 @@ import SearchBar from "components/SearchBar";
 import { useAuth } from "contexts/Auth";
 import { useNavigate } from "react-router-dom";
 import NotesList from "./NotesList";
+import AddNoteForm from "forms/AddNote";
 
 export default function Dashboard() {
   const { user, signout } = useAuth();
@@ -19,6 +20,7 @@ export default function Dashboard() {
     <div>
       <h1>Welcome, {user?.id} </h1>
       <button onClick={handleSignOut}>Sign out</button>
+      <AddNoteForm/>
       <SearchBar onSearch={(text) => setFilter(text)} />
       <NotesList filter={filter} />
     </div>
