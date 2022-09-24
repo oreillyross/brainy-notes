@@ -7,42 +7,16 @@ import { PrivateRoute } from "routes/PrivateRoute";
 import Modal from "components/Modal";
 import Splash from "components/Splash";
 import NoMatch from "pages/NoMatch";
+import { useAuth } from "contexts/Auth";
+import AuthenticatedApp from "pages/AuthenticatedApp";
+import UnauthenticatedApp from "pages/UnAuthenticatedApp";
 
 export default function App() {
   const navigate = useNavigate();
-
+  const {user} = useAuth()
   return (
     <StrictMode>
-      <div className="flex">
-        <Link to="/">
-          <img className="m-8" alt="Brainy logo" src="img/brainy_logo.svg" />
-        </Link>
-        <div className="m-auto justify-self-center text-6xl py-12 px-8 text-green-700 font-bold">
-          Brainy Notes
-        </div>
-      </div>
-
-      <Routes>
-        <Route path="/" element={<PrivateRoute component={Dashboard} />} />
-        <Route path="/splash" element={<Splash />} />
-        <Route
-          path="/login"
-          element={
-            <Modal>
-              <LoginForm />
-            </Modal>
-          }
-        />
-        <Route
-          path="/signup"
-          element={
-            <Modal>
-              <SignupForm />
-            </Modal>
-          }
-        />
-        <Route path="*" element={<NoMatch/>}/>
-      </Routes>
+        {user ? <AuthenticatedApp/> : <UnauthenticatedApp/>}
     </StrictMode>
   );
 }

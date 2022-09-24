@@ -2,11 +2,8 @@ import { LandingPage } from "pages/Landing";
 import { LoginForm } from "forms/Login";
 import { Routes, Route } from "react-router-dom";
 
-interface Props {
-  login: (email: string, password: string) => void;
-}
 
-export default function UnauthenticatedApp({ login }: Props) {
+export default function UnauthenticatedApp() {
   return (
     <section>
       <Routes>

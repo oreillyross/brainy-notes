@@ -11,6 +11,6 @@ export const PrivateRoute: FC<Props> = ({ component: Component }) => {
   if (user) {
     return <Component />;
   } else {
-    return <Navigate to="/splash" />;
+    return <Navigate to="/" />;
   }
 };
