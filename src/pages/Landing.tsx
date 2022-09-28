@@ -1,9 +1,11 @@
 import Splash from "../components/Splash";
 import { Link } from "react-router-dom";
+import Header from "components/Header";
 
 function LandingPage() {
   return (
     <>
+      <Header/>
       <section className="px-8 pt-6 ">
         <h1 className="text-2xl 2xl:text-6xl md:text-center">
           Easily capture <span className="text-indigo-500">learning notes</span>{" "}

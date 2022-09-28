@@ -3,6 +3,7 @@ import AddNote from "forms/AddNote";
 import Navigation from "components/NavigationBar";
 import { NoteDisplay } from "pages/NoteDisplay";
 import Dashboard from "./Dashboard";
+import Header from "components/Header";
 
 export default function AuthenticatedApp() {
   const links = [
@@ -13,15 +14,7 @@ export default function AuthenticatedApp() {
   return (
     <section>
       <div>
-        <div className="flex">
-          <Link to="/">
-            <img className="m-8" alt="Brainy logo" src="img/brainy_logo.svg" />
-          </Link>
-          <div className="m-auto justify-self-center text-6xl py-12 px-8 text-green-700 font-bold">
-            Brainy Notes
-          </div>
-        </div>
-
+        <Header />
         <Navigation items={links} />
         <Routes>
           <Route path="/" element={<Dashboard />} />
