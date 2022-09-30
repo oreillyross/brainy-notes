@@ -12,7 +12,7 @@ export default function Dashboard() {
   async function handleSignOut() {
     //    TODO change below line to call imported signout once typed correctly
     await supabase.auth.signOut();
-    navigate("/login");
+    navigate("/");
   }
 
   return (

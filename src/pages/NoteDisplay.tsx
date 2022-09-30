@@ -1,14 +1,14 @@
 import * as React from "react";
 import { useParams, Link } from "react-router-dom";
 import { supabase } from "api/supabase";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import EditNoteForm from "../forms/EditNote";
-import {definitions} from "types/supabase"
-
+import { definitions } from "types/supabase";
 
 const NoteDisplay = () => {
   const { id } = useParams();
+
   const fetchNote = async () => {
     const { data } = await supabase
       .from<definitions["notes"]>("notes")

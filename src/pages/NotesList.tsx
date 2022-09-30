@@ -1,46 +1,45 @@
-import { getFilteredNotes } from "api/notes";
-import { supabase } from "api/supabase";
+import { getFilteredNotes, getNotes } from "api/notes";
+import { supabase  } from "api/supabase";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
 
 interface Props {
   filter: string;
 }
-const getNotes = async (filter: string) => {
-  const { error, data } = await supabase
-    .from("notes")
-    .select("*")
-    .ilike("title", `%${filter}%`);
-  if (error) {
-    throw error
-  }
-  return data;
-};
 const NotesList = ({ filter }: Props) => {
   // const filteredNotes = useQuery("filtered-notes", getFilteredNotes(filter))
-  const { isLoading, isError, data, error } = useQuery(["notes", filter], () =>
-    getNotes(filter)
-  );
+  const params =  useParams()
+  console.log(params);
+  
+  const {
+    isLoading,
+    isError,
+    data: notes,
+    error,
+  } = useQuery(["notes", filter], () => getNotes(filter));
   if (isError && error instanceof Error) {
     return <div>{error.message}</div>;
   }
-  if (data) {
+  if (notes) {
+    // TODO Add zod types
+    const sortedNotes = notes.sort((a: any, b: any) =>
+      a.title < b.title ? -1 : 1
+    );
+
     return (
       <div>
-        {data.map((note) => (
+        {sortedNotes.map((note) => (
           <div key={note.id}>
             {note.id}
-            {note.title}
+            <Link to={`/note/${note.id}`}>{note.title}</Link>
           </div>
         ))}
       </div>
     );
   }
-  return (
-    <ul className="p-4 border m-4">
-      This is where the list of notes goes
-      {filter ?? <div>{filter}</div>}
-    </ul>
-  );
+  return null
 };
 
 export default NotesList;

@@ -27,7 +27,7 @@ function LoginForm() {
     if (error) {
       alert(error.message)
     }else {
-      navigate("/")
+      navigate("/notes")
     }
   };
 
