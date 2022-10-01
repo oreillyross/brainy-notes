@@ -32,7 +32,7 @@ function AddNoteForm() {
       // TODO Replace this with the custom error modal
       alert(`Failed to add note: ERROR: ${error.message}`);
     }
-    navigate("/notess");
+    navigate("/notes");
   };
 
   const { user } = useAuth();

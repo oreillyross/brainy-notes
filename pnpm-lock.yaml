@@ -22,6 +22,7 @@ specifiers:
   autoprefixer: 10.4.0
   axios: ^0.27.2
   cypress: ^10.7.0
+  date-fns: ^2.29.3
   formik: ^2.2.9
   msw: ^0.42.0
   postcss: 8.4.12
@@ -54,6 +55,7 @@ dependencies:
   '@tanstack/react-query': 4.3.9_react-dom@18.2.0+react@18.2.0
   autoprefixer: 10.4.0_postcss@8.4.12
   axios: 0.27.2
+  date-fns: 2.29.3
   formik: 2.2.9_react@18.2.0
   postcss: 8.4.12
   react: 18.2.0
@@ -4526,6 +4528,11 @@ packages:
       abab: 2.0.6
       whatwg-mimetype: 2.3.0
       whatwg-url: 8.7.0
+    dev: false
+
+  /date-fns/2.29.3:
+    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
+    engines: {node: '>=0.11'}
     dev: false
 
   /dayjs/1.11.5:

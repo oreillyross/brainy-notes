@@ -123,7 +123,6 @@ export interface paths {
           title?: parameters["rowFilter.notes.title"];
           description?: parameters["rowFilter.notes.description"];
           created_by?: parameters["rowFilter.notes.created_by"];
-          links?: parameters["rowFilter.notes.links"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -179,7 +178,6 @@ export interface paths {
           title?: parameters["rowFilter.notes.title"];
           description?: parameters["rowFilter.notes.description"];
           created_by?: parameters["rowFilter.notes.created_by"];
-          links?: parameters["rowFilter.notes.links"];
         };
         header: {
           /** Preference */
@@ -199,7 +197,6 @@ export interface paths {
           title?: parameters["rowFilter.notes.title"];
           description?: parameters["rowFilter.notes.description"];
           created_by?: parameters["rowFilter.notes.created_by"];
-          links?: parameters["rowFilter.notes.links"];
         };
         body: {
           /** notes */
@@ -251,7 +248,7 @@ export interface definitions {
      */
     created_at?: string;
     /** Format: text */
-    title?: string;
+    title: string;
     /** Format: text */
     description?: string;
     /**
@@ -259,9 +256,7 @@ export interface definitions {
      * @description Note:
      * This is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>
      */
-    created_by?: string;
-    /** Format: ARRAY */
-    links?: unknown[];
+    created_by: string;
   };
 }
 
@@ -324,8 +319,6 @@ export interface parameters {
   "rowFilter.notes.description": string;
   /** Format: uuid */
   "rowFilter.notes.created_by": string;
-  /** Format: ARRAY */
-  "rowFilter.notes.links": string;
 }
 
 export interface operations {}

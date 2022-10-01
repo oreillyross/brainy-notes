@@ -1,9 +1,7 @@
-import * as React from "react";
 import { useParams, Link } from "react-router-dom";
 import { supabase } from "api/supabase";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import EditNoteForm from "../forms/EditNote";
 import { z} from "zod"
 
 const noteSchema = z.object({
@@ -18,7 +16,6 @@ type TNote = z.infer<typeof noteSchema>
 
 const NoteDisplayByUser = () => {
   const { userid } = useParams();
-  console.log( userid);
 
   const fetchNotes = async () => {
     const { data } = await supabase
@@ -43,8 +40,10 @@ const NoteDisplayByUser = () => {
   if (data) {
 
     return (
-      <ol>{data.map(note => (
-        <li key={note.id}>{note.title}</li>
+      <ol>{data.map(( note ) => (
+        <li key={note.id}>
+            <Link to={`/note/${note.id}`}>{note.title}</Link>
+          </li>
       ))}</ol>
     );
   }
