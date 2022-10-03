@@ -20,7 +20,8 @@ export default function AuthenticatedApp() {
         <Header />
         <Navigation items={links} />
         <Routes>
-          <Route path="/notes" element={<Dashboard />} />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/notes/:view" element={<Dashboard />} />
           <Route path="/notes/user/:userid" element={<NoteDisplayByUser />} />
           <Route path="/notes/new" element={<AddNote />} />
           <Route path="/note/:id" element={<NoteDisplay />} />

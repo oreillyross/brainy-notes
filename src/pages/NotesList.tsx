@@ -1,13 +1,12 @@
-import {  getNotes } from "api/notes";
+import { getNotes } from "api/notes";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-
+import { formatDistanceToNow } from "date-fns";
 
 interface Props {
   filter: string;
 }
 const NotesList = ({ filter }: Props) => {
-  
   const {
     isError,
     data: notes,
@@ -27,13 +26,13 @@ const NotesList = ({ filter }: Props) => {
         {sortedNotes.map((note) => (
           <div key={note.id}>
             <Link to={`/note/${note.id}`}>{note.title}</Link>
-            <span>{note.created_at}</span>
+            <span>{formatDistanceToNow(new Date(note.created_at))}</span>
           </div>
         ))}
       </div>
     );
   }
-  return null
+  return null;
 };
 
 export default NotesList;

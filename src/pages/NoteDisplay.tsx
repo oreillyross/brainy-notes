@@ -4,18 +4,27 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import EditNoteForm from "../forms/EditNote";
 import { definitions } from "types/supabase";
+import   { useNavigate} from "react-router-dom"
+
+type NOTE = definitions["notes"]
 
 const NoteDisplay = () => {
+  const navigate = useNavigate()
   const { id } = useParams();
 
   const fetchNote = async () => {
     const { data } = await supabase
-      .from<definitions["notes"]>("notes")
+      .from<NOTE>("notes")
       .select("*")
       .eq("id", id)
       .single();
     return data;
   };
+
+  const deleteNote = async () => {
+    const {data} = await supabase.from<NOTE>("notes").delete().eq("id", id).single()
+    return data
+  }
 
   const { data, error, isLoading } = useQuery(["note"], fetchNote);
   const [editing, setEditing] = useState(false);
@@ -36,6 +45,11 @@ const NoteDisplay = () => {
       <div>
         {editing ? <p>Now in edit mode</p> : <p>Not edit</p>}
         <button onClick={() => setEditing(true)}>Edit</button>
+        <button onClick={() => deleteNote().then(data => {
+          alert(`The following note with title: ${data?.title} has been deleted`)
+          navigate("/notes/all")
+          
+        })}>Delete</button>
         <h2>{data.title}</h2>
         <p>{data.description}</p>
         <div>Additional references:</div>
