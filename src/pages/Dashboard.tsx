@@ -7,8 +7,7 @@ import NotesList from "./NotesList";
 import { useParams } from "react-router-dom";
 
 export default function Dashboard() {
-  const { user, signout } = useAuth();
-  const [filter, setFilter] = useState("");
+  const { user, signout } = useAuth(); const [filter, setFilter] = useState("");
   const {view}= useParams()
   const navigate = useNavigate();
   async function handleSignOut() {
@@ -19,11 +18,9 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h1>Welcome, {user?.id}, {view} </h1>
-      <button onClick={handleSignOut}>Sign out</button>
       <SearchBar onSearch={(text) => setFilter(text)} />
       {filter && <NotesList filter={filter} />}
-      <NotesList filter=""/>
+      { !filter && <NotesList filter=""/> }
     </div>
   );
 }

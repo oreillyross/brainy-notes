@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
-@import "./hack.css";
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+/* @import "./hack.css"; */
 /* TODO Add Intra google font */
 @tailwind base;
 @tailwind components;
@@ -13,7 +13,10 @@
 }
 
 @layer base {
-    [type="text"],
+  html {
+    font-family: 'Roboto Condensed', sans-serif;
+  },
+  [type="text"],
   [type="email"],
   [type="url"],
   [type="password"],

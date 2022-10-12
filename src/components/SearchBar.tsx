@@ -15,17 +15,20 @@ const SearchBar = ({onSearch}: Props) => {
     
     return (
       <>
-        <div className="searchnotes">
+        <div className="mx-auto max-w-3xl flex inset-0 center">
         <input
-          className="p-4 border-2 searchnotes__input"
+          className="w-full"
           name="search"
           value={searchText}
-          onChange={e => setSearchText(e.target.value)}
+          onChange={
+            e => setSearchText(e.target.value)
+
+          }
           id="search"
           type="text"
           placeholder="search your notes..."
         />
-        <button className="p-4 border-2 bg-slate-700 text-gray-300" type="submit" onClick={handleSearch}>Search</button>
+        <button className="mr-24 w-md p-4 border-2 bg-slate-700 text-gray-300" type="submit" onClick={handleSearch}>Search</button>
       </div>
       </>
     );

@@ -10,7 +10,7 @@ import { NoteDisplayByUser } from "./NoteDisplayByUser";
 export default function AuthenticatedApp() {
   const {user} = useAuth()
   const links = [
-    { name: "View all notes", link: "/notes" },
+    { name: "View all notes", link: "/" },
     { name: "View my notes", link: `/notes/user/${user?.id}` },
     { name: "Add a note", link: "/notes/new" },
   ];

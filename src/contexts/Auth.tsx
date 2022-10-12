@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
-
+import { useNavigate  } from "react-router-dom"
 import { supabase } from "api/supabase";
 import { EMAILANDPWD, AUTHCONTEXT, USER } from "types";
 

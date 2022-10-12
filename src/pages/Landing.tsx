@@ -17,7 +17,7 @@ function LandingPage() {
           disrupting you from your workflow, and just as easily retrieve them.
         </h3>
         <div className="flex justify-center">
-          <button className="rounded p-6 text-3xl m-4 text-center bg-green-700 text-white ">
+          <button className="bg-green-700 text-white hover:bg-green-600 hover:text-cyan-200 rounded p-6 text-3xl m-4 text-center  ">
             <Link to="/login"> Login or Sign up</Link>
           </button>
         </div>

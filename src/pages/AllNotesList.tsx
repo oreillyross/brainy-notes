@@ -6,7 +6,7 @@ import { formatDistanceToNow } from "date-fns";
 interface Props {
   filter: string;
 }
-const NotesList = ({ filter }: Props) => {
+const AllNotesList = ({ filter }: Props) => {
   const {
     isError,
     data: notes,
@@ -22,10 +22,11 @@ const NotesList = ({ filter }: Props) => {
     );
 
     return (
-      <div className="grid">
+      <div>
         {sortedNotes.map((note) => (
-          <div className="p-2 pl-24 text-lg text-slate-900 font-medium" key={note.id}>
+          <div key={note.id}>
             <Link to={`/note/${note.id}`}>{note.title}</Link>
+            <span>{formatDistanceToNow(new Date(note.created_at))}</span>
           </div>
         ))}
       </div>
@@ -34,4 +35,4 @@ const NotesList = ({ filter }: Props) => {
   return null;
 };
 
-export default NotesList;
+export default AllNotesList;

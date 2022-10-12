@@ -41,8 +41,8 @@ export default function EditNoteForm({ note }: Props) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="title">Title</label>
+    <form className="w-full mx-auto " onSubmit={handleSubmit}>
+      <label className="text-xl" htmlFor="title">Title</label>
       <input
         id="title"
         type="text"
