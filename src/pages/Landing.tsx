@@ -5,7 +5,6 @@ import Header from "components/Header";
 function LandingPage() {
   return (
     <>
-      <Header/>
       <section className="px-8 pt-6 ">
         <h1 className="text-2xl 2xl:text-6xl md:text-center">
           Easily capture <span className="text-indigo-500">learning notes</span>{" "}
@@ -17,7 +16,7 @@ function LandingPage() {
           disrupting you from your workflow, and just as easily retrieve them.
         </h3>
         <div className="flex justify-center">
-          <button className="bg-green-700 text-white hover:bg-green-600 hover:text-cyan-200 rounded p-6 text-3xl m-4 text-center  ">
+          <button className=" shadow-xl shadow-slate-500/50 bg-green-700 text-white hover:bg-green-600 hover:text-slate-100 rounded p-6 text-3xl m-10 text-center  ">
             <Link to="/login"> Login or Sign up</Link>
           </button>
         </div>
