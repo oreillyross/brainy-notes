@@ -4,12 +4,14 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import EditNoteForm from "../forms/EditNote";
 import { definitions } from "types/supabase";
-import   { useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from 'remark-gfm'
 
-type NOTE = definitions["notes"]
+type NOTE = definitions["notes"];
 
 const NoteDisplay = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const fetchNote = async () => {
@@ -22,9 +24,13 @@ const NoteDisplay = () => {
   };
 
   const deleteNote = async () => {
-    const {data} = await supabase.from<NOTE>("notes").delete().eq("id", id).single()
-    return data
-  }
+    const { data } = await supabase
+      .from<NOTE>("notes")
+      .delete()
+      .eq("id", id)
+      .single();
+    return data;
+  };
 
   const { data, error, isLoading } = useQuery(["note"], fetchNote);
   const [editing, setEditing] = useState(false);
@@ -45,13 +51,22 @@ const NoteDisplay = () => {
       <div>
         {editing ? <p>Now in edit mode</p> : <p>Not edit</p>}
         <button onClick={() => setEditing(true)}>Edit</button>
-        <button onClick={() => deleteNote().then(data => {
-          alert(`The following note with title: ${data?.title} has been deleted`)
-          navigate("/notes/all")
-          
-        })}>Delete</button>
+        <button
+          onClick={() =>
+            deleteNote().then((data) => {
+              alert(
+                `The following note with title: ${data?.title} has been deleted`
+              );
+              navigate("/notes/all");
+            })
+          }
+        >
+          Delete
+        </button>
         <h2>{data.title}</h2>
-        <p>{data.description}</p>
+        <ReactMarkdown remarkPlugins={[remarkGfm]} className="prose">
+          {data.description ? data.description : ""}
+        </ReactMarkdown>
         <div>Additional references:</div>
         <Link to={"/"}>name of website</Link>
       </div>

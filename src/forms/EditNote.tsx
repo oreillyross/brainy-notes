@@ -41,18 +41,22 @@ export default function EditNoteForm({ note }: Props) {
   };
 
   return (
-    <form className="w-full mx-auto " onSubmit={handleSubmit}>
-      <label className="text-xl" htmlFor="title">Title</label>
+    <form className="w-full mx-auto px-24" onSubmit={handleSubmit}>
+      <label className="font-semibold mb-4 text-xl block" htmlFor="title">Title</label>
       <input
+        className="w-full"
         id="title"
+        name="title"
         type="text"
         value={form.title}
         onChange={handleChange}
       />
-      <label htmlFor="description">Description</label>
-      <input
+      <label className="font-semibold mb-4 text-xl block" htmlFor="description">Description</label>
+      <textarea
         id="description"
-        type="text"
+        className="w-full"
+        rows={10}
+        name="description"
         value={form.description}
         onChange={handleChange}
       />
