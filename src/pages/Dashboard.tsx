@@ -17,7 +17,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div>
+    <div className="mx-auto max-w-lg md:max-w-3xl container">
       <SearchBar onSearch={(text) => setFilter(text)} />
       {filter && <NotesList filter={filter} />}
       { !filter && <NotesList filter=""/> }

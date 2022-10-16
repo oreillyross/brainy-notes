@@ -8,11 +8,11 @@ interface Props {
 function Navigation({ items }: Props) {
   const navigate = useNavigate();
   return (
-    <div className="mx-auto w-full max-w-md px-2 py-16 sm:px-0">
+    <div className="flex flex-col md:flex-row md:text-2xl mx-auto max-w-sm">
       {items.map((item) => (
-        <span key={item.name} className="border p-4 m-2 rounded-lg bg-green-500/20">
+        <a key={item.name} className="text-center text-lg p-2 hover:text-green-900 hover:underline underline-offset-8 ">
           <Link to={item.link}>{item.name}
-</Link>        </span>
+</Link>        </a>
       ))}
     </div>
   );
