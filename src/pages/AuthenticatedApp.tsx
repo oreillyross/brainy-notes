@@ -15,7 +15,7 @@ export default function AuthenticatedApp() {
     { name: "Add a note", link: "/notes/new" },
   ];
   return (
-    <section>
+    <section className="bg-blue-200/20 min-h-screen">
       <div>
         <Header />
         <Navigation items={links} />
