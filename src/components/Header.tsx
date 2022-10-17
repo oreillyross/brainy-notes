@@ -14,7 +14,7 @@ export default function Header() {
       <Link to="/">
         <img className="m-8" alt="Brainy logo" src="img/brainy_logo.svg" />
       </Link>
-      <div className="mx-auto md:text-7xl text-6xl py-12  text-green-700 font-bold">
+      <div className="">
         Brainy Notes
       </div>
       {user ? (
