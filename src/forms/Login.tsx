@@ -1,4 +1,3 @@
-import React from "react";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -34,6 +33,7 @@ function LoginForm() {
   const handleValidation = (values: FormValues) => {
     const errors: any = {};
     if (values.email === "") errors.email = "Email cannot be empty!";
+    if (values.password === "") errors.password = "Please provide a password";
     return errors;
   };
 

@@ -5,17 +5,18 @@ import { useAuth } from "contexts/Auth";
 import { supabase } from "api/supabase";
 import { useNavigate } from "react-router-dom";
 
-// const formSchema = z.object({
-//   // id: z.number(), this will be autogen field on backend
-//   title: z.string({ invalid_type_error: "Please provide at least a title" }),
-//   description: z.string().optional(),
-//   // created_by: z.string(), get this from currently logged in user
-// });
+const formSchema = z.object({
+  // id: z.number(), this will be autogen field on backend
+  title: z.string({ invalid_type_error: "Please provide at least a title" }),
+  description: z.string().optional(),
+  // created_by: z.string(), get this from currently logged in user
+});
 
-// type TFormData = z.infer<typeof formSchema>;
+type TFormData = z.infer<typeof formSchema>;
 
 function AddNoteForm() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { user } = useAuth();
   const {
     register,
     handleSubmit,
@@ -25,17 +26,14 @@ function AddNoteForm() {
     description: ""
   }});
 
-  console.log(errors);
+  const onSubmit = async (data: TFormData) => {
 
-  const onSubmit = async (data: any) => {
-    console.log("IN ON SUBMIT");
-    console.log(data);
-    // const { error } = await supabase
-    //   .from("notes")
-    //   .insert({ ...data, created_by: user!.id });
+    const { error } = await supabase
+      .from("notes")
+      .insert({ ...data, created_by: user!.id });
+    navigate("/notes")
   };
 
-  // const { user } = useAuth();
 
   return (
     <form

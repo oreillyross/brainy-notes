@@ -10,18 +10,18 @@ export default function Header() {
   };
 
   return (
-    <div className="flex">
-      <Link to="/">
-        <img className="m-8" alt="Brainy logo" src="img/brainy_logo.svg" />
+    <div className="flex ">
+      <Link className="bg-green-100 w-1/4" to="/">
+        <img className="p-4 w-32 h-32" alt="Brainy logo" src="img/brainy_logo.svg" />
       </Link>
-      <div className="">
+      <div className="text-4xl mt-5 pl-10 w-2/4 ">
         Brainy Notes
       </div>
       {user ? (
-        <span className="max-w-sm pr-8">
+        <span className="pr-8 w-1/4">
           <button
             onClick={handlelogout}
-            className="border p-6 m-6 rounded bg-green-800 text-white min-w-full text-xl font-semibold"
+            className="border p-1 m-2 rounded bg-green-800 text-white font-semibold"
           >
             Logout
           </button>
