@@ -50,24 +50,29 @@ const NoteDisplay = () => {
     return (
       <div>
         <div className="mx-auto max-w-xl">
-          <h2 className="text-4xl text-slate-800">{data.title}</h2>
+          <h2 className="text-4xl text-slate-800">{data.description}</h2>
 
-<div className="text-right space-x-5 mt-4">
-          <button className="border p-2 w-24 bg-green-800/10 rounded-lg font-bold" onClick={() => setEditing(true)}>Edit</button>
-          <button
-          className="border p-2 w-24 bg-green-800/10 rounded-lg font-bold"
-            onClick={() =>
-              deleteNote().then((data) => {
-                alert(
-                  `The following note with title: ${data?.title} has been deleted`
-                );
-                navigate("/notes/all");
-              })
-            }
-          >
-            Delete
-          </button>
-</div>
+          <div className="text-right space-x-5 mt-4">
+            <button
+              className="border p-2 w-24 bg-green-800/10 rounded-lg font-bold"
+              onClick={() => setEditing(true)}
+            >
+              Edit
+            </button>
+            <button
+              className="border p-2 w-24 bg-green-800/10 rounded-lg font-bold"
+              onClick={() =>
+                deleteNote().then((data) => {
+                  alert(
+                    `The following note with title: ${data?.title} has been deleted`
+                  );
+                  navigate("/notes/all");
+                })
+              }
+            >
+              Delete
+            </button>
+          </div>
           <div className="bg-slate-100 border h-96 rounded-b-2xl border-b-8 mt-4 -m-48 p-4">
             <ReactMarkdown remarkPlugins={[remarkGfm]} className="prose">
               {data.description ? data.description : ""}

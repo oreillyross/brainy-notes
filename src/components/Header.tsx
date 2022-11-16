@@ -10,23 +10,23 @@ export default function Header() {
   };
 
   return (
-    <div className="flex">
+    <div className="flex justify-around">
       <Link to="/">
-        <img className="m-8" alt="Brainy logo" src="img/brainy_logo.svg" />
+        <img className="m-8 w-24 h-24" alt="Brainy logo" src="img/brainy_logo.svg" />
       </Link>
-      <div className="">
+      <div className="text-6xl pt-10 text-green-900 font-semibold">
         Brainy Notes
       </div>
       {user ? (
         <span className="max-w-sm pr-8">
           <button
             onClick={handlelogout}
-            className="border p-6 m-6 rounded bg-green-800 text-white min-w-full text-xl font-semibold"
+            className=""
           >
             Logout
           </button>
         </span>
-      ) : null}
+      ) : <div className="max-w-sm pr-8"></div>}
     </div>
   );
 }

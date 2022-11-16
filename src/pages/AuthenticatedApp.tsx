@@ -8,7 +8,8 @@ import { useAuth } from "contexts/Auth";
 import { NoteDisplayByUser } from "./NoteDisplayByUser";
 
 export default function AuthenticatedApp() {
-  const {user} = useAuth()
+  const { user } = useAuth();
+
   const links = [
     { name: "View all notes", link: "/" },
     { name: "View my notes", link: `/notes/user/${user?.id}` },
@@ -21,7 +22,6 @@ export default function AuthenticatedApp() {
         <Navigation items={links} />
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/notes/:view" element={<Dashboard />} />
           <Route path="/notes/user/:userid" element={<NoteDisplayByUser />} />
           <Route path="/notes/new" element={<AddNote />} />
           <Route path="/note/:id" element={<NoteDisplay />} />
