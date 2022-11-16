@@ -1,0 +1,25 @@
+// schema.prisma
+// datasource db {
+//     provider = "postgresql"
+//     url      = "postgresql://janedoe:janedoe@localhost:5432/hello-prisma"
+//   }
+  
+//   generator client {
+//     provider = "prisma-client-js"
+//   }
+  
+//   model Post {
+//     id        Int     @id @default(autoincrement())
+//     title     String
+//     content   String? @map("post_content")
+//     published Boolean @default(false)
+//     author    User?   @relation(fields: [authorId], references: [id])
+//     authorId  Int?
+//   }
+  
+//   model User {
+//     id    Int     @id @default(autoincrement())
+//     email String  @unique
+//     name  String?
+//     posts Post[]
+//   }

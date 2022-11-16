@@ -15,7 +15,8 @@ import { useNavigate } from "react-router-dom";
 type TFormData = z.infer<typeof formSchema>;
 
 function AddNoteForm() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { user } = useAuth();
   const {
     register,
     handleSubmit,

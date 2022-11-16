@@ -6,9 +6,19 @@ export default function Dashboard() {
     console.log(s)
   }
 
+  const links = [
+    { name: "View all notes", link: "/" },
+    { name: "View my notes", link: `/notes/user/${user?.id}` },
+    { name: "Add a note", link: "/notes/new" },
+  ];
   return (
-    <div className='border-2 border-slate-300 mx-auto max-w-7xl p-12 '>
-      <SearchBar onSearch={handleSearch} />
+    <>
+        <Navigation items={links} />
+    <div className="mx-auto max-w-lg md:max-w-3xl container">
+      <SearchBar onSearch={(text) => setFilter(text)} />
+      {filter && <NotesList filter={filter} />}
+      { !filter && <NotesList filter=""/> }
     </div>
-  )
+    </>
+  );
 }

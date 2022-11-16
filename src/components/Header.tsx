@@ -18,10 +18,10 @@ export default function Header() {
         Brainy Notes
       </div>
       {user ? (
-        <span className="max-w-sm pr-8">
+        <span className="pr-8 w-1/4">
           <button
             onClick={handlelogout}
-            className=""
+            className="border p-1 m-2 rounded bg-green-800 text-white font-semibold"
           >
             Logout
           </button>
