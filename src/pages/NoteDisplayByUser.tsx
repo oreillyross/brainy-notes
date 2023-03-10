@@ -19,7 +19,7 @@ const NoteDisplayByUser = () => {
 
   const fetchNotes = async () => {
     const { data } = await supabase
-      .from<TNote>("notes")
+      .from("notes")
       .select("*")
       .eq("created_by", userid)
     

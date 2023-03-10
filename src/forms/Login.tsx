@@ -22,7 +22,7 @@ function LoginForm() {
   const handleSubmit = async (values: FormValues) => {
     const { email, password } = values;
     //    TODO change below line to call imported signin once typed correctly
-    const {error} = await supabase.auth.signIn({email, password}) 
+    const {error} = await supabase.auth.signInWithPassword({email, password}) 
     if (error) {
       alert(error.message)
     }else {

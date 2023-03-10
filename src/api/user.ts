@@ -1,9 +1,11 @@
 import { supabase } from "./supabase";
 import { USER } from "types";
-export function getUserId() {
-  const data = supabase.auth.user();
-  return data?.id;
+
+export async function getUserId() {
+  const data = await supabase.auth.getUser();
+  return data.data.user?.id;
 }
+
 const id = getUserId();
 
 export async function getUser() {

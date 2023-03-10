@@ -1,6 +1,5 @@
 import Splash from "../components/Splash";
 import { Link } from "react-router-dom";
-import Header from "components/Header";
 
 function LandingPage() {
   return (

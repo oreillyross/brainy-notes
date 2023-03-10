@@ -7,26 +7,34 @@ import {
 } from "react";
 import { supabase } from "api/supabase";
 import { EMAILANDPWD, AUTHCONTEXT, USER } from "types";
-
 const AuthContext = createContext<AUTHCONTEXT >({});
+
+const myuser = async () => {
+  const data = await supabase.from("notes").select() 
+  console.log(data);
+  
+  
+}
+
+myuser()
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<USER | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const session = supabase.auth.session();
-    setUser(session?.user ?? null);
-    setLoading(false);
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      async (_, session) => {
-        setUser(session?.user ?? null);
-        setLoading(false);
-      }
-    );
-    return () => {
-      listener?.unsubscribe();
-    };
+       
+    async function getUser() {
+
+    const { data } = await supabase.auth.getUser()
+      console.log(data);
+      
+      setUser(data.user)
+      
+      
+    }
+    getUser()
+     
   }, []);
 
   const value: any  = {
@@ -34,7 +42,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       supabase.auth.signUp(data);
     },
     signin: (data: EMAILANDPWD) => {
-      supabase.auth.signIn(data);
+      supabase.auth.signInWithPassword(data);
     },
     signout: () => {
       supabase.auth.signOut();
