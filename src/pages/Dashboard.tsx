@@ -1,19 +1,9 @@
-import { useState } from "react";
-import { supabase } from "api/supabase";
-import SearchBar from "components/SearchBar";
-import { useAuth } from "contexts/Auth";
-import { useNavigate } from "react-router-dom";
-import NotesList from "./NotesList";
-import { useParams } from "react-router-dom";
-import Navigation from "components/NavigationBar";
+import DisplayNotes from 'components/DisplayNotes'
+import SearchBar from 'components/SearchBar'
+
 export default function Dashboard() {
-  const { user, signout } = useAuth(); const [filter, setFilter] = useState("");
-  const {view}= useParams()
-  const navigate = useNavigate();
-  async function handleSignOut() {
-    //    TODO change below line to call imported signout once typed correctly
-    await supabase.auth.signOut();
-    navigate("/");
+  const handleSearch = (s: string) => {
+    console.log(s)
   }
 
   const links = [

@@ -10,7 +10,7 @@ interface Props {
 
 function LoginForm() {
   const navigate = useNavigate();
-  const { signin} = useAuth()
+  const {signin} = useAuth()
   const initialValues = { email: "", password: "", rememberMe: false };
 
   type FormValues = {

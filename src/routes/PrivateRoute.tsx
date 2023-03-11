@@ -1,16 +1,16 @@
-import { useAuth } from "contexts/Auth";
-import { FC, ReactNode } from "react";
-import { Navigate, Route } from "react-router-dom";
+import { useAuth } from 'contexts/Auth'
+import { FC, ReactNode } from 'react'
+import { Navigate, Route } from 'react-router-dom'
 
 interface Props {
-  component: React.FC;
+  component: React.FC
 }
 
 export const PrivateRoute: FC<Props> = ({ component: Component }) => {
-  const { user } = useAuth();
+  const { user } = useAuth()
   if (user) {
-    return <Component />;
+    return <Component />
   } else {
-    return <Navigate to="/" />;
+    return <Navigate to='/' />
   }
-};
+}

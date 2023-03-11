@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { StrictMode } from "react";
 import { useAuth } from "contexts/Auth";
-// import AuthenticatedApp from "pages/AuthenticatedApp";
 import UnauthenticatedApp from "pages/UnAuthenticatedApp";
 
 export default function App() {
@@ -16,5 +15,5 @@ export default function App() {
       Something
       {JSON.stringify(user)}
     </StrictMode>
-  );
+  )
 }

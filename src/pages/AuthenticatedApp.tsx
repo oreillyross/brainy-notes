@@ -9,7 +9,13 @@ import { NoteDisplayByUser } from "./NoteDisplayByUser";
 import UserPage from "./UserPage";
 
 export default function AuthenticatedApp() {
-  const {user} = useAuth()
+  const { user } = useAuth();
+
+  const links = [
+    { name: "View all notes", link: "/" },
+    { name: "View my notes", link: `/notes/user/${user?.id}` },
+    { name: "Add a note", link: "/notes/new" },
+  ];
   return (
     <section className="bg-blue-200/20 min-h-screen">
       <div>

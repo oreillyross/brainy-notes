@@ -1,11 +1,42 @@
-import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
-import { formatDistanceToNow } from "date-fns";
+// import { getNotes } from 'api/notes'
+import { useQuery } from '@tanstack/react-query'
+import { Link } from 'react-router-dom'
+import { formatDistanceToNow } from 'date-fns'
+
+const getNotes = () => {
+  return [{id: "123", title: "title", created_at: 12334}]
+}
 
 interface Props {
-  filter: string;
+  filter: string
 }
 const AllNotesList = ({ filter }: Props) => {
-  return <div>Sorted notes</div>;
-};
-export default AllNotesList;
+  const {
+    isError,
+    data: notes,
+    error,
+  } = useQuery(['notes', filter], () => getNotes())
+  if (isError && error instanceof Error) {
+    return <div>{error.message}</div>
+  }
+  if (notes) {
+    // TODO Add zod types
+    const sortedNotes = notes.sort((a: any, b: any) =>
+      a.created_at > b.created_at ? -1 : 1
+    )
+
+    return (
+      <div>
+        {sortedNotes.map((note) => (
+          <div key={note.id}>
+            <Link to={`/note/${note.id}`}>{note.title}</Link>
+            <span>{formatDistanceToNow(new Date(note.created_at))}</span>
+          </div>
+        ))}
+      </div>
+    )
+  }
+  return null
+}
+
+export default AllNotesList
