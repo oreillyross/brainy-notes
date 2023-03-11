@@ -27,10 +27,6 @@ function AddNoteForm() {
   }});
 
 
-  const { user } = useAuth();
-  console.log(errors);
-  console.log(user);
-
   const onSubmit = async (data: TFormData ) => {
     console.log("IN ON SUBMIT");
     console.log(data);
