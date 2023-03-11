@@ -1,4 +1,4 @@
-import { supabase } from "api/supabase";
+// import { supabase } from "api/supabase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -11,19 +11,19 @@ export default function EditNoteForm({ note }: any) {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    const { data, error } = await supabase
-      .from("notes")
-      .update(form)
-      .eq("id", note.id)
-      .select();
+    // const { data, error } = await supabase
+    //   .from("notes")
+    //   .update(form)
+    //   .eq("id", note.id)
+    //   .select();
 
-    if (error) {
-      console.error(error);
-    }
-    if (data) {
-      console.log("updated record");
-      navigate("/notes");
-    }
+    //   if (error) {
+    //     console.error(error);
+    //   }
+    //   if (data) {
+    //     console.log("updated record");
+    //     navigate("/notes");
+    //   }
   };
 
   const handleChange = (e: any) => {

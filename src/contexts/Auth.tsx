@@ -6,47 +6,39 @@ import {
   useState,
 } from "react";
 
-import { supabase } from "api/supabase";
+// import { supabase } from "api/supabase";
 import { EMAILANDPWD, AUTHCONTEXT, USER } from "types";
-const AuthContext = createContext<AUTHCONTEXT >({});
+const AuthContext = createContext<AUTHCONTEXT>({});
 
 const myuser = async () => {
-  const data = await supabase.from("notes").select() 
-  console.log(data);
-  
-  
-}
+  // const data = await supabase.from("notes").select()
+  // console.log(data);
+};
 
-myuser()
+myuser();
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<USER | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-       
     async function getUser() {
-
-    const { data } = await supabase.auth.getUser()
-      console.log(data);
-      
-      setUser(data.user)
-      
-      
+      // const { data } = await supabase.auth.getUser()
+      // console.log(data);
+      // setUser(data.user)
     }
-    getUser()
-     
+    getUser();
   }, []);
 
-  const value: any  = {
+  const value: any = {
     signup: (data: EMAILANDPWD) => {
-      supabase.auth.signUp(data);
+      // supabase.auth.signUp(data);
     },
     signin: (data: EMAILANDPWD) => {
-      supabase.auth.signInWithPassword(data);
+      // supabase.auth.signInWithPassword(data);
     },
     signout: () => {
-      supabase.auth.signOut();
+      // supabase.auth.signOut();
     },
     user,
   };

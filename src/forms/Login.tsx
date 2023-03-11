@@ -1,7 +1,7 @@
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { supabase } from "api/supabase";
+// import { supabase } from "api/supabase";
 import { useAuth } from "contexts/Auth";
 
 interface Props {
@@ -22,12 +22,12 @@ function LoginForm() {
   const handleSubmit = async (values: FormValues) => {
     const { email, password } = values;
     //    TODO change below line to call imported signin once typed correctly
-    const {error} = await supabase.auth.signInWithPassword({email, password}) 
-    if (error) {
-      alert(error.message)
-    }else {
-      navigate("/notes")
-    }
+    // const {error} = await supabase.auth.signInWithPassword({email, password}) 
+    // if (error) {
+    //   alert(error.message)
+    // }else {
+    //   navigate("/notes")
+    // }
   };
 
   const handleValidation = (values: FormValues) => {

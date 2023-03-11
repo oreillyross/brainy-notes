@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { supabase } from "api/supabase";
+// import { supabase } from "api/supabase";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { z } from "zod";
@@ -19,33 +19,32 @@ type TNote = z.infer<typeof noteSchema>;
 const NoteDisplayByUser = () => {
   const { userid } = useParams();
 
-  const fetchNotes = async () => {
-    const { data } = await supabase
-      .from("notes")
-      .select("*")
-      .eq("created_by", userid);
+  // const fetchNotes = async () => {
+  // const { data } = await supabase
+  //   .from("notes")
+  //   .select("*")
+  //   .eq("created_by", userid);
 
-    return data;
-  };
+  // return data; };
 
-  const { data, error, isLoading } = useQuery(["notes", "user"], fetchNotes);
+  // const { data, error, isLoading } = useQuery(["notes", "user"], fetchNotes);
   const [editing, setEditing] = useState(false);
 
-  if (error) {
-    return <div>Ooopsie.... </div>;
-  }
+  // if (error) {
+  //   return <div>Ooopsie.... </div>;
+  // }
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
 
-  if (data) {
-    return (
-      <div>
-        <DisplayNotes />
-      </div>
-    );
-  }
+  // if (data) {
+  //   return (
+  //     <div>
+  //       <DisplayNotes />
+  //     </div>
+  //   );
+  // }
 
   return null;
 };

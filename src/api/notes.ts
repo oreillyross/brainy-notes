@@ -1,4 +1,4 @@
-import { supabase } from "./supabase";
+// import { supabase } from "./supabase";
 
 // export const getNotes = async (filter: string) => {
 //   const { error, data } = await supabase
@@ -31,3 +31,5 @@ import { supabase } from "./supabase";
 //   }
 //   return data;
 // };
+
+export {}

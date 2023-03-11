@@ -1,4 +1,4 @@
-import { supabase } from "api/supabase";
+// import { supabase } from "api/supabase";
 import { useAuth } from "contexts/Auth";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
