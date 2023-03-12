@@ -11,3 +11,7 @@ test('on initial render splash component displays', () => {
 })
 
 
+test('Login / Signup button is displayed', () => {
+    render(<Router><LandingPage/></Router>)
+    expect(screen.getByRole("link", {name: /Login or Sign Up/i})).toBeDefined()
+})
