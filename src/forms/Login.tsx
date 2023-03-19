@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import { useAuth } from "contexts/Auth";
 
 interface Props {
-  login: ( email: string, password: string ) => void;
+  login: (email: string, password: string) => void;
 }
 
 function LoginForm() {
   const navigate = useNavigate();
-  const {signin} = useAuth()
+  const { signin } = useAuth();
   const initialValues = { email: "", password: "", rememberMe: false };
 
   type FormValues = {
@@ -18,11 +18,11 @@ function LoginForm() {
     password: string;
     rememberMe: boolean;
   };
-  
+
   const handleSubmit = async (values: FormValues) => {
     const { email, password } = values;
     //    TODO change below line to call imported signin once typed correctly
-    // const {error} = await supabase.auth.signInWithPassword({email, password}) 
+    // const {error} = await supabase.auth.signInWithPassword({email, password})
     // if (error) {
     //   alert(error.message)
     // }else {
@@ -47,6 +47,7 @@ function LoginForm() {
       >
         {(props) => (
           <>
+            {JSON.stringify(props)}
             <Form className="px-12 py-10">
               <label
                 htmlFor="email"
@@ -81,16 +82,26 @@ function LoginForm() {
                 {() => <div>Password field is required</div>}
               </ErrorMessage>
               <button
-                disabled={props.isSubmitting}
+                disabled={
+                  props.isSubmitting ||
+                  (Boolean(props.values.email === "") &&
+                    Boolean(props.values.password === ""))
+                }
                 type="submit"
-                className="mt-6 block bg-green-600 text-slate-50 p-3 rounded font-bold m-2 w-64"
+                className="mt-6 block disabled:bg-green-400 bg-green-600 text-slate-50 p-3 rounded font-bold m-2 w-64"
               >
                 Login
               </button>
             </Form>
             <div>
               <div>
-                No account? <Link className="font-semibold px-2 text-green-700" to="/signup">Sign up</Link>
+                No account?{" "}
+                <Link
+                  className="font-semibold px-2 text-green-700"
+                  to="/signup"
+                >
+                  Sign up
+                </Link>
               </div>
             </div>
           </>
