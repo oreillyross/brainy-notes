@@ -1,5 +1,5 @@
 Arguments: 
-  /home/faktor10/.nvm/versions/node/v16.18.0/bin/node /home/faktor10/.local/share/pnpm/global/5/node_modules/yarn/bin/yarn.js add @testing-library/user-event -D -W
+  /home/faktor10/.nvm/versions/node/v16.18.0/bin/node /home/faktor10/.local/share/pnpm/global/5/node_modules/yarn/bin/yarn.js
 
 PATH: 
   /home/faktor10/anaconda3/bin:/home/faktor10/anaconda3/condabin:/home/faktor10/.local/share/pnpm:/home/faktor10/.nvm/versions/node/v16.18.0/bin:/home/faktor10/bin:/usr/local/bin:/usr/lib/postgresql/12/bin:/home/faktor10/.fly/bin:/home/faktor10/.deno/bin:/home/faktor10/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/rreil/AppData/Local/pnpm:/mnt/c/Users/rreil/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/rreil/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/rreil/AppData/Roaming/npm:/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2022.3.1/bin:/home/faktor10/.local/bin
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: EEXIST: file already exists, mkdir '/home/faktor10/brainy-notes/node_modules/react-scripts/node_modules/@csstools'
+  Error: ENOENT: no such file or directory, copyfile '/home/faktor10/.cache/yarn/v6/npm-postcss-nested-6.0.0-1572f1984736578f360cffc7eb7dca69e30d1735-integrity/node_modules/postcss-nested/LICENSE' -> '/home/faktor10/brainy-notes/node_modules/tailwindcss/node_modules/postcss-nested/LICENSE'
 
 npm manifest: 
   {
