@@ -19,7 +19,7 @@ export default function Header() {
           src="img/brainy_logo.svg"
         />
       </Link>
-      <div className="text-4xl mt-5 pl-10 w-2/4 ">
+      <div className="text-8xl mt-5 pl-10 w-2/4 ">
         Brainy Notes
       </div>
       {user ? (

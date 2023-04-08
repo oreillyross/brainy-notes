@@ -4,9 +4,6 @@
   "private": true,
   "description": "",
   "keywords": [],
-  "workspaces": [
-    "config"
-  ],
   "main": "src/index.tsx",
   "dependencies": {
     "@babel/core": "^7.0.0-0",
@@ -57,12 +54,13 @@
     "vite": "^4.2.0",
     "vite-plugin-svgr": "^2.4.0",
     "vite-tsconfig-paths": "^4.0.7",
+    "vitest": "^0.29.7",
     "whatwg-fetch": "^3.6.2"
   },
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "vitetest",
     "serve": "vite preview",
     "update-types": "export $(cat .env | grep -v '#' | xargs ) && npx openapi-typescript \"https://rujvzbiuxmtjuzepftmt.supabase.co/rest/v1/?apikey=${REACT_APP_SUPABASE_ANON_KEY}\" --version=2 --output src/types/supabase.ts",
     "env": "node -e 'console.log(process.env)' | grep npm",
