@@ -60,7 +60,7 @@
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
-    "test": "vitetest",
+    "test": "vitest",
     "serve": "vite preview",
     "update-types": "export $(cat .env | grep -v '#' | xargs ) && npx openapi-typescript \"https://rujvzbiuxmtjuzepftmt.supabase.co/rest/v1/?apikey=${REACT_APP_SUPABASE_ANON_KEY}\" --version=2 --output src/types/supabase.ts",
     "env": "node -e 'console.log(process.env)' | grep npm",
