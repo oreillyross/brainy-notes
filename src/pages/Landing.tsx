@@ -16,7 +16,7 @@ function LandingPage() {
         </h3>
         <div className="flex justify-center">
           <button className=" shadow-xl shadow-slate-500/50 bg-green-700 text-white hover:bg-green-600 hover:text-slate-100 rounded p-6 text-3xl m-10 text-center  ">
-            <Link to="/login"> nogin or Sign up</Link>
+            <Link to="/login"> Login or Sign up</Link>
           </button>
         </div>
         <div className="2xl:pl-48 2xl:pt-24 md:flex 2xl:text-center 2xl:align-center">
