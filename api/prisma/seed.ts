@@ -9,6 +9,12 @@ async function main() {
     create: {
       email: "ross@home.com",
       name: "Ross",
+      notes: {
+        create: {
+          title: "My first note",
+          detail: "Some detail in the note",
+        },
+      },
     },
   });
 }
