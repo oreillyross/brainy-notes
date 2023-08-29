@@ -6,5 +6,5 @@ import { LoginForm } from "./Login"
 test("Login screen renders correctly", () => {
     render(<Router><LoginForm/></Router>)
     userEvent
-    screen.debug()
+    // screen.debug()
 })
