@@ -1,19 +1,19 @@
-import { useNavigate } from "react-router-dom";
 import { StrictMode } from "react";
 import { useAuth } from "contexts/Auth";
 import UnauthenticatedApp from "pages/UnAuthenticatedApp";
+import { createBrowserRouter, RouterProvider  } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <div>Hello mate!</div>
+  }
+])
 
 export default function App() {
-  const navigate = useNavigate();
-  const {user} = useAuth()
-  console.log(user);
-  
   return (
     <StrictMode>
-      {/* {user ? <AuthenticatedApp/> : <UnauthenticatedApp/>} */}
-      <UnauthenticatedApp />
-      Something
-      {JSON.stringify(user)}
+      <RouterProvider router={router}/>
     </StrictMode>
-  )
+  );
 }
