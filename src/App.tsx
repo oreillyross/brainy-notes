@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
-import { useAuth } from "contexts/Auth";
-import UnauthenticatedApp from "pages/UnAuthenticatedApp";
-import { createBrowserRouter, RouterProvider  } from "react-router-dom";
+//import UnauthenticatedApp from "pages/UnAuthenticatedApp";
+//import { useAuth } from "contexts/Auth";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
 export default function App() {
   return (
     <StrictMode>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </StrictMode>
   );
 }
