@@ -3,12 +3,16 @@ import { StrictMode } from "react";
 //import { useAuth } from "contexts/Auth";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+const mainElement = (
+  <div className="bg-red-300 h-screen m-8">Main cool content</div>
+);
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello mate!</div>
-  }
-])
+    element: mainElement,
+  },
+]);
 
 export default function App() {
   return (
