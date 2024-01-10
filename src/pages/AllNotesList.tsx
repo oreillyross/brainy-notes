@@ -28,7 +28,7 @@ const AllNotesList = ({ filter }: Props) => {
     return (
       <div>
         {sortedNotes.map((note) => (
-          <div key={note.id}>
+          <div className="" key={note.id}>
             <Link to={`/note/${note.id}`}>{note.title}</Link>
             <span>{formatDistanceToNow(new Date(note.created_at))}</span>
           </div>
