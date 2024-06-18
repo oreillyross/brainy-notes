@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
-/* @import "./hack.css";
+/* @import "./hack.css"; */
 /* TODO Add Intra google font */
 @tailwind base;
 @tailwind components;
@@ -37,4 +37,9 @@
   [type="radio"] {
     @apply border-gray-300 rounded text-indigo-600 focus:ring-indigo-500;
   }
+}
+
+body {
+  margin: 0 auto;
+  margin: 2em;
 }

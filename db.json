@@ -4,6 +4,11 @@
       "id": "123",
       "title": "A cool note",
       "description": "Some description of the note"
+    },
+    {
+      "id": 12,
+      "title": "hello some new note",
+      "description": "data cool"
     }
   ]
 }

@@ -1,3 +1,14 @@
+import { base_url } from "data/constants";
+
+export async function getNotes() {
+  try {
+    const notes = await fetch(base_url + "/notes");
+    return notes;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 // import { supabase } from "./supabase";
 
 // export const getNotes = async (filter: string) => {
@@ -32,4 +43,4 @@
 //   return data;
 // };
 
-export {}
+export {};
