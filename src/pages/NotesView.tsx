@@ -37,13 +37,28 @@ export const NotesView = () => {
       <ul>
         {notes.map((note, idx) => {
           return (
-            <li className="border-2 px-2 py-2 flex justify-between">
+            <li
+              key={note.id}
+              className="border-2 px-2 py-2 flex justify-between"
+            >
               <span>{idx}</span>
               <span>{note.title}</span>
               <span>
                 <Link to={`/notes/${note.id}`}>edit</Link>
               </span>
-              <span>X</span>
+              <button
+                onClick={async (e) => {
+                  e.preventDefault();
+                  const response = await fetch(`${base_url}/notes/${note.id}`, {
+                    method: "DELETE",
+                  });
+                  if (!response.ok) {
+                    throw new Error("failed to delete the note");
+                  }
+                }}
+              >
+                X
+              </button>
             </li>
           );
         })}
