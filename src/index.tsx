@@ -9,6 +9,7 @@ import NoteForm from "forms/NoteForm";
 // import { AuthProvider } from "contexts/Auth";
 import { NotesView } from "./pages/NotesView";
 import { NoteEdit } from "./pages/NoteEdit";
+import { LandingPage } from "pages/Landing";
 // import {ReactQueryDevtools} from "@tanstack/react-query-devtools"
 
 const queryClient = new QueryClient();
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
     children: [
       { path: "/notes/add", element: <NoteForm /> },
       { path: "/notes", element: <NotesView /> },
-      { path: "notes/:noteId", element: <NoteEdit /> },
+      { path: "/notes/:noteId", element: <NoteEdit /> },
+      {path: "/home", element: <LandingPage/>}
     ],
   },
 ]);

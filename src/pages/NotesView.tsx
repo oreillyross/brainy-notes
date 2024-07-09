@@ -80,7 +80,7 @@ export const NotesView = () => {
           );
         })}
       </ul>
-      <Link to="/">Go back home</Link>
+      <Link to="/home">Go back home</Link>
     </div>
   );
 };

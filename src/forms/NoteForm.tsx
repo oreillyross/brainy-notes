@@ -69,7 +69,7 @@ function NoteForm() {
           </div>
         </form>
       </div>
-      <Link to="/">Go back home</Link>
+      <Link to="/home">Go back home</Link>
     </div>
   );
 }
