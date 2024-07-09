@@ -1,6 +1,7 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "styles/index.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { DataProvider } from "data/DataProvider";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error-page";
@@ -8,6 +9,9 @@ import NoteForm from "forms/NoteForm";
 // import { AuthProvider } from "contexts/Auth";
 import { NotesView } from "./pages/NotesView";
 import { NoteEdit } from "./pages/NoteEdit";
+// import {ReactQueryDevtools} from "@tanstack/react-query-devtools"
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -25,7 +29,10 @@ const router = createBrowserRouter([
 const root = createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
-  <DataProvider>
-    <RouterProvider router={router} />
-  </DataProvider>,
+  <QueryClientProvider client={queryClient}>
+    <DataProvider>
+      <RouterProvider router={router} />
+    </DataProvider>
+    {/* <ReactQueryDevtools/> */}
+  </QueryClientProvider>,
 );

@@ -2,9 +2,10 @@
 // import { useQuery } from "@tanstack/react-query";
 // import { Link } from "react-router-dom";
 // import { formatDistanceToNow } from "date-fns";
-import { useEffect, useState } from "react";
 import { base_url } from "../data/constants";
 import { Link } from "react-router-dom";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import {Toaster, toast} from "react-hot-toast"
 
 interface Note {
   id: string;
@@ -13,29 +14,43 @@ interface Note {
   updatedAt: Date;
 }
 
+async function retrieveNotes() {
+  const response = await fetch(base_url + "/notes")
+  return await response.json()
+}
+
+async function deleteNote(id: string) {
+  const response = await fetch(`${base_url}/notes${id}`, {method: "DELETE"})
+  if (!response.ok) {
+    throw new Error(`oops`)
+  }
+  return `Note deleted`
+  
+}
+
 export const NotesView = () => {
-  const [notes, setNotes] = useState<Note[]>([]);
+  const {data, error, isLoading } = useQuery({
+    queryKey: ["allNotes"],
+    queryFn: retrieveNotes,
+  });
 
-  useEffect(() => {
-    const get = async () => {
-      try {
-        const response = await fetch(base_url + "/notes");
-        if (!response.ok) {
-          throw Error("Network response not ok: " + response.statusText);
-        }
-        const notes: Note[] = await response.json();
-        setNotes(notes);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    get();
-  }, []);
+  const queryClient = useQueryClient()
+  
+  // const mutation = useMutation<string, Error, string>(deleteNote, {})
+  
+  if (error) {
+    return <div>Error {error.message}</div>
+  }
 
+  if (isLoading) {
+    return <div>Loading notes...</div>
+  }
+  
   return (
     <div className="grid">
+    <Toaster/>
       <ul>
-        {notes.map((note, idx) => {
+        {data.map((note: Note, idx: number) => {
           return (
             <li
               key={note.id}
@@ -55,6 +70,8 @@ export const NotesView = () => {
                   if (!response.ok) {
                     throw new Error("failed to delete the note");
                   }
+                  queryClient.invalidateQueries({queryKey: ["allNotes"]})
+                  toast.success("Deleted note successfully")
                 }}
               >
                 X
@@ -63,6 +80,7 @@ export const NotesView = () => {
           );
         })}
       </ul>
+      <Link to="/">Go back home</Link>
     </div>
   );
 };

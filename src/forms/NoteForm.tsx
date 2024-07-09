@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {base_url} from "../data/constants"
 
 function NoteForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
+  const navigate = useNavigate()
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission logic here
@@ -20,6 +21,7 @@ function NoteForm() {
     if (!response.ok) {
       throw Error("Response not ok: " + response.statusText);
     }
+    navigate("/notes")
   };
 
   return (

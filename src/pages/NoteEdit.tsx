@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import type { Note } from "../types/note";
 import { base_url } from "../data/constants";
 
 function NoteEdit() {
   const { noteId } = useParams();
   const [note, setNote] = useState<Note | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getNote = async () => {
@@ -33,6 +34,7 @@ function NoteEdit() {
     if (!response.ok) {
       throw new Error("failed to update note");
     }
+    navigate("/notes");
   };
   const formattedDate = note?.updatedAt
     ? new Date(note.updatedAt).toDateString()
