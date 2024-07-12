@@ -19,7 +19,7 @@ function NoteEdit() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (note) {
-      setNote({ ...note, title: e.currentTarget.value });
+      setNote({ ...note, [e.target.name]: e.currentTarget.value });
     }
   };
 
@@ -49,10 +49,18 @@ function NoteEdit() {
           }
         }}
       >
-        <label htmlFor="title">Title</label>
-        <input name="title" value={note?.title} onChange={handleChange} />
-        <p>Last updated: {formattedDate}</p>
-        <button type="submit">Update</button>
+        <div className="bg-red-200">
+          <input
+            autoFocus
+            className="w-full"
+            name="title"
+            value={note?.title}
+            onChange={handleChange}
+          />
+          <textarea name="description" value={note?.description} />
+          <p>Last updated: {formattedDate}</p>
+          <button type="submit">Update</button>
+        </div>
       </form>
     </div>
   );

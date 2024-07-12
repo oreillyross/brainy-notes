@@ -1,27 +1,35 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {base_url} from "../data/constants"
+import { Note } from "types/note";
+import { base_url } from "../data/constants";
 
 function NoteForm() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const navigate = useNavigate()
-  
+  const [note, setNote] = useState<Note | null>(null);
+  const navigate = useNavigate();
+
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) {
+    const { name, value } = e.target;
+    setNote((prevNote) => ({ ...prevNote, [name]: value }) as Note);
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission logic here
-
+    console.log(note, typeof note);
     const response = await fetch(base_url + "/notes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ title: title, description: description }),
+      body: JSON.stringify(note),
     });
     if (!response.ok) {
       throw Error("Response not ok: " + response.statusText);
     }
-    navigate("/notes")
+    //TODO Add a toast notificaiton, possible delay before routing to notes page
+    navigate("/notes");
   };
 
   return (
@@ -42,8 +50,8 @@ function NoteForm() {
               className="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               type="text"
               name="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              value={note?.title}
+              onChange={handleChange}
               required
             />
           </div>
@@ -54,8 +62,9 @@ function NoteForm() {
             </label>
             <textarea
               className="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              name="description"
+              value={note?.description}
+              onChange={handleChange}
               required
             />
           </div>
