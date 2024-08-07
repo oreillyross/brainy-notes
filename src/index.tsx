@@ -9,8 +9,17 @@ import NoteForm from "forms/NoteForm";
 // import { AuthProvider } from "contexts/Auth";
 import { NotesView } from "./pages/NotesView";
 import { NoteEdit } from "./pages/NoteEdit";
+import { Note } from "./pages/Note";
 import { LandingPage } from "pages/Landing";
 // import {ReactQueryDevtools} from "@tanstack/react-query-devtools"
+
+async function enableMocking() {
+  if (process.env.NODE_ENV !== "development") {
+    return;
+  }
+  const { worker } = await import("./mocks/browser");
+  return worker.start();
+}
 
 const queryClient = new QueryClient();
 
@@ -23,18 +32,21 @@ const router = createBrowserRouter([
       { path: "/notes/add", element: <NoteForm /> },
       { path: "/notes", element: <NotesView /> },
       { path: "/notes/:noteId", element: <NoteEdit /> },
-      {path: "/home", element: <LandingPage/>}
+      { path: "/home", element: <LandingPage /> },
+      { path: "/notes/:noteId/static", element: <Note /> },
     ],
   },
 ]);
 
 const root = createRoot(document.getElementById("root") as HTMLElement);
 
-root.render(
-  <QueryClientProvider client={queryClient}>
-    <DataProvider>
-      <RouterProvider router={router} />
-    </DataProvider>
-    {/* <ReactQueryDevtools/> */}
-  </QueryClientProvider>,
-);
+enableMocking().then(() => {
+  root.render(
+    <QueryClientProvider client={queryClient}>
+      <DataProvider>
+        <RouterProvider router={router} />
+      </DataProvider>
+      {/* <ReactQueryDevtools/> */}
+    </QueryClientProvider>,
+  );
+});

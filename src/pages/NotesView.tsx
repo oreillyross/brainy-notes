@@ -15,7 +15,7 @@ interface Note {
 }
 
 async function retrieveNotes() {
-  const response = await fetch(base_url + "/notes")
+  const response = await fetch(base_url + "/notes", {mode: 'no-cors'})
   return await response.json()
 }
 
